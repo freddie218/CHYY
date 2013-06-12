@@ -18,6 +18,10 @@
 		4971940F17681D940083624D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4971940E17681D940083624D /* Default-568h@2x.png */; };
 		4971941217681D940083624D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4971941017681D940083624D /* MainStoryboard.storyboard */; };
 		4971941517681D940083624D /* chyyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971941417681D940083624D /* chyyViewController.m */; };
+		4971941D176820DE0083624D /* ExpenseRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4971941B176820DE0083624D /* ExpenseRecord.xcdatamodeld */; };
+		497194201768575D0083624D /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971941F1768575D0083624D /* ExpenseViewController.m */; };
+		49719423176857F30083624D /* ExpenseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49719422176857F30083624D /* ExpenseDetailViewController.m */; };
+		49719425176862AB0083624D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49719424176862AB0083624D /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,12 @@
 		4971941117681D940083624D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4971941317681D940083624D /* chyyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chyyViewController.h; sourceTree = "<group>"; };
 		4971941417681D940083624D /* chyyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chyyViewController.m; sourceTree = "<group>"; };
+		4971941C176820DE0083624D /* ExpenseRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseRecord.xcdatamodel; sourceTree = "<group>"; };
+		4971941E1768575D0083624D /* ExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseViewController.h; sourceTree = "<group>"; };
+		4971941F1768575D0083624D /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseViewController.m; sourceTree = "<group>"; };
+		49719421176857F30083624D /* ExpenseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDetailViewController.h; sourceTree = "<group>"; };
+		49719422176857F30083624D /* ExpenseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDetailViewController.m; sourceTree = "<group>"; };
+		49719424176862AB0083624D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,7 @@
 				497193F917681D940083624D /* UIKit.framework in Frameworks */,
 				497193FB17681D940083624D /* Foundation.framework in Frameworks */,
 				497193FD17681D940083624D /* CoreGraphics.framework in Frameworks */,
+				49719425176862AB0083624D /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +67,7 @@
 		497193EC17681D930083624D = {
 			isa = PBXGroup;
 			children = (
+				49719424176862AB0083624D /* CoreData.framework */,
 				497193FE17681D940083624D /* chyy */,
 				497193F717681D940083624D /* Frameworks */,
 				497193F617681D940083624D /* Products */,
@@ -89,6 +101,11 @@
 				4971941317681D940083624D /* chyyViewController.h */,
 				4971941417681D940083624D /* chyyViewController.m */,
 				497193FF17681D940083624D /* Supporting Files */,
+				4971941B176820DE0083624D /* ExpenseRecord.xcdatamodeld */,
+				4971941E1768575D0083624D /* ExpenseViewController.h */,
+				4971941F1768575D0083624D /* ExpenseViewController.m */,
+				49719421176857F30083624D /* ExpenseDetailViewController.h */,
+				49719422176857F30083624D /* ExpenseDetailViewController.m */,
 			);
 			path = chyy;
 			sourceTree = "<group>";
@@ -177,6 +194,9 @@
 				4971940517681D940083624D /* main.m in Sources */,
 				4971940917681D940083624D /* chyyAppDelegate.m in Sources */,
 				4971941517681D940083624D /* chyyViewController.m in Sources */,
+				4971941D176820DE0083624D /* ExpenseRecord.xcdatamodeld in Sources */,
+				497194201768575D0083624D /* ExpenseViewController.m in Sources */,
+				49719423176857F30083624D /* ExpenseDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +321,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4971941B176820DE0083624D /* ExpenseRecord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4971941C176820DE0083624D /* ExpenseRecord.xcdatamodel */,
+			);
+			currentVersion = 4971941C176820DE0083624D /* ExpenseRecord.xcdatamodel */;
+			path = ExpenseRecord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 497193ED17681D930083624D /* Project object */;
 }
