@@ -33,6 +33,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="kAP-b6-Jrx" kind="modal" identifier="UpdateExpense" id="gxb-GL-jMO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -59,7 +62,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9JN-Te-5db">
                                 <items>
                                     <navigationItem title="消费详情" id="h0b-44-Dlu">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="bax-V2-cyN">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bax-V2-cyN">
                                             <connections>
                                                 <action selector="cancel:" destination="kAP-b6-Jrx" id="2s2-4N-A1U"/>
                                             </connections>
@@ -170,6 +173,7 @@
                 <relationship kind="outlet" name="amountTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="locationTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="memoTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="participantTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="payerTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="reasonTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="timeTextField" candidateClass="UITextField"/>
@@ -187,4 +191,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="gxb-GL-jMO"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 //
 
 #import "ExpenseViewController.h"
+#import "ExpenseDetailViewController.h"
 
 @interface ExpenseViewController ()
 
@@ -115,6 +116,15 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"UpdateExpense"]) {
+        NSManagedObject *selectedExpense = [self.expenses objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        ExpenseDetailViewController *detailViewCon = segue.destinationViewController;
+        detailViewCon.expense = selectedExpense;
+    }
 }
 
 /*

@@ -10,6 +10,8 @@
 
 @interface ExpenseDetailViewController : UIViewController
 
+@property (strong) NSManagedObject *expense;
+
 @property (strong, nonatomic) IBOutlet UITextField *payerTextField;
 @property (strong, nonatomic) IBOutlet UITextField *amountTextField;
 @property (strong, nonatomic) IBOutlet UITextField *reasonTextField;
