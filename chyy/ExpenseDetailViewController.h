@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *locationTextField;
 @property (strong, nonatomic) IBOutlet UITextField *timeTextField;
 @property (strong, nonatomic) IBOutlet UITextField *memoTextField;
+@property (strong, nonatomic) IBOutlet UITextField *participantTextField;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;

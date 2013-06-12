@@ -99,6 +99,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="参与人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-p5-9hb">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.59392111731647401" green="0.61334493885869568" blue="0.052729994365403078" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -106,28 +110,32 @@
                             <constraint firstItem="x85-Uy-phj" firstAttribute="leading" secondItem="4Vb-2p-fMa" secondAttribute="leading" type="default" id="16E-ha-nJf"/>
                             <constraint firstItem="yQc-Lb-x10" firstAttribute="leading" secondItem="DXc-bg-C4y" secondAttribute="leading" type="default" id="AFl-ch-d4u"/>
                             <constraint firstItem="S6x-hC-Mo5" firstAttribute="trailing" secondItem="lxA-XC-xfy" secondAttribute="trailing" type="default" id="B1G-eu-ebI"/>
+                            <constraint firstItem="UqL-p5-9hb" firstAttribute="leading" secondItem="lxA-XC-xfy" secondAttribute="leading" type="default" id="Bnw-Nd-Sgx"/>
                             <constraint firstItem="9JN-Te-5db" firstAttribute="leading" secondItem="M2P-ht-T0z" secondAttribute="leading" type="default" id="BrT-ok-AjU"/>
                             <constraint firstItem="4Vb-2p-fMa" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="120" id="E2O-oL-Nn2"/>
                             <constraint firstItem="DXc-bg-C4y" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="173" id="Ied-bW-2HG"/>
                             <constraint firstItem="9JN-Te-5db" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" type="default" id="Ijt-Ir-SrX"/>
-                            <constraint firstItem="yQc-Lb-x10" firstAttribute="trailing" secondItem="lxA-XC-xfy" secondAttribute="trailing" type="default" id="KAt-hu-L14"/>
                             <constraint firstItem="x85-Uy-phj" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="70" id="Kgd-EK-jvP"/>
+                            <constraint firstItem="UqL-p5-9hb" firstAttribute="trailing" secondItem="yQc-Lb-x10" secondAttribute="trailing" type="default" id="SIa-ho-6GZ"/>
                             <constraint firstItem="DXc-bg-C4y" firstAttribute="leading" secondItem="4Vb-2p-fMa" secondAttribute="leading" type="default" id="Tcx-qn-dw1"/>
                             <constraint firstItem="S6x-hC-Mo5" firstAttribute="leading" secondItem="lxA-XC-xfy" secondAttribute="leading" type="default" id="WHm-im-Ivc"/>
                             <constraint firstItem="yQc-Lb-x10" firstAttribute="trailing" secondItem="DXc-bg-C4y" secondAttribute="trailing" type="default" id="XqS-vL-h32"/>
                             <constraint firstItem="yQc-Lb-x10" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="230" id="bFb-Qr-DrT"/>
-                            <constraint firstAttribute="bottom" secondItem="lxA-XC-xfy" secondAttribute="bottom" constant="147" id="cfX-Fh-o7H"/>
                             <constraint firstItem="x85-Uy-phj" firstAttribute="centerX" secondItem="9JN-Te-5db" secondAttribute="centerX" type="default" id="dHM-Va-Lb6"/>
                             <constraint firstItem="x85-Uy-phj" firstAttribute="trailing" secondItem="4Vb-2p-fMa" secondAttribute="trailing" type="default" id="e65-fm-ygy"/>
+                            <constraint firstAttribute="bottom" secondItem="S6x-hC-Mo5" secondAttribute="bottom" constant="45" id="fZN-FZ-cvA"/>
                             <constraint firstItem="DXc-bg-C4y" firstAttribute="trailing" secondItem="4Vb-2p-fMa" secondAttribute="trailing" type="default" id="ioN-Jh-iCt"/>
-                            <constraint firstAttribute="bottom" secondItem="S6x-hC-Mo5" secondAttribute="bottom" constant="97" id="syx-hH-2Wd"/>
-                            <constraint firstItem="lxA-XC-xfy" firstAttribute="leading" secondItem="yQc-Lb-x10" secondAttribute="leading" type="default" id="zX1-xl-Buk"/>
+                            <constraint firstItem="UqL-p5-9hb" firstAttribute="leading" secondItem="yQc-Lb-x10" secondAttribute="leading" type="default" id="kk5-AK-8GE"/>
+                            <constraint firstItem="UqL-p5-9hb" firstAttribute="trailing" secondItem="lxA-XC-xfy" secondAttribute="trailing" type="default" id="ptQ-VF-3zr"/>
+                            <constraint firstAttribute="bottom" secondItem="lxA-XC-xfy" secondAttribute="bottom" constant="93" id="qzn-WO-Pcb"/>
+                            <constraint firstAttribute="bottom" secondItem="UqL-p5-9hb" secondAttribute="bottom" constant="146" id="uxy-ZN-3Ia"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="amountTextField" destination="4Vb-2p-fMa" id="3Tt-C9-rHy"/>
                         <outlet property="locationTextField" destination="yQc-Lb-x10" id="0fA-0S-ppD"/>
                         <outlet property="memoTextField" destination="S6x-hC-Mo5" id="3Eo-vT-MQr"/>
+                        <outlet property="participantTextField" destination="UqL-p5-9hb" id="PiD-3z-tST"/>
                         <outlet property="payerTextField" destination="x85-Uy-phj" id="Pxl-0R-AZJ"/>
                         <outlet property="reasonTextField" destination="DXc-bg-C4y" id="09o-LQ-K7U"/>
                         <outlet property="timeTextField" destination="lxA-XC-xfy" id="SVA-Eg-Y2A"/>

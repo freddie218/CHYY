@@ -39,6 +39,7 @@
     [newExpense setValue:self.amountTextField.text forKey:@"amount"];
     [newExpense setValue:self.reasonTextField.text forKey:@"reason"];
     [newExpense setValue:self.locationTextField.text forKey:@"location"];
+    [newExpense setValue:self.participantTextField.text forKey:@"participant"];
     [newExpense setValue:self.timeTextField.text forKey:@"time"];
     [newExpense setValue:self.memoTextField.text forKey:@"memo"];
 

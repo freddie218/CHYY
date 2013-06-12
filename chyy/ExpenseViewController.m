@@ -84,8 +84,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     NSManagedObject *expense = [self.expenses objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@ %@ %@", [expense valueForKey:@"payer"],
-                             [expense valueForKey:@"reason"], [expense valueForKey:@"time"], [expense valueForKey:@"location"]]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@ %@", [expense valueForKey:@"payer"],
+                             [expense valueForKey:@"reason"], [expense valueForKey:@"participant"]]];
     [cell.detailTextLabel setText:[expense valueForKey:@"amount"]];
     
     return cell;
