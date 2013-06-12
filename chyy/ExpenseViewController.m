@@ -10,9 +10,33 @@
 
 @interface ExpenseViewController ()
 
+@property (strong) NSMutableArray *expenses;
+
 @end
 
 @implementation ExpenseViewController
+
+- (NSManagedObjectContext *) managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    
+    return context;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Expense"];
+    self.expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
+    
+    [self.tableView reloadData];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -44,16 +68,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.expenses.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +83,10 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSManagedObject *expense = [self.expenses objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@ %@ %@", [expense valueForKey:@"payer"],
+                             [expense valueForKey:@"reason"], [expense valueForKey:@"time"], [expense valueForKey:@"location"]]];
+    [cell.detailTextLabel setText:[expense valueForKey:@"amount"]];
     
     return cell;
 }
