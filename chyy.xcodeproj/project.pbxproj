@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		497193F917681D940083624D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193F817681D940083624D /* UIKit.framework */; };
+		497193FB17681D940083624D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193FA17681D940083624D /* Foundation.framework */; };
+		497193FD17681D940083624D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193FC17681D940083624D /* CoreGraphics.framework */; };
+		4971940317681D940083624D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4971940117681D940083624D /* InfoPlist.strings */; };
+		4971940517681D940083624D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971940417681D940083624D /* main.m */; };
+		4971940917681D940083624D /* chyyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971940817681D940083624D /* chyyAppDelegate.m */; };
+		4971940B17681D940083624D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4971940A17681D940083624D /* Default.png */; };
+		4971940D17681D940083624D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4971940C17681D940083624D /* Default@2x.png */; };
+		4971940F17681D940083624D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4971940E17681D940083624D /* Default-568h@2x.png */; };
+		4971941217681D940083624D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4971941017681D940083624D /* MainStoryboard.storyboard */; };
+		4971941517681D940083624D /* chyyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971941417681D940083624D /* chyyViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		497193F517681D940083624D /* chyy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chyy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		497193F817681D940083624D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		497193FA17681D940083624D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		497193FC17681D940083624D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4971940017681D940083624D /* chyy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "chyy-Info.plist"; sourceTree = "<group>"; };
+		4971940217681D940083624D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4971940417681D940083624D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4971940617681D940083624D /* chyy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chyy-Prefix.pch"; sourceTree = "<group>"; };
+		4971940717681D940083624D /* chyyAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chyyAppDelegate.h; sourceTree = "<group>"; };
+		4971940817681D940083624D /* chyyAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chyyAppDelegate.m; sourceTree = "<group>"; };
+		4971940A17681D940083624D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		4971940C17681D940083624D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4971940E17681D940083624D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4971941117681D940083624D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4971941317681D940083624D /* chyyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chyyViewController.h; sourceTree = "<group>"; };
+		4971941417681D940083624D /* chyyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chyyViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		497193F217681D940083624D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497193F917681D940083624D /* UIKit.framework in Frameworks */,
+				497193FB17681D940083624D /* Foundation.framework in Frameworks */,
+				497193FD17681D940083624D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		497193EC17681D930083624D = {
+			isa = PBXGroup;
+			children = (
+				497193FE17681D940083624D /* chyy */,
+				497193F717681D940083624D /* Frameworks */,
+				497193F617681D940083624D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		497193F617681D940083624D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				497193F517681D940083624D /* chyy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		497193F717681D940083624D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				497193F817681D940083624D /* UIKit.framework */,
+				497193FA17681D940083624D /* Foundation.framework */,
+				497193FC17681D940083624D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		497193FE17681D940083624D /* chyy */ = {
+			isa = PBXGroup;
+			children = (
+				4971940717681D940083624D /* chyyAppDelegate.h */,
+				4971940817681D940083624D /* chyyAppDelegate.m */,
+				4971941017681D940083624D /* MainStoryboard.storyboard */,
+				4971941317681D940083624D /* chyyViewController.h */,
+				4971941417681D940083624D /* chyyViewController.m */,
+				497193FF17681D940083624D /* Supporting Files */,
+			);
+			path = chyy;
+			sourceTree = "<group>";
+		};
+		497193FF17681D940083624D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4971940017681D940083624D /* chyy-Info.plist */,
+				4971940117681D940083624D /* InfoPlist.strings */,
+				4971940417681D940083624D /* main.m */,
+				4971940617681D940083624D /* chyy-Prefix.pch */,
+				4971940A17681D940083624D /* Default.png */,
+				4971940C17681D940083624D /* Default@2x.png */,
+				4971940E17681D940083624D /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		497193F417681D940083624D /* chyy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4971941817681D940083624D /* Build configuration list for PBXNativeTarget "chyy" */;
+			buildPhases = (
+				497193F117681D940083624D /* Sources */,
+				497193F217681D940083624D /* Frameworks */,
+				497193F317681D940083624D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = chyy;
+			productName = chyy;
+			productReference = 497193F517681D940083624D /* chyy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		497193ED17681D930083624D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = chyy;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = huan;
+			};
+			buildConfigurationList = 497193F017681D940083624D /* Build configuration list for PBXProject "chyy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 497193EC17681D930083624D;
+			productRefGroup = 497193F617681D940083624D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				497193F417681D940083624D /* chyy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		497193F317681D940083624D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4971940317681D940083624D /* InfoPlist.strings in Resources */,
+				4971940B17681D940083624D /* Default.png in Resources */,
+				4971940D17681D940083624D /* Default@2x.png in Resources */,
+				4971940F17681D940083624D /* Default-568h@2x.png in Resources */,
+				4971941217681D940083624D /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		497193F117681D940083624D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4971940517681D940083624D /* main.m in Sources */,
+				4971940917681D940083624D /* chyyAppDelegate.m in Sources */,
+				4971941517681D940083624D /* chyyViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4971940117681D940083624D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4971940217681D940083624D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4971941017681D940083624D /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4971941117681D940083624D /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4971941617681D940083624D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4971941717681D940083624D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4971941917681D940083624D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "chyy/chyy-Prefix.pch";
+				INFOPLIST_FILE = "chyy/chyy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4971941A17681D940083624D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "chyy/chyy-Prefix.pch";
+				INFOPLIST_FILE = "chyy/chyy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		497193F017681D940083624D /* Build configuration list for PBXProject "chyy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4971941617681D940083624D /* Debug */,
+				4971941717681D940083624D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4971941817681D940083624D /* Build configuration list for PBXNativeTarget "chyy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4971941917681D940083624D /* Debug */,
+				4971941A17681D940083624D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 497193ED17681D930083624D /* Project object */;
+}
