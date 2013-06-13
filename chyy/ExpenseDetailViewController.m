@@ -78,6 +78,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 
     if (self.expense) {
         [self.payerTextField setText:[self.expense valueForKey:@"payer"]];
@@ -88,6 +91,30 @@
         [self.participantTextField setText:[self.expense valueForKey:@"participant"]];
         [self.memoTextField setText:[self.expense valueForKey:@"memo"]];
     }
+}
+
+- (void) dismissKeyboard
+{
+    [self.payerTextField resignFirstResponder];
+    [self.amountTextField resignFirstResponder];
+    [self.locationTextField resignFirstResponder];
+    [self.timeTextField resignFirstResponder];
+    [self.reasonTextField resignFirstResponder];
+    [self.participantTextField resignFirstResponder];
+    [self.memoTextField resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{    
+    NSInteger nextTag = textField.tag + 1;
+    UIResponder *nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        [nextResponder becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+    }
+    
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning

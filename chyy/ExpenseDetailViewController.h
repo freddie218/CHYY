@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExpenseDetailViewController : UIViewController
+@interface ExpenseDetailViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong) NSManagedObject *expense;
 
@@ -22,6 +22,5 @@
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
-
 
 @end
