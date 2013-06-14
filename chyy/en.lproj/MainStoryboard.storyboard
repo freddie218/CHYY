@@ -75,84 +75,94 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x85-Uy-phj">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lV-dU-RJV">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x85-Uy-phj">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="GuQ-MT-Zjz"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金额" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-2p-fMa">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="g6K-HP-puP"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付原因" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DXc-bg-C4y">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="Hsh-Dv-arh"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付地点" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yQc-Lb-x10">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="bTv-0t-efI"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付时间" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxA-XC-xfy">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="8fM-X0-YlW"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="备注" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-hC-Mo5">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="CaZ-hC-vL0"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="参与人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-p5-9hb">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="Pbq-V1-IMn"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="Gwc-g4-XPh"/>
+                                    <constraint firstAttribute="bottom" secondItem="S6x-hC-Mo5" secondAttribute="bottom" constant="106" id="0TI-Px-3vG"/>
+                                    <constraint firstItem="DXc-bg-C4y" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="123" id="0Tv-Vl-vOG"/>
+                                    <constraint firstAttribute="trailing" secondItem="yQc-Lb-x10" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2ar-Mz-seY"/>
+                                    <constraint firstItem="yQc-Lb-x10" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="A8U-C6-6Hb"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Vb-2p-fMa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CGb-7q-jkL"/>
+                                    <constraint firstItem="yQc-Lb-x10" firstAttribute="centerX" secondItem="7lV-dU-RJV" secondAttribute="centerX" type="default" id="Dap-kE-2u5"/>
+                                    <constraint firstItem="UqL-p5-9hb" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="228" id="GtN-Ix-zrg"/>
+                                    <constraint firstAttribute="trailing" secondItem="DXc-bg-C4y" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MpD-8D-EXB"/>
+                                    <constraint firstItem="4Vb-2p-fMa" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NgI-Ns-4nP"/>
+                                    <constraint firstItem="DXc-bg-C4y" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="PFP-x3-KRg"/>
+                                    <constraint firstItem="x85-Uy-phj" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="PSg-SC-Ohf"/>
+                                    <constraint firstAttribute="trailing" secondItem="lxA-XC-xfy" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Tpt-bY-5Xl"/>
+                                    <constraint firstAttribute="trailing" secondItem="S6x-hC-Mo5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Xwy-OJ-QjQ"/>
+                                    <constraint firstItem="S6x-hC-Mo5" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YgM-eu-44Q"/>
+                                    <constraint firstItem="4Vb-2p-fMa" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="70" id="c2o-oO-tJz"/>
+                                    <constraint firstItem="yQc-Lb-x10" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="176" id="con-2X-PT8"/>
+                                    <constraint firstItem="lxA-XC-xfy" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kYC-k7-bm8"/>
+                                    <constraint firstItem="x85-Uy-phj" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="20" symbolic="YES" type="default" id="mYj-Uc-Q8y"/>
+                                    <constraint firstItem="lxA-XC-xfy" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="283" id="ttn-us-xr1"/>
+                                    <constraint firstAttribute="trailing" secondItem="UqL-p5-9hb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xr0-2a-uuW"/>
+                                    <constraint firstAttribute="trailing" secondItem="x85-Uy-phj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zDG-3Q-Khj"/>
+                                    <constraint firstItem="S6x-hC-Mo5" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="337" id="zQu-0b-IRt"/>
+                                    <constraint firstItem="UqL-p5-9hb" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zrt-Aj-fxW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kAP-b6-Jrx" id="GuQ-MT-Zjz"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金额" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-2p-fMa">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kAP-b6-Jrx" id="g6K-HP-puP"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付原因" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DXc-bg-C4y">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kAP-b6-Jrx" id="Hsh-Dv-arh"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付地点" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yQc-Lb-x10">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kAP-b6-Jrx" id="bTv-0t-efI"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付时间" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxA-XC-xfy">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kAP-b6-Jrx" id="8fM-X0-YlW"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="备注" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-hC-Mo5">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kAP-b6-Jrx" id="CaZ-hC-vL0"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="参与人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-p5-9hb">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kAP-b6-Jrx" id="Pbq-V1-IMn"/>
-                                </connections>
-                            </textField>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.59392111731647401" green="0.61334493885869568" blue="0.052729994365403078" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9JN-Te-5db" firstAttribute="trailing" secondItem="M2P-ht-T0z" secondAttribute="trailing" type="default" id="0kQ-vG-44b"/>
-                            <constraint firstItem="x85-Uy-phj" firstAttribute="leading" secondItem="4Vb-2p-fMa" secondAttribute="leading" type="default" id="16E-ha-nJf"/>
-                            <constraint firstItem="yQc-Lb-x10" firstAttribute="leading" secondItem="DXc-bg-C4y" secondAttribute="leading" type="default" id="AFl-ch-d4u"/>
-                            <constraint firstItem="S6x-hC-Mo5" firstAttribute="trailing" secondItem="lxA-XC-xfy" secondAttribute="trailing" type="default" id="B1G-eu-ebI"/>
-                            <constraint firstItem="UqL-p5-9hb" firstAttribute="leading" secondItem="lxA-XC-xfy" secondAttribute="leading" type="default" id="Bnw-Nd-Sgx"/>
                             <constraint firstItem="9JN-Te-5db" firstAttribute="leading" secondItem="M2P-ht-T0z" secondAttribute="leading" type="default" id="BrT-ok-AjU"/>
-                            <constraint firstItem="4Vb-2p-fMa" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="120" id="E2O-oL-Nn2"/>
-                            <constraint firstItem="DXc-bg-C4y" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="173" id="Ied-bW-2HG"/>
+                            <constraint firstItem="7lV-dU-RJV" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="50" id="HxC-RK-cKi"/>
                             <constraint firstItem="9JN-Te-5db" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" type="default" id="Ijt-Ir-SrX"/>
-                            <constraint firstItem="x85-Uy-phj" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="70" id="Kgd-EK-jvP"/>
-                            <constraint firstItem="UqL-p5-9hb" firstAttribute="trailing" secondItem="yQc-Lb-x10" secondAttribute="trailing" type="default" id="SIa-ho-6GZ"/>
-                            <constraint firstItem="DXc-bg-C4y" firstAttribute="leading" secondItem="4Vb-2p-fMa" secondAttribute="leading" type="default" id="Tcx-qn-dw1"/>
-                            <constraint firstItem="S6x-hC-Mo5" firstAttribute="leading" secondItem="lxA-XC-xfy" secondAttribute="leading" type="default" id="WHm-im-Ivc"/>
-                            <constraint firstItem="yQc-Lb-x10" firstAttribute="trailing" secondItem="DXc-bg-C4y" secondAttribute="trailing" type="default" id="XqS-vL-h32"/>
-                            <constraint firstItem="yQc-Lb-x10" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="230" id="bFb-Qr-DrT"/>
-                            <constraint firstItem="x85-Uy-phj" firstAttribute="centerX" secondItem="9JN-Te-5db" secondAttribute="centerX" type="default" id="dHM-Va-Lb6"/>
-                            <constraint firstItem="x85-Uy-phj" firstAttribute="trailing" secondItem="4Vb-2p-fMa" secondAttribute="trailing" type="default" id="e65-fm-ygy"/>
-                            <constraint firstAttribute="bottom" secondItem="S6x-hC-Mo5" secondAttribute="bottom" constant="45" id="fZN-FZ-cvA"/>
-                            <constraint firstItem="DXc-bg-C4y" firstAttribute="trailing" secondItem="4Vb-2p-fMa" secondAttribute="trailing" type="default" id="ioN-Jh-iCt"/>
-                            <constraint firstItem="UqL-p5-9hb" firstAttribute="leading" secondItem="yQc-Lb-x10" secondAttribute="leading" type="default" id="kk5-AK-8GE"/>
-                            <constraint firstItem="UqL-p5-9hb" firstAttribute="trailing" secondItem="lxA-XC-xfy" secondAttribute="trailing" type="default" id="ptQ-VF-3zr"/>
-                            <constraint firstAttribute="bottom" secondItem="lxA-XC-xfy" secondAttribute="bottom" constant="93" id="qzn-WO-Pcb"/>
-                            <constraint firstAttribute="bottom" secondItem="UqL-p5-9hb" secondAttribute="bottom" constant="146" id="uxy-ZN-3Ia"/>
+                            <constraint firstItem="7lV-dU-RJV" firstAttribute="leading" secondItem="M2P-ht-T0z" secondAttribute="leading" constant="15" id="VVY-yM-Z0q"/>
+                            <constraint firstAttribute="bottom" secondItem="7lV-dU-RJV" secondAttribute="bottom" constant="25" id="jDG-t6-gC0"/>
+                            <constraint firstItem="7lV-dU-RJV" firstAttribute="centerX" secondItem="9JN-Te-5db" secondAttribute="centerX" type="default" id="qIi-UM-s2V"/>
                         </constraints>
                     </view>
                     <connections>
@@ -162,6 +172,7 @@
                         <outlet property="participantTextField" destination="UqL-p5-9hb" id="PiD-3z-tST"/>
                         <outlet property="payerTextField" destination="x85-Uy-phj" id="Pxl-0R-AZJ"/>
                         <outlet property="reasonTextField" destination="DXc-bg-C4y" id="09o-LQ-K7U"/>
+                        <outlet property="scrollView" destination="7lV-dU-RJV" id="dZf-Qv-I5v"/>
                         <outlet property="timeTextField" destination="lxA-XC-xfy" id="SVA-Eg-Y2A"/>
                     </connections>
                 </viewController>
@@ -185,28 +196,6 @@
             <point key="canvasLocation" x="-173" y="19"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ExpenseDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="outlet" name="amountTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="locationTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="memoTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="participantTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="payerTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="reasonTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="timeTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ExpenseViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

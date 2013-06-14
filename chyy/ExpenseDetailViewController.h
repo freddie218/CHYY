@@ -20,6 +20,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *memoTextField;
 @property (strong, nonatomic) IBOutlet UITextField *participantTextField;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 

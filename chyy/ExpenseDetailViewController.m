@@ -117,6 +117,17 @@
     return NO;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y - 50);
+    [self.scrollView setContentOffset:scrollPoint animated:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.scrollView setContentOffset:CGPointZero animated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
