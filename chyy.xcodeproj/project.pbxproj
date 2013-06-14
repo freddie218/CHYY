@@ -22,6 +22,8 @@
 		497194201768575D0083624D /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971941F1768575D0083624D /* ExpenseViewController.m */; };
 		49719423176857F30083624D /* ExpenseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49719422176857F30083624D /* ExpenseDetailViewController.m */; };
 		49719425176862AB0083624D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49719424176862AB0083624D /* CoreData.framework */; };
+		49719428176AF9400083624D /* MemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49719427176AF9400083624D /* MemberDetailViewController.m */; };
+		4971942B176B028D0083624D /* MemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971942A176B028C0083624D /* MemberViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,10 @@
 		49719421176857F30083624D /* ExpenseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDetailViewController.h; sourceTree = "<group>"; };
 		49719422176857F30083624D /* ExpenseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDetailViewController.m; sourceTree = "<group>"; };
 		49719424176862AB0083624D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		49719426176AF9400083624D /* MemberDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberDetailViewController.h; sourceTree = "<group>"; };
+		49719427176AF9400083624D /* MemberDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberDetailViewController.m; sourceTree = "<group>"; };
+		49719429176B028C0083624D /* MemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberViewController.h; sourceTree = "<group>"; };
+		4971942A176B028C0083624D /* MemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,10 @@
 				4971941F1768575D0083624D /* ExpenseViewController.m */,
 				49719421176857F30083624D /* ExpenseDetailViewController.h */,
 				49719422176857F30083624D /* ExpenseDetailViewController.m */,
+				49719426176AF9400083624D /* MemberDetailViewController.h */,
+				49719427176AF9400083624D /* MemberDetailViewController.m */,
+				49719429176B028C0083624D /* MemberViewController.h */,
+				4971942A176B028C0083624D /* MemberViewController.m */,
 			);
 			path = chyy;
 			sourceTree = "<group>";
@@ -197,6 +207,8 @@
 				4971941D176820DE0083624D /* ExpenseRecord.xcdatamodeld in Sources */,
 				497194201768575D0083624D /* ExpenseViewController.m in Sources */,
 				49719423176857F30083624D /* ExpenseDetailViewController.m in Sources */,
+				49719428176AF9400083624D /* MemberDetailViewController.m in Sources */,
+				4971942B176B028D0083624D /* MemberViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +331,7 @@
 				4971941A17681D940083624D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
