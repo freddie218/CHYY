@@ -36,13 +36,16 @@
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd"];
+    
     if (self.expense) {
         [self.expense setValue:self.payerTextField.text forKey:@"payer"];
         [self.expense setValue:[NSNumber numberWithDouble:[self.amountTextField.text doubleValue]] forKey:@"amount"];
         [self.expense setValue:self.reasonTextField.text forKey:@"reason"];
         [self.expense setValue:self.locationTextField.text forKey:@"location"];
         [self.expense setValue:self.participantTextField.text forKey:@"participant"];
-        [self.expense setValue:self.timeTextField.text forKey:@"time"];
+        [self.expense setValue:[df dateFromString: self.timeTextField.text] forKey:@"time"];
         [self.expense setValue:self.memoTextField.text forKey:@"memo"];
 
     } else {
@@ -52,7 +55,7 @@
         [newExpense setValue:self.reasonTextField.text forKey:@"reason"];
         [newExpense setValue:self.locationTextField.text forKey:@"location"];
         [newExpense setValue:self.participantTextField.text forKey:@"participant"];
-        [newExpense setValue:self.timeTextField.text forKey:@"time"];
+        [newExpense setValue:[df dateFromString: self.timeTextField.text] forKey:@"time"];
         [newExpense setValue:self.memoTextField.text forKey:@"memo"];
     }
 
@@ -80,12 +83,15 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd"];
 
     if (self.expense) {
         [self.payerTextField setText:[self.expense valueForKey:@"payer"]];
         [self.amountTextField setText:[NSString stringWithFormat:@"%.02f", [[self.expense valueForKey:@"amount"] doubleValue]]];
         [self.locationTextField setText:[self.expense valueForKey:@"location"]];
-        [self.timeTextField setText:[self.expense valueForKey:@"time"]];
+        [self.timeTextField setText:[df stringFromDate:[self.expense valueForKey:@"time"]]];
         [self.reasonTextField setText:[self.expense valueForKey:@"reason"]];
         [self.participantTextField setText:[self.expense valueForKey:@"participant"]];
         [self.memoTextField setText:[self.expense valueForKey:@"memo"]];

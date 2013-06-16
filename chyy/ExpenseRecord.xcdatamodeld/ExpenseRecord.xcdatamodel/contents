@@ -7,7 +7,7 @@
         <attribute name="participant" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="payer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reason" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="Member" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
