@@ -87,7 +87,8 @@
     NSManagedObject *expense = [self.expenses objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@ %@", [expense valueForKey:@"payer"],
                              [expense valueForKey:@"reason"], [expense valueForKey:@"participant"]]];
-    [cell.detailTextLabel setText:[expense valueForKey:@"amount"]];
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.02f", [[expense valueForKey:@"amount"] doubleValue]];
     
     return cell;
 }

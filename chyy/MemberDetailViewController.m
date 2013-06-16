@@ -20,6 +20,7 @@
 {
     NSManagedObjectContext *context = nil;
     id delegate = [[UIApplication sharedApplication] delegate];
+    
     if ([delegate performSelector:@selector(managedObjectContext)]) {
         context = [delegate managedObjectContext];
     }

@@ -38,7 +38,7 @@
     
     if (self.expense) {
         [self.expense setValue:self.payerTextField.text forKey:@"payer"];
-        [self.expense setValue:self.amountTextField.text forKey:@"amount"];
+        [self.expense setValue:[NSNumber numberWithDouble:[self.amountTextField.text doubleValue]] forKey:@"amount"];
         [self.expense setValue:self.reasonTextField.text forKey:@"reason"];
         [self.expense setValue:self.locationTextField.text forKey:@"location"];
         [self.expense setValue:self.participantTextField.text forKey:@"participant"];
@@ -48,7 +48,7 @@
     } else {
         NSManagedObject *newExpense = [NSEntityDescription insertNewObjectForEntityForName:@"Expense" inManagedObjectContext:context];
         [newExpense setValue:self.payerTextField.text forKey:@"payer"];
-        [newExpense setValue:self.amountTextField.text forKey:@"amount"];
+        [newExpense setValue:[NSNumber numberWithDouble:[self.amountTextField.text doubleValue]] forKey:@"amount"];
         [newExpense setValue:self.reasonTextField.text forKey:@"reason"];
         [newExpense setValue:self.locationTextField.text forKey:@"location"];
         [newExpense setValue:self.participantTextField.text forKey:@"participant"];
@@ -83,7 +83,7 @@
 
     if (self.expense) {
         [self.payerTextField setText:[self.expense valueForKey:@"payer"]];
-        [self.amountTextField setText:[self.expense valueForKey:@"amount"]];
+        [self.amountTextField setText:[NSString stringWithFormat:@"%.02f", [[self.expense valueForKey:@"amount"] doubleValue]]];
         [self.locationTextField setText:[self.expense valueForKey:@"location"]];
         [self.timeTextField setText:[self.expense valueForKey:@"time"]];
         [self.reasonTextField setText:[self.expense valueForKey:@"reason"]];
