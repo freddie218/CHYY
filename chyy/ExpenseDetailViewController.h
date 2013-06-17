@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExpenseDetailViewController : UIViewController <UITextFieldDelegate>
+@interface ExpenseDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+
+@property (strong, nonatomic) NSMutableArray *members;
 
 @property (strong) NSManagedObject *expense;
 

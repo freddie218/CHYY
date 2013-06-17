@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "chyy/ExpenseDetailViewController.m"
-         timestampString = "393064047.315737"
+         timestampString = "393152965.560051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
          landmarkName = "-save:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "chyy/ExpenseDetailViewController.m"
-         timestampString = "393063830.925202"
+         timestampString = "393152965.560051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "37"
-         endingLineNumber = "37"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-save:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "chyy/ExpenseDetailViewController.m"
-         timestampString = "392722839.731624"
+         timestampString = "393152965.560051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "21"
-         endingLineNumber = "21"
+         startingLineNumber = "22"
+         endingLineNumber = "22"
          landmarkName = "-managedObjectContext"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "chyy/ExpenseDetailViewController.m"
-         timestampString = "393064047.315737"
+         timestampString = "393152965.560051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
          landmarkName = "-textFieldShouldReturn:"
          landmarkType = "5">
       </FileBreakpoint>
