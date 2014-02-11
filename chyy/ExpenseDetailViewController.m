@@ -34,7 +34,7 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd"];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
     
     if (self.expense) {
         [self.expense setValue:self.payerTextField.text forKey:@"payer"];
@@ -82,7 +82,7 @@
     [self.view addGestureRecognizer:tap];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd"];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
 
     if (self.expense) {
         [self.payerTextField setText:[self.expense valueForKey:@"payer"]];
@@ -134,8 +134,19 @@
         picker.dataSource = self;
         picker.delegate = self;
         textField.inputView = picker;
+    } else if (textField == self.timeTextField) {
+        UIDatePicker *picker = [[UIDatePicker alloc] init];
+        [picker setDate:[NSDate date]];
+        [picker addTarget:self action:@selector(updateTimeTextField:) forControlEvents:UIControlEventValueChanged];
+        textField.inputView = picker;
     }
     
+}
+
+- (void)updateTimeTextField: (id)sender
+{
+    UIDatePicker *picker = (UIDatePicker *)self.timeTextField.inputView;
+    self.timeTextField.text = [NSString stringWithFormat:@"%@", picker.date];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
