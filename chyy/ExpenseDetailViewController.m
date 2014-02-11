@@ -8,10 +8,6 @@
 
 #import "ExpenseDetailViewController.h"
 
-@interface ExpenseDetailViewController ()
-
-@end
-
 @implementation ExpenseDetailViewController
 
 @synthesize expense;

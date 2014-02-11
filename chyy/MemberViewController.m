@@ -9,12 +9,6 @@
 #import "MemberViewController.h"
 #import "MemberDetailViewController.h"
 
-@interface MemberViewController ()
-
-@property (strong) NSMutableArray *members;
-
-@end
-
 @implementation MemberViewController
 
 - (NSManagedObjectContext *) managedObjectContext

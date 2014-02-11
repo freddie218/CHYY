@@ -10,4 +10,6 @@
 
 @interface MemberViewController : UITableViewController
 
+@property (strong) NSMutableArray *members;
+
 @end

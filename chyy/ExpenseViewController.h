@@ -10,4 +10,6 @@
 
 @interface ExpenseViewController : UITableViewController
 
+@property (strong) NSMutableArray *expenses;
+
 @end

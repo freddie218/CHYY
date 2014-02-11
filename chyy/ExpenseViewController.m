@@ -9,12 +9,6 @@
 #import "ExpenseViewController.h"
 #import "ExpenseDetailViewController.h"
 
-@interface ExpenseViewController ()
-
-@property (strong) NSMutableArray *expenses;
-
-@end
-
 @implementation ExpenseViewController
 
 - (NSManagedObjectContext *) managedObjectContext

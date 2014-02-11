@@ -8,10 +8,6 @@
 
 #import "MemberDetailViewController.h"
 
-@interface MemberDetailViewController ()
-
-@end
-
 @implementation MemberDetailViewController
 
 @synthesize member;
