@@ -128,7 +128,9 @@
     CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y - 50);
     [self.scrollView setContentOffset:scrollPoint animated:YES];
     
-    if (textField == self.payerTextField) {
+    self.currentTextField = textField;
+    
+    if (textField == self.payerTextField || textField == self.participantTextField ) {
         UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 300)];
         // I think here the datesource and delegate should be assigned to another controller rather than self. [SUX-16]
         picker.dataSource = self;
@@ -173,7 +175,22 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [self.payerTextField setText:[[members objectAtIndex:row] valueForKey:@"name"]];
+    NSString *currentSelectStr;
+    
+    if (self.currentTextField == self.payerTextField) {
+        currentSelectStr = [[members objectAtIndex:row] valueForKey:@"name"];
+    } else if (self.currentTextField == self.participantTextField) {
+        
+        NSMutableSet *participantSet = [NSMutableSet setWithObject:[[members objectAtIndex:row] valueForKey:@"name"]];
+        if (![self.currentTextField.text isEqualToString:@""]) {
+            [participantSet addObjectsFromArray:[self.currentTextField.text componentsSeparatedByString:@","]];
+        }
+        
+        currentSelectStr = [[participantSet allObjects] componentsJoinedByString:@","];
+    }
+ 
+    [self.currentTextField setText:currentSelectStr];
+
 }
 // ----------- Member Picker end ------------- [SUX-16]
 
