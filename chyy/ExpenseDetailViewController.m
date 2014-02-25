@@ -157,6 +157,44 @@
     [textField resignFirstResponder];
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == self.amountTextField) {
+        NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        
+        NSString *expression = @"^([0-9]+)?(\\.([0-9]{1,2})?)?$";
+        
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:nil];
+        NSUInteger numberOfMatches = [regex numberOfMatchesInString:newString
+                                                            options:0
+                                                              range:NSMakeRange(0, [newString length])];
+        if (numberOfMatches == 0)
+            return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    if (textField == self.payerTextField ||
+        textField == self.amountTextField ||
+        textField == self.reasonTextField ||
+        textField == self.timeTextField ||
+        textField == self.participantTextField) {
+        if(![[textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]) {
+            //string is all whitespace
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Entry Error"
+                                                          message:@"Can not be empty!"
+                                                         delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [av show];
+            return NO;
+        }
+    }
+    return YES;
+}
+
 // ----------- Member Picker start ------------- [SUX-16]
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {

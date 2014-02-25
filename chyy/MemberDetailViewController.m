@@ -53,6 +53,21 @@
     
 }
 
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    if (textField == self.nameTextField ||
+        textField == self.idTextField) {
+        if(![[textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]) {
+            //string is all whitespace
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Entry Error"
+                                                         message:@"Can not be empty!"
+                                                        delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [av show];
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
