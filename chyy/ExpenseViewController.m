@@ -8,6 +8,7 @@
 
 #import "ExpenseViewController.h"
 #import "ExpenseDetailViewController.h"
+#import "ExpenseTableViewCell.h"
 
 @implementation ExpenseViewController
 
@@ -33,6 +34,16 @@
     [self.tableView reloadData];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 36.0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return [tableView dequeueReusableCellWithIdentifier:@"ExpenseHeaderCell"];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -45,6 +56,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    if ([[ver objectAtIndex:0] intValue] >= 7) {
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(200.0f/255.0f) green:(50.0f/255.0f) blue:(50.0f/255.0f) alpha:1.0f];
+        self.navigationController.navigationBar.translucent = NO;
+    }else {
+        self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:(200.0f/255.0f) green:(50.0f/255.0f) blue:(50.0f/255.0f) alpha:1.0f];
+    }
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -75,14 +94,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"ExpenseCell";
+    ExpenseTableViewCell *cell = (ExpenseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     NSManagedObject *expense = [self.expenses objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@ %@", [expense valueForKey:@"payer"],
-                             [expense valueForKey:@"reason"], [expense valueForKey:@"participant"]]];
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.02f", [[expense valueForKey:@"amount"] doubleValue]];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@", [expense valueForKey:@"payer"]];
+    cell.participantsLabel.text = [NSString stringWithFormat:@"%@", [expense valueForKey:@"participant"]];
+    cell.expenseLabel.text = [NSString stringWithFormat:@"%.02f", [[expense valueForKey:@"amount"] doubleValue]];
     
     return cell;
 }
