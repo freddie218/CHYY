@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4930B15B18BE2359004A3398 /* ExpenseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */; };
+		4930B16118BF8BC1004A3398 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16018BF8BC1004A3398 /* EventViewController.m */; };
 		497193F917681D940083624D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193F817681D940083624D /* UIKit.framework */; };
 		497193FB17681D940083624D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193FA17681D940083624D /* Foundation.framework */; };
 		497193FD17681D940083624D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193FC17681D940083624D /* CoreGraphics.framework */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		4930B15918BE2359004A3398 /* ExpenseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseTableViewCell.h; sourceTree = "<group>"; };
 		4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseTableViewCell.m; sourceTree = "<group>"; };
+		4930B15F18BF8BC1004A3398 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		4930B16018BF8BC1004A3398 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		497193F517681D940083624D /* chyy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chyy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497193F817681D940083624D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		497193FA17681D940083624D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +134,8 @@
 				49BBCD1818BA00D200BBED45 /* ReportTableViewCell.m */,
 				4930B15918BE2359004A3398 /* ExpenseTableViewCell.h */,
 				4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */,
+				4930B15F18BF8BC1004A3398 /* EventViewController.h */,
+				4930B16018BF8BC1004A3398 /* EventViewController.m */,
 			);
 			path = chyy;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				49719423176857F30083624D /* ExpenseDetailViewController.m in Sources */,
 				4930B15B18BE2359004A3398 /* ExpenseTableViewCell.m in Sources */,
 				49BBCD1918BA00D200BBED45 /* ReportTableViewCell.m in Sources */,
+				4930B16118BF8BC1004A3398 /* EventViewController.m in Sources */,
 				49719428176AF9400083624D /* MemberDetailViewController.m in Sources */,
 				4971942B176B028D0083624D /* MemberViewController.m in Sources */,
 			);
