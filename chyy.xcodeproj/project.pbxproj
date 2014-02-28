@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4930B15B18BE2359004A3398 /* ExpenseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */; };
 		4930B16118BF8BC1004A3398 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16018BF8BC1004A3398 /* EventViewController.m */; };
+		4930B16418C0CC89004A3398 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16318C0CC89004A3398 /* EventDetailViewController.m */; };
+		4930B16718C0DF50004A3398 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16618C0DF50004A3398 /* EventTableViewCell.m */; };
 		497193F917681D940083624D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193F817681D940083624D /* UIKit.framework */; };
 		497193FB17681D940083624D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193FA17681D940083624D /* Foundation.framework */; };
 		497193FD17681D940083624D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193FC17681D940083624D /* CoreGraphics.framework */; };
@@ -35,6 +37,10 @@
 		4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseTableViewCell.m; sourceTree = "<group>"; };
 		4930B15F18BF8BC1004A3398 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		4930B16018BF8BC1004A3398 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		4930B16218C0CC89004A3398 /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
+		4930B16318C0CC89004A3398 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
+		4930B16518C0DF50004A3398 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
+		4930B16618C0DF50004A3398 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		497193F517681D940083624D /* chyy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chyy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497193F817681D940083624D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		497193FA17681D940083624D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -114,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				4971940717681D940083624D /* chyyAppDelegate.h */,
+				4930B16218C0CC89004A3398 /* EventDetailViewController.h */,
+				4930B16318C0CC89004A3398 /* EventDetailViewController.m */,
 				4971940817681D940083624D /* chyyAppDelegate.m */,
 				4971941017681D940083624D /* MainStoryboard.storyboard */,
 				4971941317681D940083624D /* chyyViewController.h */,
@@ -136,6 +144,8 @@
 				4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */,
 				4930B15F18BF8BC1004A3398 /* EventViewController.h */,
 				4930B16018BF8BC1004A3398 /* EventViewController.m */,
+				4930B16518C0DF50004A3398 /* EventTableViewCell.h */,
+				4930B16618C0DF50004A3398 /* EventTableViewCell.m */,
 			);
 			path = chyy;
 			sourceTree = "<group>";
@@ -224,8 +234,10 @@
 				4971940517681D940083624D /* main.m in Sources */,
 				4971940917681D940083624D /* chyyAppDelegate.m in Sources */,
 				4971941517681D940083624D /* chyyViewController.m in Sources */,
+				4930B16418C0CC89004A3398 /* EventDetailViewController.m in Sources */,
 				4971941D176820DE0083624D /* ExpenseRecord.xcdatamodeld in Sources */,
 				497194201768575D0083624D /* ExpenseViewController.m in Sources */,
+				4930B16718C0DF50004A3398 /* EventTableViewCell.m in Sources */,
 				49BBCD1618B9EC7C00BBED45 /* ReportViewController.m in Sources */,
 				49719423176857F30083624D /* ExpenseDetailViewController.m in Sources */,
 				4930B15B18BE2359004A3398 /* ExpenseTableViewCell.m in Sources */,

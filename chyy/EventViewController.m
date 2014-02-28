@@ -7,12 +7,32 @@
 //
 
 #import "EventViewController.h"
-
-@interface EventViewController ()
-
-@end
+#import "EventTableViewCell.h"
 
 @implementation EventViewController
+
+- (NSManagedObjectContext *) managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    
+    return context;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
+    self.events = [[context executeFetchRequest:result error:nil] mutableCopy];
+    
+    [self.tableView reloadData];
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,11 +47,13 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    if ([[ver objectAtIndex:0] intValue] >= 7) {
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(80.0f/255.0f) green:(200.0f/255.0f) blue:(80.0f/255.0f) alpha:1.0f];
+        self.navigationController.navigationBar.translucent = NO;
+    }else {
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(80.0f/255.0f) green:(200.0f/255.0f) blue:(80.0f/255.0f) alpha:1.0f];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +66,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.events.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"EventCell";
+    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSManagedObject *event = [self.events objectAtIndex:indexPath.row];
+    [cell.nameLabel setText:[NSString stringWithFormat:@"%@", [event valueForKey:@"name"]]];
     
     return cell;
 }
@@ -75,19 +96,26 @@
 }
 */
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
+        [context deleteObject:[self.events objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        [self.events removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
 
 /*
 // Override to support rearranging the table view.
