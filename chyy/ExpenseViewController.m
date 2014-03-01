@@ -44,6 +44,16 @@
     return [tableView dequeueReusableCellWithIdentifier:@"ExpenseHeaderCell"];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 28.0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [tableView dequeueReusableCellWithIdentifier:@"ExpenseFooterCell"];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
