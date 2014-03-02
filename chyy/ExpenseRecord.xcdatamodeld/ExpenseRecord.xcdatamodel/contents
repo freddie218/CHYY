@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Event" syncable="YES">
+    <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="eventexpenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="expensetoevent" inverseEntity="Expense" syncable="YES"/>
     </entity>
-    <entity name="Expense" syncable="YES">
+    <entity name="Expense" representedClassName="Expense" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,6 +13,7 @@
         <attribute name="payer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reason" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="expensetoevent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="eventexpenses" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Member" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>

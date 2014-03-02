@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
 @interface EventDetailViewController : UIViewController <UITextFieldDelegate>
 
-@property (strong) NSManagedObject *event;
+@property (strong) Event *event;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 

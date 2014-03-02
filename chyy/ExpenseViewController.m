@@ -12,6 +12,8 @@
 
 @implementation ExpenseViewController
 
+@synthesize event;
+
 - (NSManagedObjectContext *) managedObjectContext
 {
     NSManagedObjectContext *context = nil;
@@ -46,7 +48,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 28.0;
+    return 34.0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
 @interface ExpenseViewController : UITableViewController
 
 @property (strong) NSMutableArray *expenses;
+@property (strong) Event *event;
 
 @end

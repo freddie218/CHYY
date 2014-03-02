@@ -7,6 +7,7 @@
 //
 
 #import "EventDetailViewController.h"
+#import "Event.h"
 
 @implementation EventDetailViewController
 
@@ -34,14 +35,14 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     
     if (self.event) {
-        [self.event setValue:self.nameTextField.text forKey:@"name"];
+        event.name = self.nameTextField.text;
     } else {
-        NSManagedObject *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
+        Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
         NSManagedObjectID *moID = [newEvent objectID];
         NSString *taskUniqueStringKey = moID.URIRepresentation.absoluteString;
         
-        [newEvent setValue:self.nameTextField.text forKey:@"name"];
-        [newEvent setValue:taskUniqueStringKey forKey:@"id"];
+        newEvent.name = self.nameTextField.text;
+        newEvent.id = taskUniqueStringKey;        
     }
     
     NSError *error = nil;
@@ -89,7 +90,7 @@
     [self.view addGestureRecognizer:tap];
     
     if (self.event) {
-        [self.nameTextField setText:[self.event valueForKey:@"name"]];
+        [self.nameTextField setText:event.name];
     }
 }
 

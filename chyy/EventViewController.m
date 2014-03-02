@@ -8,6 +8,8 @@
 
 #import "EventViewController.h"
 #import "EventTableViewCell.h"
+#import "Event.h"
+#import "ExpenseViewController.h"
 
 @implementation EventViewController
 
@@ -81,8 +83,8 @@
     static NSString *CellIdentifier = @"EventCell";
     EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSManagedObject *event = [self.events objectAtIndex:indexPath.row];
-    [cell.nameLabel setText:[NSString stringWithFormat:@"%@", [event valueForKey:@"name"]]];
+    Event *event = [self.events objectAtIndex:indexPath.row];
+    [cell.nameLabel setText:[NSString stringWithFormat:@"%@", event.name]];
     
     return cell;
 }
@@ -133,7 +135,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -141,8 +143,15 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
+    if ([[segue identifier] isEqualToString:@"EventExpense"]) {
+        ExpenseViewController *expenseViewController = (ExpenseViewController *)segue.destinationViewController;
+        
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        Event *event = [self.events objectAtIndex:path.row];
+        
+        expenseViewController.event = event;
+    }
 
- */
+}
 
 @end

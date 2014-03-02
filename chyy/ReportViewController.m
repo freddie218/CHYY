@@ -98,9 +98,8 @@
         
     }
     
-    
-    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    NSLog(@"reports is:  %@", self.reports);
+//    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//    NSLog(@"reports is:  %@", self.reports);
     
     [self.tableView reloadData];
 }
