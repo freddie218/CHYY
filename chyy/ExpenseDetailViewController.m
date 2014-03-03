@@ -12,6 +12,7 @@
 
 @synthesize expense;
 @synthesize members;
+@synthesize event;
 
 - (NSManagedObjectContext *) managedObjectContext
 {
@@ -37,23 +38,25 @@
     [df setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
     
     if (self.expense) {
-        [self.expense setValue:self.payerTextField.text forKey:@"payer"];
-        [self.expense setValue:[NSNumber numberWithDouble:[self.amountTextField.text doubleValue]] forKey:@"amount"];
-        [self.expense setValue:self.reasonTextField.text forKey:@"reason"];
-        [self.expense setValue:self.locationTextField.text forKey:@"location"];
-        [self.expense setValue:self.participantTextField.text forKey:@"participant"];
-        [self.expense setValue:[df dateFromString: self.timeTextField.text] forKey:@"time"];
-        [self.expense setValue:self.memoTextField.text forKey:@"memo"];
+        expense.payer = self.payerTextField.text;
+        expense.amount = [NSNumber numberWithDouble:[self.amountTextField.text doubleValue]];
+        expense.reason = self.reasonTextField.text;
+        expense.location = self.locationTextField.text;
+        expense.participant = self.participantTextField.text;
+        expense.time = [df dateFromString: self.timeTextField.text];
+        expense.memo = self.memoTextField.text;
 
     } else {
-        NSManagedObject *newExpense = [NSEntityDescription insertNewObjectForEntityForName:@"Expense" inManagedObjectContext:context];
-        [newExpense setValue:self.payerTextField.text forKey:@"payer"];
-        [newExpense setValue:[NSNumber numberWithDouble:[self.amountTextField.text doubleValue]] forKey:@"amount"];
-        [newExpense setValue:self.reasonTextField.text forKey:@"reason"];
-        [newExpense setValue:self.locationTextField.text forKey:@"location"];
-        [newExpense setValue:self.participantTextField.text forKey:@"participant"];
-        [newExpense setValue:[df dateFromString: self.timeTextField.text] forKey:@"time"];
-        [newExpense setValue:self.memoTextField.text forKey:@"memo"];
+        Expense *newExpense = [NSEntityDescription insertNewObjectForEntityForName:@"Expense" inManagedObjectContext:context];
+        newExpense.payer = self.payerTextField.text;
+        newExpense.amount = [NSNumber numberWithDouble:[self.amountTextField.text doubleValue]];
+        newExpense.reason = self.reasonTextField.text;
+        newExpense.location = self.locationTextField.text;
+        newExpense.participant = self.participantTextField.text;
+        newExpense.time = [df dateFromString: self.timeTextField.text];
+        newExpense.memo = self.memoTextField.text;
+        
+        newExpense.expensetoevent = event;
     }
 
     NSError *error = nil;

@@ -31,6 +31,7 @@
     
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Expense"];
+    result.predicate = [NSPredicate predicateWithFormat:@"expensetoevent = %@", event];    
     self.expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
     
     [self.tableView reloadData];
@@ -146,11 +147,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    ExpenseDetailViewController *detailViewCon = segue.destinationViewController;
+    
     if ([[segue identifier] isEqualToString:@"UpdateExpense"]) {
-        NSManagedObject *selectedExpense = [self.expenses objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-        ExpenseDetailViewController *detailViewCon = segue.destinationViewController;
+        Expense *selectedExpense = [self.expenses objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         detailViewCon.expense = selectedExpense;
     }
+    
+    detailViewCon.event = self.event;
 }
 
 /*

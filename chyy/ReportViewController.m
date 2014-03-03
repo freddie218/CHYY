@@ -9,11 +9,9 @@
 #import "ReportViewController.h"
 #import "ReportTableViewCell.h"
 
-@interface ReportViewController ()
-
-@end
-
 @implementation ReportViewController
+
+@synthesize event;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -42,7 +40,12 @@
     
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Expense"];
+    result.predicate = [NSPredicate predicateWithFormat:@"expensetoevent = %@", event];
+    
     self.expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
+    
+    NSLog(@"===============================================");
+    NSLog(@"expenses is:  %@", self.expenses);
     
     for (id expense in self.expenses) {
         NSString *payer = [expense valueForKey:@"payer"];
@@ -98,8 +101,8 @@
         
     }
     
-//    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-//    NSLog(@"reports is:  %@", self.reports);
+    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    NSLog(@"reports is:  %@", self.reports);
     
     [self.tableView reloadData];
 }

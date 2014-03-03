@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
 @interface ReportViewController : UITableViewController
 
 @property (strong) NSMutableArray *reports;
 @property (strong) NSMutableArray *expenses;
+
+@property (strong) Event *event;
 
 @end

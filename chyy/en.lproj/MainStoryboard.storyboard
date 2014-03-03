@@ -357,7 +357,7 @@
                     <navigationItem key="navigationItem" title="消费记录" id="YuK-Hk-hxd">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="h1n-wL-Scj">
                             <connections>
-                                <segue destination="kAP-b6-Jrx" kind="modal" id="qEU-ec-fk6"/>
+                                <segue destination="kAP-b6-Jrx" kind="modal" identifier="AddExpense" id="qEU-ec-fk6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -648,7 +648,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rN5-Wg-see"/>
+        <segue reference="qEU-ec-fk6"/>
         <segue reference="pqq-CA-Zzc"/>
     </inferredMetricsTieBreakers>
 </document>

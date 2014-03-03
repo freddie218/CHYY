@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
+#import "Expense.h"
 
 @interface ExpenseDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *members;
 
-@property (strong) NSManagedObject *expense;
+@property (strong) Expense *expense;
+@property (strong) Event *event;
 
 @property (strong, nonatomic) IBOutlet UITextField *payerTextField;
 @property (strong, nonatomic) IBOutlet UITextField *amountTextField;
