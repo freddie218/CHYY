@@ -44,32 +44,34 @@
     
     self.expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
     
-    NSLog(@"===============================================");
-    NSLog(@"expenses is:  %@", self.expenses);
-    
     for (id expense in self.expenses) {
         NSString *payer = [expense valueForKey:@"payer"];
         NSArray *participants = [[(NSString *)[expense valueForKey:@"participant"] stringByReplacingOccurrencesOfString:@" " withString:@""] componentsSeparatedByString:@","];
         NSNumber *participantCount = [NSNumber numberWithInteger:[participants count]];
         NSNumber *amount = [expense valueForKey:@"amount"];
+        
         double share = [amount doubleValue] / [participantCount doubleValue];
-
         
         //deal with payer dict
         NSMutableDictionary *payerDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:payer, @"name", amount, @"total", [NSNumber numberWithDouble:0], @"balance", nil];
-    
+        
         // deal with participants
         for (NSString *participant in participants) {
             if ([participant isEqualToString:payer]) {
-                [payerDict setObject:[NSNumber numberWithDouble:share] forKey:@"balance"];
+                
+                double balance = [amount doubleValue] - share + [[payerDict valueForKey:@"balance"] doubleValue];
+                
+                [payerDict setObject:[NSNumber numberWithDouble:balance] forKey:@"balance"];
                 
             } else {
                 
                 NSArray *filtered = [self.reports filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(name == %@)", participant]];
+                
                 if ([filtered count] == 0) {
                     NSMutableDictionary *partDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:participant, @"name", [NSNumber numberWithDouble:0], @"total", [NSNumber numberWithDouble:-share], @"balance", nil];
 
                     [self.reports addObject:partDict];
+                    
                 } else {
                     
                     NSMutableDictionary *partItem = [filtered objectAtIndex:0];
@@ -79,10 +81,8 @@
                     [partItem setObject:updatedBalance forKey:@"balance"];
                     
                 }
-
             }
         }
-        
         
         NSArray *filtered = [self.reports filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(name == %@)", payer]];
         if ([filtered count] == 0) {
@@ -95,14 +95,14 @@
             double currentBalance = [[payerItem valueForKey:@"balance"] doubleValue] + [amount doubleValue] - share;
             
             [payerItem setObject:[NSNumber numberWithDouble:currentTotal] forKey:@"total"];
-            [payerItem setObject:[NSNumber numberWithDouble:currentBalance] forKey:@"balance"];
+            [payerItem setObject:[NSNumber numberWithDouble:currentBalance] forKey:@"balance"];            
             
         }
         
     }
     
-    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    NSLog(@"reports is:  %@", self.reports);
+//    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//    NSLog(@"reports is:  %@", self.reports);
     
     [self.tableView reloadData];
 }
