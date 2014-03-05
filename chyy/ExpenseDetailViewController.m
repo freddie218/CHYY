@@ -27,6 +27,7 @@
 
 - (IBAction)cancel:(id)sender
 {
+    self.currentTextField.text = @"cancelEditing";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

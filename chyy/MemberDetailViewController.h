@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *sexTextField;
 @property (strong, nonatomic) IBOutlet UITextField *idTextField;
 
+@property (strong, nonatomic) IBOutlet UITextField *currentTextField;
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 

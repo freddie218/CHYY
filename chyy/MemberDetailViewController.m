@@ -26,6 +26,7 @@
 
 - (IBAction)cancel:(id)sender
 {
+    self.currentTextField.text = @"cancelEditing";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -66,6 +67,11 @@
         }
     }
     return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.currentTextField = textField;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

@@ -27,6 +27,8 @@
 
 - (IBAction)cancel:(id)sender
 {
+    self.currentTextField.text = @"cancelEditing";
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -38,11 +40,9 @@
         event.name = self.nameTextField.text;
     } else {
         Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
-        NSManagedObjectID *moID = [newEvent objectID];
-        NSString *taskUniqueStringKey = moID.URIRepresentation.absoluteString;
-        
+           
         newEvent.name = self.nameTextField.text;
-        newEvent.id = taskUniqueStringKey;        
+        
     }
     
     NSError *error = nil;
@@ -71,6 +71,17 @@
 - (void) dismissKeyboard
 {
     [self.nameTextField resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.currentTextField = textField;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

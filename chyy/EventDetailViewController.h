@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 
+@property (strong, nonatomic) IBOutlet UITextField *currentTextField;
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 
