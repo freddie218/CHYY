@@ -33,6 +33,20 @@
 
 - (IBAction)save:(id)sender
 {
+    if(![[self.payerTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
+       ![[self.amountTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
+       ![[self.reasonTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
+       ![[self.participantTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
+       ![[self.timeTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]
+       ) {
+        //string is all whitespace
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Save Error"
+                                                     message:@"All field can not be empty!"
+                                                    delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];

@@ -32,6 +32,17 @@
 
 - (IBAction)save:(id)sender
 {
+    if(![[self.nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
+       ![[self.idTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]
+       ) {
+        //string is all whitespace
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Save Error"
+                                                     message:@"Name and Id can not be empty!"
+                                                    delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    
     NSManagedObjectContext *context = [self managedObjectContext];
     
     if (self.member) {
