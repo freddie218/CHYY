@@ -56,8 +56,10 @@
         NSMutableDictionary *payerDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:payer, @"name", amount, @"total", [NSNumber numberWithDouble:0], @"balance", nil];
         
         // deal with participants
+        bool payerIsPart = false;
         for (NSString *participant in participants) {
             if ([participant isEqualToString:payer]) {
+                payerIsPart = TRUE;
                 
                 double balance = [amount doubleValue] - share + [[payerDict valueForKey:@"balance"] doubleValue];
                 
@@ -82,6 +84,11 @@
                     
                 }
             }
+        }
+        
+        if (!payerIsPart) {
+            double balance = [amount doubleValue] + [[payerDict valueForKey:@"balance"] doubleValue];
+            [payerDict setObject:[NSNumber numberWithDouble:balance] forKey:@"balance"];
         }
         
         NSArray *filtered = [self.reports filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(name == %@)", payer]];
