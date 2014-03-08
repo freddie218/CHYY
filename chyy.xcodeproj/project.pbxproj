@@ -32,6 +32,7 @@
 		4971942B176B028D0083624D /* MemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971942A176B028C0083624D /* MemberViewController.m */; };
 		49BBCD1618B9EC7C00BBED45 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BBCD1518B9EC7C00BBED45 /* ReportViewController.m */; };
 		49BBCD1918BA00D200BBED45 /* ReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BBCD1818BA00D200BBED45 /* ReportTableViewCell.m */; };
+		49CD953C18CB58F3002A85F3 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */; };
 		49EBF56918CA138500A9B2A5 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EBF56818CA138500A9B2A5 /* CategoryViewController.m */; };
 		49EBF56C18CA194D00A9B2A5 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EBF56B18CA194D00A9B2A5 /* Category.m */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,8 @@
 		49BBCD1518B9EC7C00BBED45 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		49BBCD1718BA00D200BBED45 /* ReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportTableViewCell.h; sourceTree = "<group>"; };
 		49BBCD1818BA00D200BBED45 /* ReportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportTableViewCell.m; sourceTree = "<group>"; };
+		49CD953A18CB58F3002A85F3 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryDetailViewController.h; sourceTree = "<group>"; };
+		49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryDetailViewController.m; sourceTree = "<group>"; };
 		49EBF56718CA138500A9B2A5 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		49EBF56818CA138500A9B2A5 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		49EBF56A18CA194D00A9B2A5 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				49EBF56818CA138500A9B2A5 /* CategoryViewController.m */,
 				49EBF56A18CA194D00A9B2A5 /* Category.h */,
 				49EBF56B18CA194D00A9B2A5 /* Category.m */,
+				49CD953A18CB58F3002A85F3 /* CategoryDetailViewController.h */,
+				49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */,
 			);
 			path = chyy;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				4971941517681D940083624D /* chyyViewController.m in Sources */,
 				4930B16418C0CC89004A3398 /* EventDetailViewController.m in Sources */,
 				4930B16D18C37056004A3398 /* Event.m in Sources */,
+				49CD953C18CB58F3002A85F3 /* CategoryDetailViewController.m in Sources */,
 				4971941D176820DE0083624D /* ExpenseRecord.xcdatamodeld in Sources */,
 				497194201768575D0083624D /* ExpenseViewController.m in Sources */,
 				4930B16718C0DF50004A3398 /* EventTableViewCell.m in Sources */,
