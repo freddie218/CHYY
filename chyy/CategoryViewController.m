@@ -44,14 +44,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-    if ([[ver objectAtIndex:0] intValue] >= 7) {
-        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(200.0f/255.0f) green:(80.0f/255.0f) blue:(120.0f/255.0f) alpha:1.0f];
-        self.navigationController.navigationBar.translucent = NO;
-    }else {
-        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(200.0f/255.0f) green:(80.0f/255.0f) blue:(120.0f/255.0f) alpha:1.0f];
-    }
+//    
+//    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+//    if ([[ver objectAtIndex:0] intValue] >= 7) {
+//        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(200.0f/255.0f) green:(80.0f/255.0f) blue:(120.0f/255.0f) alpha:1.0f];
+//        self.navigationController.navigationBar.translucent = NO;
+//    }else {
+//        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(200.0f/255.0f) green:(80.0f/255.0f) blue:(120.0f/255.0f) alpha:1.0f];
+//    }
 }
 
 - (void)didReceiveMemoryWarning
