@@ -13,6 +13,7 @@
 @interface ExpenseDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *members;
+@property (strong, nonatomic) NSMutableArray *categories;
 
 @property (strong) Expense *expense;
 @property (strong) Event *event;

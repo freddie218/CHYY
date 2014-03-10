@@ -11,8 +11,10 @@
 @implementation ExpenseDetailViewController
 
 @synthesize expense;
-@synthesize members;
 @synthesize event;
+
+@synthesize members;
+@synthesize categories;
 
 - (NSManagedObjectContext *) managedObjectContext
 {
@@ -115,6 +117,10 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *memberResult = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
     self.members = [[context executeFetchRequest:memberResult error:nil] mutableCopy];
+
+    NSFetchRequest *categoryResult = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+    self.categories = [[context executeFetchRequest:categoryResult error:nil] mutableCopy];
+
 }
 
 - (void) dismissKeyboard
@@ -148,7 +154,7 @@
     
     self.currentTextField = textField;
     
-    if (textField == self.payerTextField || textField == self.participantTextField ) {
+    if (textField == self.payerTextField || textField == self.participantTextField || textField == self.reasonTextField ) {
         UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 300)];
         // I think here the datesource and delegate should be assigned to another controller rather than self. [SUX-16]
         picker.dataSource = self;
@@ -221,12 +227,20 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return members.count;
+    if (self.currentTextField == self.reasonTextField) {
+        return categories.count;
+    } else {
+        return members.count;
+    }
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [[members objectAtIndex:row] valueForKey:@"name"];
+    if (self.currentTextField == self.reasonTextField) {
+        return [[categories objectAtIndex:row] valueForKey:@"name"];
+    } else {
+        return [[members objectAtIndex:row] valueForKey:@"name"];
+    }
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -235,6 +249,7 @@
     
     if (self.currentTextField == self.payerTextField) {
         currentSelectStr = [[members objectAtIndex:row] valueForKey:@"name"];
+        
     } else if (self.currentTextField == self.participantTextField) {
         
         NSMutableSet *participantSet = [NSMutableSet setWithObject:[[members objectAtIndex:row] valueForKey:@"name"]];
@@ -243,6 +258,9 @@
         }
         
         currentSelectStr = [[participantSet allObjects] componentsJoinedByString:@","];
+    } else if (self.currentTextField == self.reasonTextField) {
+        
+        currentSelectStr = [[categories objectAtIndex:row] valueForKey:@"name"];
     }
  
     [self.currentTextField setText:currentSelectStr];
