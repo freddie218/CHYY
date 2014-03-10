@@ -2,7 +2,7 @@
 //  Category.h
 //  chyy
 //
-//  Created by huan on 3/7/14.
+//  Created by huan on 3/10/14.
 //  Copyright (c) 2014 huan. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *childcategories;
+@property (nonatomic, retain) Category *parentcategory;
 @end
 
 @interface Category (CoreDataGeneratedAccessors)

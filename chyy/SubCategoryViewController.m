@@ -1,14 +1,16 @@
 //
-//  CategoryViewController.m
+//  SubCategoryViewController.m
 //  chyy
 //
-//  Created by huan on 3/7/14.
+//  Created by huan on 3/10/14.
 //  Copyright (c) 2014 huan. All rights reserved.
 //
 
-#import "CategoryViewController.h"
+#import "SubCategoryViewController.h"
 
-@implementation CategoryViewController
+@implementation SubCategoryViewController
+
+@synthesize parentCategory;
 
 - (NSManagedObjectContext *) managedObjectContext
 {
@@ -27,13 +29,12 @@
     
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
-    
-    result.predicate = [NSPredicate predicateWithFormat:@"parentcategory == %@", nil];
-    
-    self.categories = [[context executeFetchRequest:result error:nil] mutableCopy];
+    result.predicate = [NSPredicate predicateWithFormat:@"parentcategory = %@", parentCategory];
+    self.subCategories = [[context executeFetchRequest:result error:nil] mutableCopy];
     
     [self.tableView reloadData];
 }
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -47,14 +48,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    
-//    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-//    if ([[ver objectAtIndex:0] intValue] >= 7) {
-//        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(200.0f/255.0f) green:(80.0f/255.0f) blue:(120.0f/255.0f) alpha:1.0f];
-//        self.navigationController.navigationBar.translucent = NO;
-//    }else {
-//        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(200.0f/255.0f) green:(80.0f/255.0f) blue:(120.0f/255.0f) alpha:1.0f];
-//    }
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,15 +71,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.categories.count;
+    return self.subCategories.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"CategoryCell";
+    static NSString *CellIdentifier = @"SubCategoryCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Category *category = [self.categories objectAtIndex:indexPath.row];
+    Category *category = [self.subCategories objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", category.name]];
     
     return cell;
@@ -88,16 +87,33 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"SubCategory"]) {
-        SubCategoryViewController *subCategoryViewController = (SubCategoryViewController *)segue.destinationViewController;
-        
-        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        Category *category = [self.categories objectAtIndex:path.row];
-        
-        subCategoryViewController.parentCategory = category;
-    }
+    SubCategoryDetailViewController *detailViewCon = segue.destinationViewController;
     
+    detailViewCon.parentCategory = self.parentCategory;
 }
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }   
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
 
 /*
 // Override to support rearranging the table view.

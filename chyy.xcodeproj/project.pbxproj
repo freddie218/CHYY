@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */; };
+		4919382018CE0F7C006E8C5D /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381F18CE0F7C006E8C5D /* Category.m */; };
+		4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */; };
 		4930B15B18BE2359004A3398 /* ExpenseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */; };
 		4930B16118BF8BC1004A3398 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16018BF8BC1004A3398 /* EventViewController.m */; };
 		4930B16418C0CC89004A3398 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16318C0CC89004A3398 /* EventDetailViewController.m */; };
@@ -34,10 +37,15 @@
 		49BBCD1918BA00D200BBED45 /* ReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BBCD1818BA00D200BBED45 /* ReportTableViewCell.m */; };
 		49CD953C18CB58F3002A85F3 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */; };
 		49EBF56918CA138500A9B2A5 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EBF56818CA138500A9B2A5 /* CategoryViewController.m */; };
-		49EBF56C18CA194D00A9B2A5 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EBF56B18CA194D00A9B2A5 /* Category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4919381B18CE0BB2006E8C5D /* SubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryViewController.h; sourceTree = "<group>"; };
+		4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryViewController.m; sourceTree = "<group>"; };
+		4919381E18CE0F7C006E8C5D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		4919381F18CE0F7C006E8C5D /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		4919382118CE1394006E8C5D /* SubCategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryDetailViewController.h; sourceTree = "<group>"; };
+		4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryDetailViewController.m; sourceTree = "<group>"; };
 		4930B15918BE2359004A3398 /* ExpenseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseTableViewCell.h; sourceTree = "<group>"; };
 		4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseTableViewCell.m; sourceTree = "<group>"; };
 		4930B15F18BF8BC1004A3398 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
@@ -84,8 +92,6 @@
 		49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryDetailViewController.m; sourceTree = "<group>"; };
 		49EBF56718CA138500A9B2A5 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		49EBF56818CA138500A9B2A5 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
-		49EBF56A18CA194D00A9B2A5 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
-		49EBF56B18CA194D00A9B2A5 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,10 +173,14 @@
 				4930B16918C37054004A3398 /* Expense.m */,
 				49EBF56718CA138500A9B2A5 /* CategoryViewController.h */,
 				49EBF56818CA138500A9B2A5 /* CategoryViewController.m */,
-				49EBF56A18CA194D00A9B2A5 /* Category.h */,
-				49EBF56B18CA194D00A9B2A5 /* Category.m */,
 				49CD953A18CB58F3002A85F3 /* CategoryDetailViewController.h */,
 				49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */,
+				4919381B18CE0BB2006E8C5D /* SubCategoryViewController.h */,
+				4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */,
+				4919381E18CE0F7C006E8C5D /* Category.h */,
+				4919381F18CE0F7C006E8C5D /* Category.m */,
+				4919382118CE1394006E8C5D /* SubCategoryDetailViewController.h */,
+				4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */,
 			);
 			path = chyy;
 			sourceTree = "<group>";
@@ -257,17 +267,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4971940517681D940083624D /* main.m in Sources */,
-				49EBF56C18CA194D00A9B2A5 /* Category.m in Sources */,
 				4971940917681D940083624D /* chyyAppDelegate.m in Sources */,
 				4971941517681D940083624D /* chyyViewController.m in Sources */,
 				4930B16418C0CC89004A3398 /* EventDetailViewController.m in Sources */,
 				4930B16D18C37056004A3398 /* Event.m in Sources */,
 				49CD953C18CB58F3002A85F3 /* CategoryDetailViewController.m in Sources */,
 				4971941D176820DE0083624D /* ExpenseRecord.xcdatamodeld in Sources */,
+				4919382018CE0F7C006E8C5D /* Category.m in Sources */,
 				497194201768575D0083624D /* ExpenseViewController.m in Sources */,
+				4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */,
 				4930B16718C0DF50004A3398 /* EventTableViewCell.m in Sources */,
 				49BBCD1618B9EC7C00BBED45 /* ReportViewController.m in Sources */,
 				49EBF56918CA138500A9B2A5 /* CategoryViewController.m in Sources */,
+				4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */,
 				4930B16A18C37054004A3398 /* Expense.m in Sources */,
 				49719423176857F30083624D /* ExpenseDetailViewController.m in Sources */,
 				4930B15B18BE2359004A3398 /* ExpenseTableViewCell.m in Sources */,

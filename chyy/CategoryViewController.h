@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Category.h"
+#import "SubCategoryViewController.h"
 
 @interface CategoryViewController : UITableViewController
 
