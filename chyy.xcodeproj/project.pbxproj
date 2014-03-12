@@ -33,6 +33,10 @@
 		49719425176862AB0083624D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49719424176862AB0083624D /* CoreData.framework */; };
 		49719428176AF9400083624D /* MemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49719427176AF9400083624D /* MemberDetailViewController.m */; };
 		4971942B176B028D0083624D /* MemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971942A176B028C0083624D /* MemberViewController.m */; };
+		49A1CCBF18CF768E00029D88 /* navbar_users@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A1CCBE18CF768E00029D88 /* navbar_users@2x.png */; };
+		49A1CCC118CF793E00029D88 /* navbar_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A1CCC018CF793E00029D88 /* navbar_category@2x.png */; };
+		49A1CCC618CF7D9400029D88 /* navbar_events@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A1CCC418CF7D9400029D88 /* navbar_events@2x.png */; };
+		49A1CCC718CF7D9400029D88 /* navbar_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A1CCC518CF7D9400029D88 /* navbar_setting@2x.png */; };
 		49BBCD1618B9EC7C00BBED45 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BBCD1518B9EC7C00BBED45 /* ReportViewController.m */; };
 		49BBCD1918BA00D200BBED45 /* ReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BBCD1818BA00D200BBED45 /* ReportTableViewCell.m */; };
 		49CD953C18CB58F3002A85F3 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */; };
@@ -84,6 +88,10 @@
 		49719427176AF9400083624D /* MemberDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberDetailViewController.m; sourceTree = "<group>"; };
 		49719429176B028C0083624D /* MemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberViewController.h; sourceTree = "<group>"; };
 		4971942A176B028C0083624D /* MemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberViewController.m; sourceTree = "<group>"; };
+		49A1CCBE18CF768E00029D88 /* navbar_users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_users@2x.png"; sourceTree = "<group>"; };
+		49A1CCC018CF793E00029D88 /* navbar_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_category@2x.png"; sourceTree = "<group>"; };
+		49A1CCC418CF7D9400029D88 /* navbar_events@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_events@2x.png"; sourceTree = "<group>"; };
+		49A1CCC518CF7D9400029D88 /* navbar_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_setting@2x.png"; sourceTree = "<group>"; };
 		49BBCD1418B9EC7C00BBED45 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		49BBCD1518B9EC7C00BBED45 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		49BBCD1718BA00D200BBED45 /* ReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportTableViewCell.h; sourceTree = "<group>"; };
@@ -188,6 +196,10 @@
 		497193FF17681D940083624D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49A1CCC418CF7D9400029D88 /* navbar_events@2x.png */,
+				49A1CCC518CF7D9400029D88 /* navbar_setting@2x.png */,
+				49A1CCC018CF793E00029D88 /* navbar_category@2x.png */,
+				49A1CCBE18CF768E00029D88 /* navbar_users@2x.png */,
 				4971940017681D940083624D /* chyy-Info.plist */,
 				4971940117681D940083624D /* InfoPlist.strings */,
 				4971940417681D940083624D /* main.m */,
@@ -253,9 +265,13 @@
 			files = (
 				4971940317681D940083624D /* InfoPlist.strings in Resources */,
 				4971940B17681D940083624D /* Default.png in Resources */,
+				49A1CCC118CF793E00029D88 /* navbar_category@2x.png in Resources */,
 				4971940D17681D940083624D /* Default@2x.png in Resources */,
+				49A1CCBF18CF768E00029D88 /* navbar_users@2x.png in Resources */,
 				4971940F17681D940083624D /* Default-568h@2x.png in Resources */,
+				49A1CCC718CF7D9400029D88 /* navbar_setting@2x.png in Resources */,
 				4971941217681D940083624D /* MainStoryboard.storyboard in Resources */,
+				49A1CCC618CF7D9400029D88 /* navbar_events@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
