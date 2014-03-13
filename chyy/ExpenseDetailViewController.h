@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) NSMutableArray *members;
 @property (strong, nonatomic) NSMutableArray *categories;
+@property (strong, nonatomic) NSMutableArray *subCategories;
 
 @property (strong) Expense *expense;
 @property (strong) Event *event;

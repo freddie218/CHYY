@@ -15,6 +15,7 @@
 
 @synthesize members;
 @synthesize categories;
+@synthesize subCategories;
 
 - (NSManagedObjectContext *) managedObjectContext
 {
@@ -119,7 +120,12 @@
     self.members = [[context executeFetchRequest:memberResult error:nil] mutableCopy];
 
     NSFetchRequest *categoryResult = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+    categoryResult.predicate = [NSPredicate predicateWithFormat:@"parentcategory == %@", nil];
     self.categories = [[context executeFetchRequest:categoryResult error:nil] mutableCopy];
+    
+    NSFetchRequest *subCategoryResult = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+    subCategoryResult.predicate = [NSPredicate predicateWithFormat:@"parentcategory == %@", [categories objectAtIndex:0]];
+    self.subCategories = [[[self managedObjectContext] executeFetchRequest:subCategoryResult error:nil] mutableCopy];
 
 }
 
@@ -222,24 +228,39 @@
 // ----------- Member Picker start ------------- [SUX-16]
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 1;
+    if (self.currentTextField == self.reasonTextField) {
+        return 2;
+    } else {
+        return 1;
+    }
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (self.currentTextField == self.reasonTextField) {
-        return categories.count;
+    if (component == 0) {
+        if (self.currentTextField == self.reasonTextField) {
+            return categories.count;
+        } else {
+            return members.count;
+        }
+
     } else {
-        return members.count;
+        return subCategories.count;
     }
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (self.currentTextField == self.reasonTextField) {
-        return [[categories objectAtIndex:row] valueForKey:@"name"];
+    if (component == 0) {
+        if (self.currentTextField == self.reasonTextField) {
+            return [[categories objectAtIndex:row] valueForKey:@"name"];
+        } else {
+            return [[members objectAtIndex:row] valueForKey:@"name"];
+        }
+        
     } else {
-        return [[members objectAtIndex:row] valueForKey:@"name"];
+        
+        return [[subCategories objectAtIndex:row] valueForKey:@"name"];
     }
 }
 
@@ -247,22 +268,36 @@
 {
     NSString *currentSelectStr;
     
-    if (self.currentTextField == self.payerTextField) {
-        currentSelectStr = [[members objectAtIndex:row] valueForKey:@"name"];
+    
+    if(component==0)
+    {
         
-    } else if (self.currentTextField == self.participantTextField) {
-        
-        NSMutableSet *participantSet = [NSMutableSet setWithObject:[[members objectAtIndex:row] valueForKey:@"name"]];
-        if (![self.currentTextField.text isEqualToString:@""]) {
-            [participantSet addObjectsFromArray:[self.currentTextField.text componentsSeparatedByString:@","]];
+        if (self.currentTextField == self.payerTextField) {
+            currentSelectStr = [[members objectAtIndex:row] valueForKey:@"name"];
+            
+        } else if (self.currentTextField == self.participantTextField) {
+            
+            NSMutableSet *participantSet = [NSMutableSet setWithObject:[[members objectAtIndex:row] valueForKey:@"name"]];
+            if (![self.currentTextField.text isEqualToString:@""]) {
+                [participantSet addObjectsFromArray:[self.currentTextField.text componentsSeparatedByString:@","]];
+            }
+            
+            currentSelectStr = [[participantSet allObjects] componentsJoinedByString:@","];
+        } else if (self.currentTextField == self.reasonTextField) {
+            
+            NSFetchRequest *subCategoryResult = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+            subCategoryResult.predicate = [NSPredicate predicateWithFormat:@"parentcategory == %@", [categories objectAtIndex:row]];
+            self.subCategories = [[[self managedObjectContext] executeFetchRequest:subCategoryResult error:nil] mutableCopy];
+            
+            [pickerView selectRow:0 inComponent:1 animated:YES];
+            [pickerView reloadComponent:1];
+            
         }
         
-        currentSelectStr = [[participantSet allObjects] componentsJoinedByString:@","];
-    } else if (self.currentTextField == self.reasonTextField) {
-        
-        currentSelectStr = [[categories objectAtIndex:row] valueForKey:@"name"];
+    } else {
+        currentSelectStr = [[subCategories objectAtIndex:row] valueForKey:@"name"];
     }
- 
+    
     [self.currentTextField setText:currentSelectStr];
 
 }
