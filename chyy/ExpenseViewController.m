@@ -30,9 +30,13 @@
     [super viewDidAppear:animated];
     
     NSManagedObjectContext *context = [self managedObjectContext];
+    
     NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Expense"];
     result.predicate = [NSPredicate predicateWithFormat:@"(expensetoevent = %@) AND (status = %@)", event, @"active"];
     self.expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
+    
+    result.predicate = [NSPredicate predicateWithFormat:@"(expensetoevent = %@) AND (status = %@)", event, @"settled"];
+    self.settledExpenses = [[context executeFetchRequest:result error:nil] mutableCopy];
     
     [self.tableView reloadData];
 }
@@ -44,7 +48,13 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [tableView dequeueReusableCellWithIdentifier:@"ExpenseHeaderCell"];
+    NSString *cellId = @"ExpenseHeaderCell";
+    if (section == 1) {
+        cellId = @"SettledExpenseCell";
+    }
+    
+    return [tableView dequeueReusableCellWithIdentifier:cellId];
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -54,7 +64,11 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return [tableView dequeueReusableCellWithIdentifier:@"ExpenseFooterCell"];
+    if (section == 0) {
+        return [tableView dequeueReusableCellWithIdentifier:@"ExpenseFooterCell"];
+    } else {
+        return nil;
+    }
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -95,14 +109,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return self.expenses.count;
+    if (section == 0) {
+        return self.expenses.count;
+    } else {
+        return self.settledExpenses.count;
+    }
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -110,22 +127,34 @@
     static NSString *cellIdentifier = @"ExpenseCell";
     ExpenseTableViewCell *cell = (ExpenseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    NSManagedObject *expense = [self.expenses objectAtIndex:indexPath.row];
+    Expense *expense;
     
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@", [expense valueForKey:@"payer"]];
-    cell.participantsLabel.text = [NSString stringWithFormat:@"%@", [expense valueForKey:@"participant"]];
-    cell.expenseLabel.text = [NSString stringWithFormat:@"%.02f", [[expense valueForKey:@"amount"] doubleValue]];
+    if (indexPath.section == 0) {
+        expense = [self.expenses objectAtIndex:indexPath.row];
+    } else {
+        expense = [self.settledExpenses objectAtIndex:indexPath.row];
+    }
+    
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@", expense.payer];
+    cell.participantsLabel.text = [NSString stringWithFormat:@"%@", expense.participant];
+    cell.expenseLabel.text = [NSString stringWithFormat:@"%.02f", [expense.amount doubleValue]];
     
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    if (indexPath.section == 0) {
+        return YES;
+    }
+    
+    return NO;
+    
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     NSManagedObjectContext *context = [self managedObjectContext];
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -145,8 +174,17 @@
     }   
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
+    if ([self.tableView indexPathForSelectedRow].section == 1) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{    
     ExpenseDetailViewController *detailViewCon = segue.destinationViewController;
     
     if ([[segue identifier] isEqualToString:@"UpdateExpense"]) {

@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "Expense.h"
 
 @interface ExpenseViewController : UITableViewController
 
 @property (strong) NSMutableArray *expenses;
+@property (strong) NSMutableArray *settledExpenses;
+
 @property (strong) Event *event;
 
 @end
