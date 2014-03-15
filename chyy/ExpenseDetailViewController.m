@@ -73,6 +73,7 @@
         newExpense.participant = self.participantTextField.text;
         newExpense.time = [df dateFromString: self.timeTextField.text];
         newExpense.memo = self.memoTextField.text;
+        newExpense.status = @"active";
         
         newExpense.expensetoevent = event;
     }

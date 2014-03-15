@@ -17,6 +17,7 @@
 @dynamic participant;
 @dynamic payer;
 @dynamic reason;
+@dynamic status;
 @dynamic time;
 @dynamic expensetoevent;
 

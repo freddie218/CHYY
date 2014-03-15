@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * participant;
 @property (nonatomic, retain) NSString * payer;
 @property (nonatomic, retain) NSString * reason;
+@property (nonatomic, retain) NSString * status;
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSManagedObject *expensetoevent;
 

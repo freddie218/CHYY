@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13B3116" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Category" representedClassName="Category" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="childcategories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="parentcategory" inverseEntity="Category" syncable="YES"/>
@@ -17,6 +17,7 @@
         <attribute name="participant" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="payer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reason" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="expensetoevent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="eventexpenses" inverseEntity="Event" syncable="YES"/>
     </entity>
@@ -26,9 +27,9 @@
         <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Category" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Expense" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Member" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Category" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Event" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Expense" positionX="0" positionY="0" width="128" height="178"/>
+        <element name="Member" positionX="0" positionY="0" width="128" height="90"/>
     </elements>
 </model>

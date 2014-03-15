@@ -40,7 +40,7 @@
     
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Expense"];
-    result.predicate = [NSPredicate predicateWithFormat:@"expensetoevent = %@", event];
+    result.predicate = [NSPredicate predicateWithFormat:@"(expensetoevent = %@) AND (status = %@)", event, @"active"];
     
     self.expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
     
