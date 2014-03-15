@@ -97,7 +97,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
@@ -123,9 +123,11 @@
     categoryResult.predicate = [NSPredicate predicateWithFormat:@"parentcategory == %@", nil];
     self.categories = [[context executeFetchRequest:categoryResult error:nil] mutableCopy];
     
-    NSFetchRequest *subCategoryResult = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
-    subCategoryResult.predicate = [NSPredicate predicateWithFormat:@"parentcategory == %@", [categories objectAtIndex:0]];
-    self.subCategories = [[[self managedObjectContext] executeFetchRequest:subCategoryResult error:nil] mutableCopy];
+    if (categories.count > 0) {
+        NSFetchRequest *subCategoryResult = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+        subCategoryResult.predicate = [NSPredicate predicateWithFormat:@"parentcategory == %@", [categories objectAtIndex:0]];
+        self.subCategories = [[[self managedObjectContext] executeFetchRequest:subCategoryResult error:nil] mutableCopy];
+    }
 
 }
 
