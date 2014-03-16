@@ -487,7 +487,14 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="消费统计" id="18z-tv-yp4"/>
+                    <navigationItem key="navigationItem" title="消费统计" id="18z-tv-yp4">
+                        <barButtonItem key="rightBarButtonItem" title="清算" id="5NT-aS-nVN">
+                            <color key="tintColor" red="0.50372308590000003" green="0.94507897419999998" blue="0.63441230689999994" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="resolve:" destination="60B-9h-IJk" id="o9g-9d-3xt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZi-4Q-eQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -496,7 +503,7 @@
         <!--Expense View Controller - 消费记录-->
         <scene sceneID="rtW-Up-Cfi">
             <objects>
-                <tableViewController id="fGj-Jp-eps" customClass="ExpenseViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ExpenseView" id="fGj-Jp-eps" customClass="ExpenseViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="p6f-pZ-FHc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

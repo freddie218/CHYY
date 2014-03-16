@@ -173,6 +173,23 @@
     
 }
 
+- (IBAction)resolve:(id)sender
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    for (Expense *expense in self.expenses) {
+        expense.status = @"settled";
+    }
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"can't save! %@ %@", error, [error localizedDescription]);
+    }
+    
+    [self.navigationController popViewControllerAnimated:TRUE];
+    
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

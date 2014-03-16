@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "Expense.h"
+#import "ExpenseViewController.h"
 
 @interface ReportViewController : UITableViewController
 
@@ -15,5 +17,7 @@
 @property (strong) NSMutableArray *expenses;
 
 @property (strong) Event *event;
+
+- (IBAction)resolve:(id)sender;
 
 @end
