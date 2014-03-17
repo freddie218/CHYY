@@ -49,13 +49,6 @@
 {
     [super viewDidLoad];
 
-//    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-//    if ([[ver objectAtIndex:0] intValue] >= 7) {
-//        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(80.0f/255.0f) green:(200.0f/255.0f) blue:(80.0f/255.0f) alpha:1.0f];
-//        self.navigationController.navigationBar.translucent = NO;
-//    }else {
-//        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(80.0f/255.0f) green:(200.0f/255.0f) blue:(80.0f/255.0f) alpha:1.0f];
-//    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,15 +82,6 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -118,23 +102,6 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
 }
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 

@@ -228,7 +228,6 @@
     return YES;
 }
 
-// ----------- Member Picker start ------------- [SUX-16]
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     if (self.currentTextField == self.reasonTextField) {
@@ -271,8 +270,7 @@
 {
     NSString *currentSelectStr;
     
-    
-    if(component==0)
+    if(component == 0)
     {
         
         if (self.currentTextField == self.payerTextField) {
@@ -304,7 +302,6 @@
     [self.currentTextField setText:currentSelectStr];
 
 }
-// ----------- Member Picker end ------------- [SUX-16]
 
 - (void)didReceiveMemoryWarning
 {
