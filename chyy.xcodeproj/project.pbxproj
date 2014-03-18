@@ -117,11 +117,87 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11D146CA18D89AE0002B6DD4 /* event */ = {
+			isa = PBXGroup;
+			children = (
+				4930B15F18BF8BC1004A3398 /* EventViewController.h */,
+				4930B16018BF8BC1004A3398 /* EventViewController.m */,
+				4930B16518C0DF50004A3398 /* EventTableViewCell.h */,
+				4930B16618C0DF50004A3398 /* EventTableViewCell.m */,
+				4930B16218C0CC89004A3398 /* EventDetailViewController.h */,
+				4930B16318C0CC89004A3398 /* EventDetailViewController.m */,
+			);
+			name = event;
+			sourceTree = "<group>";
+		};
+		11D146CC18D89B1C002B6DD4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4930B16B18C37056004A3398 /* Event.h */,
+				4930B16C18C37056004A3398 /* Event.m */,
+				4930B16818C37053004A3398 /* Expense.h */,
+				4930B16918C37054004A3398 /* Expense.m */,
+				4919381E18CE0F7C006E8C5D /* Category.h */,
+				4919381F18CE0F7C006E8C5D /* Category.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		11D146CD18D89B49002B6DD4 /* member */ = {
+			isa = PBXGroup;
+			children = (
+				49719426176AF9400083624D /* MemberDetailViewController.h */,
+				49719427176AF9400083624D /* MemberDetailViewController.m */,
+				49719429176B028C0083624D /* MemberViewController.h */,
+				4971942A176B028C0083624D /* MemberViewController.m */,
+			);
+			name = member;
+			sourceTree = "<group>";
+		};
+		11D146CE18D89B51002B6DD4 /* expense */ = {
+			isa = PBXGroup;
+			children = (
+				4971941E1768575D0083624D /* ExpenseViewController.h */,
+				4971941F1768575D0083624D /* ExpenseViewController.m */,
+				49719421176857F30083624D /* ExpenseDetailViewController.h */,
+				49719422176857F30083624D /* ExpenseDetailViewController.m */,
+				4930B15918BE2359004A3398 /* ExpenseTableViewCell.h */,
+				4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */,
+			);
+			name = expense;
+			sourceTree = "<group>";
+		};
+		11D146CF18D89B93002B6DD4 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				49EBF56718CA138500A9B2A5 /* CategoryViewController.h */,
+				49EBF56818CA138500A9B2A5 /* CategoryViewController.m */,
+				49CD953A18CB58F3002A85F3 /* CategoryDetailViewController.h */,
+				49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */,
+				4919381B18CE0BB2006E8C5D /* SubCategoryViewController.h */,
+				4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */,
+				4919382118CE1394006E8C5D /* SubCategoryDetailViewController.h */,
+				4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */,
+			);
+			name = category;
+			sourceTree = "<group>";
+		};
+		11D146D018D89BA7002B6DD4 /* report */ = {
+			isa = PBXGroup;
+			children = (
+				49BBCD1418B9EC7C00BBED45 /* ReportViewController.h */,
+				49BBCD1518B9EC7C00BBED45 /* ReportViewController.m */,
+				49BBCD1718BA00D200BBED45 /* ReportTableViewCell.h */,
+				49BBCD1818BA00D200BBED45 /* ReportTableViewCell.m */,
+			);
+			name = report;
+			sourceTree = "<group>";
+		};
 		497193EC17681D930083624D = {
 			isa = PBXGroup;
 			children = (
-				49719424176862AB0083624D /* CoreData.framework */,
 				497193FE17681D940083624D /* chyy */,
+				49719424176862AB0083624D /* CoreData.framework */,
 				497193F717681D940083624D /* Frameworks */,
 				497193F617681D940083624D /* Products */,
 			);
@@ -148,47 +224,19 @@
 		497193FE17681D940083624D /* chyy */ = {
 			isa = PBXGroup;
 			children = (
+				11D146D018D89BA7002B6DD4 /* report */,
+				11D146CF18D89B93002B6DD4 /* category */,
+				11D146CE18D89B51002B6DD4 /* expense */,
+				11D146CD18D89B49002B6DD4 /* member */,
+				11D146CC18D89B1C002B6DD4 /* model */,
+				11D146CA18D89AE0002B6DD4 /* event */,
 				4971940717681D940083624D /* chyyAppDelegate.h */,
-				4930B16218C0CC89004A3398 /* EventDetailViewController.h */,
-				4930B16318C0CC89004A3398 /* EventDetailViewController.m */,
 				4971940817681D940083624D /* chyyAppDelegate.m */,
 				4971941017681D940083624D /* MainStoryboard.storyboard */,
 				4971941317681D940083624D /* chyyViewController.h */,
 				4971941417681D940083624D /* chyyViewController.m */,
 				497193FF17681D940083624D /* Supporting Files */,
 				4971941B176820DE0083624D /* ExpenseRecord.xcdatamodeld */,
-				4971941E1768575D0083624D /* ExpenseViewController.h */,
-				4971941F1768575D0083624D /* ExpenseViewController.m */,
-				49719421176857F30083624D /* ExpenseDetailViewController.h */,
-				49719422176857F30083624D /* ExpenseDetailViewController.m */,
-				49719426176AF9400083624D /* MemberDetailViewController.h */,
-				49719427176AF9400083624D /* MemberDetailViewController.m */,
-				49719429176B028C0083624D /* MemberViewController.h */,
-				4971942A176B028C0083624D /* MemberViewController.m */,
-				49BBCD1418B9EC7C00BBED45 /* ReportViewController.h */,
-				49BBCD1518B9EC7C00BBED45 /* ReportViewController.m */,
-				49BBCD1718BA00D200BBED45 /* ReportTableViewCell.h */,
-				49BBCD1818BA00D200BBED45 /* ReportTableViewCell.m */,
-				4930B15918BE2359004A3398 /* ExpenseTableViewCell.h */,
-				4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */,
-				4930B15F18BF8BC1004A3398 /* EventViewController.h */,
-				4930B16018BF8BC1004A3398 /* EventViewController.m */,
-				4930B16518C0DF50004A3398 /* EventTableViewCell.h */,
-				4930B16618C0DF50004A3398 /* EventTableViewCell.m */,
-				4930B16B18C37056004A3398 /* Event.h */,
-				4930B16C18C37056004A3398 /* Event.m */,
-				4930B16818C37053004A3398 /* Expense.h */,
-				4930B16918C37054004A3398 /* Expense.m */,
-				49EBF56718CA138500A9B2A5 /* CategoryViewController.h */,
-				49EBF56818CA138500A9B2A5 /* CategoryViewController.m */,
-				49CD953A18CB58F3002A85F3 /* CategoryDetailViewController.h */,
-				49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */,
-				4919381B18CE0BB2006E8C5D /* SubCategoryViewController.h */,
-				4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */,
-				4919381E18CE0F7C006E8C5D /* Category.h */,
-				4919381F18CE0F7C006E8C5D /* Category.m */,
-				4919382118CE1394006E8C5D /* SubCategoryDetailViewController.h */,
-				4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */,
 			);
 			path = chyy;
 			sourceTree = "<group>";

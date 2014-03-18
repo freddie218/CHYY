@@ -54,20 +54,15 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return self.events.count;
 }
 
@@ -84,9 +79,9 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
         [context deleteObject:[self.events objectAtIndex:indexPath.row]];
         
         NSError *error = nil;
@@ -98,25 +93,15 @@
         [self.events removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
 }
 
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"EventExpense"]) {
         ExpenseViewController *expenseViewController = (ExpenseViewController *)segue.destinationViewController;
-        
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        Event *event = [self.events objectAtIndex:path.row];
-        
-        expenseViewController.event = event;
+
+        expenseViewController.event = [self.events objectAtIndex:path.row];
     }
 
 }
