@@ -107,15 +107,28 @@
     
     Expense *expense;
     
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
     if (indexPath.section == 0) {
-        expense = [self.expenses objectAtIndex:indexPath.row];
+        expense = [[self.expenses sortedArrayUsingDescriptors:sortDescriptors] objectAtIndex:indexPath.row];
     } else {
-        expense = [self.settledExpenses objectAtIndex:indexPath.row];
+        expense = [[self.settledExpenses sortedArrayUsingDescriptors:sortDescriptors] objectAtIndex:indexPath.row];
     }
     
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@", expense.payer];
+    cell.payerLabel.text = [NSString stringWithFormat:@"%@", expense.payer];
+    cell.typeLabel.text = [NSString stringWithFormat:@"%@", expense.reason];
+    cell.memoLabel.text = [NSString stringWithFormat:@"%@", expense.memo];
     cell.participantsLabel.text = [NSString stringWithFormat:@"%@", expense.participant];
+    cell.participantsCountLabel.text = [NSString stringWithFormat:@"(共%lu人)", (unsigned long)[[expense.participant componentsSeparatedByString:@","] count]];
     cell.expenseLabel.text = [NSString stringWithFormat:@"%.02f", [expense.amount doubleValue]];
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth fromDate:expense.time];
+    NSInteger day = [components day];
+    NSInteger month = [components month];
+    cell.dayLabel.text = [NSString stringWithFormat:@"%02ld", (long)day];
+    cell.monthLabel.text = [NSString stringWithFormat:@"%ld月", (long)month];
     
     return cell;
 }
