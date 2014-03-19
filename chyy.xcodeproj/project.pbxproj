@@ -10,6 +10,9 @@
 		4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */; };
 		4919382018CE0F7C006E8C5D /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381F18CE0F7C006E8C5D /* Category.m */; };
 		4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */; };
+		49201E6918D9FF2600770C78 /* app_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49201E6618D9FF2600770C78 /* app_icon@2x.png */; };
+		49201E6A18D9FF2600770C78 /* app_icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 49201E6718D9FF2600770C78 /* app_icon~ipad.png */; };
+		49201E6B18D9FF2600770C78 /* app_icon~ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49201E6818D9FF2600770C78 /* app_icon~ipad@2x.png */; };
 		4930B15B18BE2359004A3398 /* ExpenseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */; };
 		4930B16118BF8BC1004A3398 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16018BF8BC1004A3398 /* EventViewController.m */; };
 		4930B16418C0CC89004A3398 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16318C0CC89004A3398 /* EventDetailViewController.m */; };
@@ -50,6 +53,9 @@
 		4919381F18CE0F7C006E8C5D /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		4919382118CE1394006E8C5D /* SubCategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryDetailViewController.h; sourceTree = "<group>"; };
 		4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryDetailViewController.m; sourceTree = "<group>"; };
+		49201E6618D9FF2600770C78 /* app_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon@2x.png"; sourceTree = "<group>"; };
+		49201E6718D9FF2600770C78 /* app_icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon~ipad.png"; sourceTree = "<group>"; };
+		49201E6818D9FF2600770C78 /* app_icon~ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon~ipad@2x.png"; sourceTree = "<group>"; };
 		4930B15918BE2359004A3398 /* ExpenseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseTableViewCell.h; sourceTree = "<group>"; };
 		4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseTableViewCell.m; sourceTree = "<group>"; };
 		4930B15F18BF8BC1004A3398 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
@@ -244,6 +250,9 @@
 		497193FF17681D940083624D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49201E6618D9FF2600770C78 /* app_icon@2x.png */,
+				49201E6718D9FF2600770C78 /* app_icon~ipad.png */,
+				49201E6818D9FF2600770C78 /* app_icon~ipad@2x.png */,
 				49A1CCC418CF7D9400029D88 /* navbar_events@2x.png */,
 				49A1CCC518CF7D9400029D88 /* navbar_setting@2x.png */,
 				49A1CCC018CF793E00029D88 /* navbar_category@2x.png */,
@@ -312,12 +321,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4971940317681D940083624D /* InfoPlist.strings in Resources */,
+				49201E6918D9FF2600770C78 /* app_icon@2x.png in Resources */,
 				4971940B17681D940083624D /* Default.png in Resources */,
 				49A1CCC118CF793E00029D88 /* navbar_category@2x.png in Resources */,
 				4971940D17681D940083624D /* Default@2x.png in Resources */,
 				49A1CCBF18CF768E00029D88 /* navbar_users@2x.png in Resources */,
+				49201E6B18D9FF2600770C78 /* app_icon~ipad@2x.png in Resources */,
 				4971940F17681D940083624D /* Default-568h@2x.png in Resources */,
 				49A1CCC718CF7D9400029D88 /* navbar_setting@2x.png in Resources */,
+				49201E6A18D9FF2600770C78 /* app_icon~ipad.png in Resources */,
 				4971941217681D940083624D /* MainStoryboard.storyboard in Resources */,
 				49A1CCC618CF7D9400029D88 /* navbar_events@2x.png in Resources */,
 			);
