@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13B3116" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Category" representedClassName="Category" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="childcategories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="parentcategory" inverseEntity="Category" syncable="YES"/>
@@ -21,8 +21,7 @@
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="expensetoevent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="eventexpenses" inverseEntity="Event" syncable="YES"/>
     </entity>
-    <entity name="Member" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Member" representedClassName="Member" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -30,6 +29,6 @@
         <element name="Category" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Event" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Expense" positionX="0" positionY="0" width="128" height="178"/>
-        <element name="Member" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Member" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1109C2F118E29AA900D22A42 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 1109C2F018E29AA900D22A42 /* Member.m */; };
 		4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */; };
 		4919382018CE0F7C006E8C5D /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381F18CE0F7C006E8C5D /* Category.m */; };
 		4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */; };
@@ -47,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1109C2EF18E29AA900D22A42 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		1109C2F018E29AA900D22A42 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		4919381B18CE0BB2006E8C5D /* SubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryViewController.h; sourceTree = "<group>"; };
 		4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryViewController.m; sourceTree = "<group>"; };
 		4919381E18CE0F7C006E8C5D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				4930B16918C37054004A3398 /* Expense.m */,
 				4919381E18CE0F7C006E8C5D /* Category.h */,
 				4919381F18CE0F7C006E8C5D /* Category.m */,
+				1109C2EF18E29AA900D22A42 /* Member.h */,
+				1109C2F018E29AA900D22A42 /* Member.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				497194201768575D0083624D /* ExpenseViewController.m in Sources */,
 				4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */,
 				4930B16718C0DF50004A3398 /* EventTableViewCell.m in Sources */,
+				1109C2F118E29AA900D22A42 /* Member.m in Sources */,
 				49BBCD1618B9EC7C00BBED45 /* ReportViewController.m in Sources */,
 				49EBF56918CA138500A9B2A5 /* CategoryViewController.m in Sources */,
 				4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */,

@@ -7,16 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Member.h"
 
-@interface MemberDetailViewController : UIViewController <UITextFieldDelegate>
+@interface MemberDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (strong) NSManagedObject *member;
+@property (strong) Member *member;
+@property (strong, nonatomic) NSArray *gendars;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *sexTextField;
-@property (strong, nonatomic) IBOutlet UITextField *idTextField;
 
 @property (strong, nonatomic) IBOutlet UITextField *currentTextField;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;

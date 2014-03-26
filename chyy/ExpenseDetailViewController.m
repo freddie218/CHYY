@@ -36,6 +36,8 @@
 
 - (IBAction)save:(id)sender
 {
+    [self.currentTextField resignFirstResponder];
+    
     if(![[self.payerTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
        ![[self.amountTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
        ![[self.reasonTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||

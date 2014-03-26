@@ -50,20 +50,17 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return self.members.count;
 }
 
@@ -72,9 +69,9 @@
     static NSString *CellIdentifier = @"MemberCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSManagedObject *member = [self.members objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [member valueForKey:@"name"]]];
-    [cell.detailTextLabel setText:[member valueForKey:@"id"]];
+    Member *member = [self.members objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@", member.name]];
+    [cell.detailTextLabel setText:member.sex];
     
     return cell;
 }
@@ -82,7 +79,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"UpdateMember"]) {
-        NSManagedObject *selectedMember = [self.members objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        Member *selectedMember = [self.members objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         MemberDetailViewController *detailViewCon = segue.destinationViewController;
         detailViewCon.member = selectedMember;
     }

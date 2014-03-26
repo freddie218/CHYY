@@ -316,7 +316,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddP-y1-CEZ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddP-y1-CEZ">
                                 <rect key="frame" x="0.0" y="64" width="321" height="504"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="57O-Re-vKL">
@@ -335,23 +335,11 @@
                                             <outlet property="delegate" destination="WSB-QB-IUC" id="ZDn-Ux-dcf"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L9n-mR-Coo">
-                                        <rect key="frame" x="20" y="139" width="281" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="WSB-QB-IUC" id="lwJ-Rr-yXO"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="L9n-mR-Coo" secondAttribute="bottom" constant="300" id="ImO-Zs-KhA"/>
                                     <constraint firstItem="UgV-3T-PYc" firstAttribute="centerX" secondItem="ddP-y1-CEZ" secondAttribute="centerX" id="JPa-pZ-C7e"/>
-                                    <constraint firstItem="L9n-mR-Coo" firstAttribute="leading" secondItem="ddP-y1-CEZ" secondAttribute="leading" constant="20" symbolic="YES" id="JS2-V8-pVR"/>
                                     <constraint firstItem="57O-Re-vKL" firstAttribute="top" secondItem="ddP-y1-CEZ" secondAttribute="top" constant="22" id="OxS-Ub-1s4"/>
-                                    <constraint firstItem="L9n-mR-Coo" firstAttribute="top" secondItem="ddP-y1-CEZ" secondAttribute="top" constant="139" id="XyO-wI-Gfh"/>
-                                    <constraint firstAttribute="trailing" secondItem="L9n-mR-Coo" secondAttribute="trailing" constant="20" symbolic="YES" id="YOU-Ih-4Ld"/>
                                     <constraint firstAttribute="trailing" secondItem="UgV-3T-PYc" secondAttribute="trailing" constant="20" symbolic="YES" id="Ys8-pz-K2g"/>
                                     <constraint firstItem="UgV-3T-PYc" firstAttribute="top" secondItem="ddP-y1-CEZ" secondAttribute="top" constant="80" id="e74-Ea-kjb"/>
                                     <constraint firstItem="UgV-3T-PYc" firstAttribute="leading" secondItem="ddP-y1-CEZ" secondAttribute="leading" constant="20" symbolic="YES" id="h0B-GZ-wuv"/>
@@ -372,8 +360,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="idTextField" destination="L9n-mR-Coo" id="CVB-MU-9ZO"/>
                         <outlet property="nameTextField" destination="57O-Re-vKL" id="aAn-cc-APP"/>
+                        <outlet property="scrollView" destination="ddP-y1-CEZ" id="9c9-dl-W9K"/>
                         <outlet property="sexTextField" destination="UgV-3T-PYc" id="Pjq-gx-yz9"/>
                     </connections>
                 </viewController>
