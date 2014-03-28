@@ -22,6 +22,7 @@
         <relationship name="expensetoevent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="eventexpenses" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Member" representedClassName="Member" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -29,6 +30,6 @@
         <element name="Category" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Event" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Expense" positionX="0" positionY="0" width="128" height="178"/>
-        <element name="Member" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="Member" positionX="0" positionY="0" width="128" height="90"/>
     </elements>
 </model>

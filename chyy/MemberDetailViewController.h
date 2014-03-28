@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Member.h"
 
-@interface MemberDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface MemberDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong) Member *member;
+@property (strong, nonatomic) NSData *avatarImageData;
 @property (strong, nonatomic) NSArray *gendars;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *sexTextField;
+@property (strong, nonatomic) IBOutlet UIImageView *avatarImageView;
 
 @property (strong, nonatomic) IBOutlet UITextField *currentTextField;
 
@@ -23,5 +25,6 @@
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
+- (IBAction)addAvatar:(UITapGestureRecognizer *)sender;
 
 @end

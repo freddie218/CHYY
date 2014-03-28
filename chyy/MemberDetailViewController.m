@@ -43,18 +43,20 @@
         [av show];
         return;
     }
-
-    [self dismissViewControllerAnimated:YES completion:nil];
     
     NSManagedObjectContext *context = [self managedObjectContext];
     
+    NSLog(@"============== size: %d", self.avatarImageData.length);
+    
     if (self.member) {
-        [self.member setValue:self.nameTextField.text forKey:@"name"];
-        [self.member setValue:self.sexTextField.text forKey:@"sex"];
+        self.member.name = self.nameTextField.text;
+        self.member.sex = self.sexTextField.text;
+        self.member.avatar = self.avatarImageData;
     } else {
         Member *newMember = [NSEntityDescription insertNewObjectForEntityForName:@"Member" inManagedObjectContext:context];
         newMember.name = self.nameTextField.text;
         newMember.sex = self.sexTextField.text;
+        newMember.avatar = self.avatarImageData;
     }
 
     NSError *error = nil;
@@ -62,6 +64,7 @@
         NSLog(@"can't save! %@ %@", error, [error localizedDescription]);
     }
     
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
@@ -117,8 +120,9 @@
     [self.view addGestureRecognizer:tap];
     
     if (self.member) {
-        [self.nameTextField setText:self.member.name];
-        [self.sexTextField setText:self.member.sex];
+        self.nameTextField.text = self.member.name;
+        self.sexTextField.text = self.member.sex;
+        self.avatarImageView.image = [UIImage imageWithData:self.member.avatar];
     }
 }
 
@@ -160,6 +164,31 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     [self.currentTextField setText:[self.gendars objectAtIndex:row]];
+    
+}
+
+- (IBAction)addAvatar:(UITapGestureRecognizer *)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *avatarImage = info[UIImagePickerControllerEditedImage];
+    self.avatarImageView.image = avatarImage;
+    self.avatarImageData = UIImageJPEGRepresentation(avatarImage, 0.9);
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
 

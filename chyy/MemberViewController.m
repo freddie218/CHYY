@@ -66,12 +66,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MemberCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
     Member *member = [self.members objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@", member.name]];
-    [cell.detailTextLabel setText:member.sex];
+    
+    static NSString *cellIdentifier = @"MemberCell";
+    MemberTableViewCell *cell = (MemberTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    cell.nameLabel.text = member.name;
+    cell.gendarLabel.text = member.sex;
+    cell.avatarImageView.image = [UIImage imageWithData:member.avatar];
     
     return cell;
 }
