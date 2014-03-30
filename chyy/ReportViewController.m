@@ -158,8 +158,22 @@
     cell.totalLabel.text = [NSString stringWithFormat:@"%.02f", [[report valueForKey:@"total"] doubleValue]];
     cell.balanceLabel.text = [NSString stringWithFormat:@"%.02f", [[report valueForKey:@"balance"] doubleValue]];
     
-    return cell;
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *memberResult = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
+    memberResult.predicate = [NSPredicate predicateWithFormat:@"name == %@", [report valueForKey:@"name"]];
+    Member *member = [[context executeFetchRequest:memberResult error:nil] firstObject];
     
+    if ([member.avatar length] <= 0) {
+        if ([member.sex isEqualToString:@"女"]) {
+            cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_female.jpg"];
+        } else {
+            cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_male.jpg"];
+        }
+    } else {
+        cell.avatarImageView.image = [UIImage imageWithData:member.avatar];
+    }
+    
+    return cell;    
 }
 
 - (IBAction)resolve:(id)sender

@@ -13,5 +13,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *totalLabel;
 @property (nonatomic, weak) IBOutlet UILabel *balanceLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *avatarImageView;
 
 @end

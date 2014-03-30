@@ -130,6 +130,8 @@
         } else {
             self.avatarImageView.image = [UIImage imageWithData:self.member.avatar];
         }
+    } else {
+        self.avatarImageView.image = [UIImage imageNamed:@"default_avatar_female.jpg"];
     }
 }
 

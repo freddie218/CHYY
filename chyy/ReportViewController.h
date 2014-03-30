@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 #import "Expense.h"
+#import "Member.h"
 #import "ExpenseViewController.h"
 
 @interface ReportViewController : UITableViewController

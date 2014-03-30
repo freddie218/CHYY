@@ -13,6 +13,7 @@
 @synthesize nameLabel;
 @synthesize totalLabel;
 @synthesize balanceLabel;
+@synthesize avatarImageView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
