@@ -75,6 +75,16 @@
     cell.gendarLabel.text = member.sex;
     cell.avatarImageView.image = [UIImage imageWithData:member.avatar];
     
+    if ([member.avatar length] <= 0) {
+        if ([member.sex isEqualToString:@"女"]) {
+            cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_female.jpg"];
+        } else {
+            cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_male.jpg"];
+        }
+    } else {
+        cell.avatarImageView.image = [UIImage imageWithData:member.avatar];
+    }
+    
     return cell;
 }
 

@@ -46,8 +46,6 @@
     
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    NSLog(@"============== size: %d", self.avatarImageData.length);
-    
     if (self.member) {
         self.member.name = self.nameTextField.text;
         self.member.sex = self.sexTextField.text;
@@ -122,7 +120,16 @@
     if (self.member) {
         self.nameTextField.text = self.member.name;
         self.sexTextField.text = self.member.sex;
-        self.avatarImageView.image = [UIImage imageWithData:self.member.avatar];
+        
+        if ([self.member.avatar length] <= 0) {
+            if ([self.member.sex isEqualToString:@"女"]) {
+                self.avatarImageView.image = [UIImage imageNamed:@"default_avatar_female.jpg"];
+            } else {
+                self.avatarImageView.image = [UIImage imageNamed:@"default_avatar_male.jpg"];
+            }
+        } else {
+            self.avatarImageView.image = [UIImage imageWithData:self.member.avatar];
+        }
     }
 }
 
@@ -181,7 +188,7 @@
     
     UIImage *avatarImage = info[UIImagePickerControllerEditedImage];
     self.avatarImageView.image = avatarImage;
-    self.avatarImageData = UIImageJPEGRepresentation(avatarImage, 0.9);
+    self.avatarImageData = UIImagePNGRepresentation(avatarImage);
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
