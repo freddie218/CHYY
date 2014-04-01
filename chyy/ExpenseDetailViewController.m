@@ -108,7 +108,7 @@
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy年M月d日 HH:mm"];
-    [df setTimeZone:[NSTimeZone timeZoneWithName:@"China/Beijing"]];
+    [df setTimeZone:[NSTimeZone defaultTimeZone]];
 
     if (self.expense) {
         [self.payerTextField setText:[self.expense valueForKey:@"payer"]];
@@ -178,7 +178,7 @@
     } else if (textField == self.timeTextField) {
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         [df setDateFormat:@"yyyy年M月d日 HH:mm"];
-        [df setTimeZone:[NSTimeZone timeZoneWithName:@"China/Beijing"]];
+        [df setTimeZone:[NSTimeZone defaultTimeZone]];
         UIDatePicker *picker = [[UIDatePicker alloc] init];
         if (textField.text.length > 0) {
             [picker setDate: [df dateFromString: textField.text]];
@@ -197,7 +197,7 @@
 {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy年M月d日 HH:mm"];
-    [df setTimeZone:[NSTimeZone timeZoneWithName:@"China/Beijing"]];
+    [df setTimeZone:[NSTimeZone defaultTimeZone]];
     UIDatePicker *picker = (UIDatePicker *)self.timeTextField.inputView;
     self.timeTextField.text = [df stringFromDate: picker.date];
 }
