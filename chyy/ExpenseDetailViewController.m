@@ -55,7 +55,8 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+    [df setDateFormat:@"yyyy年MM月dd日 HH:mm"];
+    [df setTimeZone:[NSTimeZone timeZoneWithName:@"China/Beijing"]];
     
     if (self.expense) {
         expense.payer = self.payerTextField.text;
@@ -106,7 +107,8 @@
     [self.view addGestureRecognizer:tap];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+    [df setDateFormat:@"yyyy年M月d日 HH:mm"];
+    [df setTimeZone:[NSTimeZone timeZoneWithName:@"China/Beijing"]];
 
     if (self.expense) {
         [self.payerTextField setText:[self.expense valueForKey:@"payer"]];
@@ -116,6 +118,8 @@
         [self.reasonTextField setText:[self.expense valueForKey:@"reason"]];
         [self.participantTextField setText:[self.expense valueForKey:@"participant"]];
         [self.memoTextField setText:[self.expense valueForKey:@"memo"]];
+    } else{
+        [self.timeTextField setText:[df stringFromDate:[NSDate date]]];
     }
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -172,8 +176,17 @@
         picker.delegate = self;
         textField.inputView = picker;
     } else if (textField == self.timeTextField) {
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"yyyy年M月d日 HH:mm"];
+        [df setTimeZone:[NSTimeZone timeZoneWithName:@"China/Beijing"]];
         UIDatePicker *picker = [[UIDatePicker alloc] init];
-        [picker setDate:[NSDate date]];
+        if (textField.text.length > 0) {
+            [picker setDate: [df dateFromString: textField.text]];
+        }
+        else {
+            [picker setDate:[NSDate date]];
+        }
+        
         [picker addTarget:self action:@selector(updateTimeTextField:) forControlEvents:UIControlEventValueChanged];
         textField.inputView = picker;
     }
@@ -182,8 +195,11 @@
 
 - (void)updateTimeTextField: (id)sender
 {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy年M月d日 HH:mm"];
+    [df setTimeZone:[NSTimeZone timeZoneWithName:@"China/Beijing"]];
     UIDatePicker *picker = (UIDatePicker *)self.timeTextField.inputView;
-    self.timeTextField.text = [NSString stringWithFormat:@"%@", picker.date];
+    self.timeTextField.text = [df stringFromDate: picker.date];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
