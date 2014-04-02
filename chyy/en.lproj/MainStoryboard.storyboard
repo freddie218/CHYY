@@ -134,6 +134,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="xGz-V4-AmH" kind="modal" identifier="UpdateSubCategory" id="Tkb-Zv-Zz8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -971,6 +974,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="pqq-CA-Zzc"/>
+        <segue reference="Tkb-Zv-Zz8"/>
         <segue reference="rN5-Wg-see"/>
     </inferredMetricsTieBreakers>
 </document>

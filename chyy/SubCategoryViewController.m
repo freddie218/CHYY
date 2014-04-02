@@ -83,8 +83,39 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     SubCategoryDetailViewController *detailViewCon = segue.destinationViewController;
-    
     detailViewCon.parentCategory = self.parentCategory;
+    
+    if ([[segue identifier] isEqualToString:@"UpdateSubCategory"]) {
+        detailViewCon.category = [self.subCategories objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+    }
+    
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [context deleteObject:[self.subCategories objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        [self.subCategories removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+
 
 @end

@@ -12,6 +12,7 @@
 @interface SubCategoryDetailViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong) Category *parentCategory;
+@property (strong) Category *category;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 

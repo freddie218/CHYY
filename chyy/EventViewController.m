@@ -77,12 +77,25 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
         NSManagedObjectContext *context = [self managedObjectContext];
-        [context deleteObject:[self.events objectAtIndex:indexPath.row]];
+        
+        Event *currentEvent = [self.events objectAtIndex:indexPath.row];
+        NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Expense"];
+        result.predicate = [NSPredicate predicateWithFormat:@"(expensetoevent = %@)", currentEvent, @"active"];
+        NSArray *expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
+        
+        for (Expense *expense in expenses) {
+            [context deleteObject:expense];
+        }
+        [context deleteObject:currentEvent];
         
         NSError *error = nil;
         if (![context save:&error]) {

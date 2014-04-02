@@ -10,6 +10,7 @@
 
 @implementation SubCategoryDetailViewController
 
+@synthesize category;
 @synthesize parentCategory;
 
 - (NSManagedObjectContext *) managedObjectContext
@@ -44,10 +45,14 @@
     
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    Category *newCategory = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:context];
+    if (self.category) {
+        category.name = self.nameTextField.text;
+    } else {
+        Category *newCategory = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:context];
         
-    newCategory.name = self.nameTextField.text;
-    newCategory.parentcategory = self.parentCategory;        
+        newCategory.name = self.nameTextField.text;
+        newCategory.parentcategory = self.parentCategory;
+    }
     
     NSError *error = nil;
     if (![context save:&error]) {
@@ -100,7 +105,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    if (self.category) {
+        self.nameTextField.text = category.name;
+    }
 }
 
 - (void)didReceiveMemoryWarning

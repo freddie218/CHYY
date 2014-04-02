@@ -92,4 +92,35 @@
     
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = [self managedObjectContext];
+        
+        Category *currentCategory = [self.categories objectAtIndex:indexPath.row];
+        NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+        result.predicate = [NSPredicate predicateWithFormat:@"parentcategory = %@", currentCategory];
+        NSArray *subCategories = [[context executeFetchRequest:result error:nil] mutableCopy];
+        
+        for (Category *category in subCategories) {
+            [context deleteObject:category];
+        }
+        [context deleteObject:currentCategory];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        [self.categories removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 @end
