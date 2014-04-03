@@ -84,7 +84,8 @@
     } else {
         cell.avatarImageView.image = [UIImage imageWithData:member.avatar];
     }
-    
+    [cell.avatarImageView.layer setMasksToBounds:YES];
+    [cell.avatarImageView.layer setCornerRadius:5.0f];
     return cell;
 }
 
