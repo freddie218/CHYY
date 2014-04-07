@@ -900,6 +900,16 @@
                                             <outlet property="delegate" destination="Tvh-vr-Vou" id="ACb-Zc-jL7"/>
                                         </connections>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="参与人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRZ-Mj-uAg">
+                                        <rect key="frame" x="20" y="112" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.50372308590000003" green="0.94507897419999998" blue="0.63441230689999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Tvh-vr-Vou" id="IDk-DI-1Si"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
@@ -909,6 +919,7 @@
                     <navigationItem key="navigationItem" id="t5Z-z6-TL2"/>
                     <connections>
                         <outlet property="nameTextField" destination="xJ2-CH-eB5" id="Vso-g4-Jaf"/>
+                        <outlet property="participantTextField" destination="rRZ-Mj-uAg" id="gL6-gG-mHw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMk-cB-NE0" userLabel="First Responder" sceneMemberID="firstResponder"/>

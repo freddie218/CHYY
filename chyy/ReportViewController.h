@@ -15,6 +15,8 @@
 @interface ReportViewController : UITableViewController
 
 @property (strong) NSMutableArray *reports;
+@property (strong) NSMutableArray *solvedReports;
+
 @property (strong) NSMutableArray *expenses;
 
 @property (strong) Event *event;

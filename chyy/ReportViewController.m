@@ -44,7 +44,8 @@
     
     self.expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
     
-    for (id expense in self.expenses) {
+    for (id expense in self.expenses)
+    {
         NSString *payer = [expense valueForKey:@"payer"];
         NSArray *participants = [[(NSString *)[expense valueForKey:@"participant"] stringByReplacingOccurrencesOfString:@" " withString:@""] componentsSeparatedByString:@","];
         NSNumber *participantCount = [NSNumber numberWithInteger:[participants count]];
@@ -110,6 +111,9 @@
     
 //    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 //    NSLog(@"reports is:  %@", self.reports);
+    
+    self.solvedReports = [[NSMutableArray alloc] initWithArray:self.reports copyItems:YES];
+    
     
     [self.tableView reloadData];
 }

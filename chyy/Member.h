@@ -15,5 +15,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * sex;
 @property (nonatomic, retain) NSData * avatar;
+@property (nonatomic, retain) NSManagedObject *membertoevent;
 
 @end

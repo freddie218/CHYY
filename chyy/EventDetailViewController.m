@@ -12,6 +12,7 @@
 @implementation EventDetailViewController
 
 @synthesize event;
+@synthesize members;
 
 - (NSManagedObjectContext *) managedObjectContext
 {
@@ -34,6 +35,7 @@
 
 - (IBAction)save:(id)sender
 {
+    [self.currentTextField resignFirstResponder];
     
     if(![[self.nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]) {
         //string is all whitespace
@@ -48,11 +50,11 @@
     
     if (self.event) {
         event.name = self.nameTextField.text;
+        event.eventmembers = self.participantSet;
     } else {
         Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
-           
         newEvent.name = self.nameTextField.text;
-        
+        newEvent.eventmembers = self.participantSet;        
     }
     
     NSError *error = nil;
@@ -81,17 +83,33 @@
 - (void) dismissKeyboard
 {
     [self.nameTextField resignFirstResponder];
+    [self.participantTextField resignFirstResponder];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    return YES;
+    NSInteger nextTag = textField.tag + 1;
+    UIResponder *nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        [nextResponder becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+    }
+    
+    return NO;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     self.currentTextField = textField;
+    
+    if (textField == self.participantTextField ) {
+        UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 300)];
+        picker.dataSource = self;
+        picker.delegate = self;
+        textField.inputView = picker;
+    }
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -110,8 +128,16 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *memberResult = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
+    self.members = [[context executeFetchRequest:memberResult error:nil] mutableCopy];
+    
     if (self.event) {
         [self.nameTextField setText:event.name];
+        self.participantSet = (NSMutableSet *)self.event.eventmembers;
+        [self.currentTextField setText:[[self.participantSet allObjects] componentsJoinedByString:@","]];
+    } else {
+        self.participantSet = [[NSMutableSet alloc] initWithCapacity:self.members.count];
     }
 }
 
@@ -120,5 +146,26 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return members.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [[members objectAtIndex:row] valueForKey:@"name"];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    [self.participantSet addObject:[members objectAtIndex:row]];
+}
+
 
 @end

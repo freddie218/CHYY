@@ -9,6 +9,7 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="eventexpenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="expensetoevent" inverseEntity="Expense" syncable="YES"/>
+        <relationship name="eventmembers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Member" inverseName="membertoevent" inverseEntity="Member" syncable="YES"/>
     </entity>
     <entity name="Expense" representedClassName="Expense" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -25,11 +26,12 @@
         <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="membertoevent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="eventmembers" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
         <element name="Category" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="Event" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Event" positionX="0" positionY="0" width="128" height="103"/>
         <element name="Expense" positionX="0" positionY="0" width="128" height="178"/>
-        <element name="Member" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Member" positionX="0" positionY="0" width="128" height="103"/>
     </elements>
 </model>

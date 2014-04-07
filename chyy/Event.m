@@ -8,6 +8,7 @@
 
 #import "Event.h"
 #import "Expense.h"
+#import "Member.h"
 
 
 @implementation Event
@@ -15,5 +16,6 @@
 @dynamic id;
 @dynamic name;
 @dynamic eventexpenses;
+@dynamic eventmembers;
 
 @end

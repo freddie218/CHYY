@@ -123,8 +123,8 @@
     }
     
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSFetchRequest *memberResult = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
-    self.members = [[context executeFetchRequest:memberResult error:nil] mutableCopy];
+
+    self.members = [[self.event.eventmembers allObjects] mutableCopy];
 
     NSFetchRequest *categoryResult = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
     categoryResult.predicate = [NSPredicate predicateWithFormat:@"parentcategory == %@", nil];

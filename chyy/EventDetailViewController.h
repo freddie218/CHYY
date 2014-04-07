@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 
-@interface EventDetailViewController : UIViewController <UITextFieldDelegate>
+@interface EventDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong) Event *event;
+@property (strong, nonatomic) NSMutableArray *members;
+@property (strong, nonatomic) NSMutableSet *participantSet;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *participantTextField;
 
 @property (strong, nonatomic) IBOutlet UITextField *currentTextField;
 
