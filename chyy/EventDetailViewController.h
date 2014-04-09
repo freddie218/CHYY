@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 
-@interface EventDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface EventDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong) Event *event;
 @property (strong, nonatomic) NSMutableArray *members;

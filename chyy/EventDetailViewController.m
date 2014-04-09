@@ -135,7 +135,7 @@
     if (self.event) {
         [self.nameTextField setText:event.name];
         self.participantSet = (NSMutableSet *)self.event.eventmembers;
-        [self.currentTextField setText:[[self.participantSet allObjects] componentsJoinedByString:@","]];
+        [self.participantTextField setText:[[self.participantSet allObjects] componentsJoinedByString:@","]];
     } else {
         self.participantSet = [[NSMutableSet alloc] initWithCapacity:self.members.count];
     }
@@ -165,6 +165,25 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     [self.participantSet addObject:[members objectAtIndex:row]];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+//    return self.participantSet.count + 1;
+    return members.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"Cell";
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    UIImageView *memberImageView = (UIImageView *)[cell viewWithTag:100];
+    memberImageView.image = [UIImage imageWithData:[[members objectAtIndex:indexPath.row] valueForKey:@"avatar"]];
+    
+    UILabel *memberName = (UILabel *)[cell viewWithTag:101];
+    memberName.text = [[members objectAtIndex:indexPath.row] valueForKey:@"name"];
+    
+    return cell;
 }
 
 
