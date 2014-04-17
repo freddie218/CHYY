@@ -168,8 +168,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//    return self.participantSet.count + 1;
-    return members.count;
+    return self.participantSet.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -178,10 +177,16 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
     UIImageView *memberImageView = (UIImageView *)[cell viewWithTag:100];
-    memberImageView.image = [UIImage imageWithData:[[members objectAtIndex:indexPath.row] valueForKey:@"avatar"]];
-    
     UILabel *memberName = (UILabel *)[cell viewWithTag:101];
-    memberName.text = [[members objectAtIndex:indexPath.row] valueForKey:@"name"];
+    
+    if (indexPath.row == self.participantSet.count) {
+        memberImageView.image = [UIImage imageNamed:@"add_member.png"];
+        memberName.text = @"";
+        
+    } else {
+        memberImageView.image = [UIImage imageWithData:[[[self.participantSet allObjects] objectAtIndex:indexPath.row] valueForKey:@"avatar"]];
+        memberName.text = [[[self.participantSet allObjects] objectAtIndex:indexPath.row] valueForKey:@"name"];
+    }
     
     return cell;
 }
