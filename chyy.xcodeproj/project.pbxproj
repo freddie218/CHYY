@@ -11,6 +11,8 @@
 		1109C2F718E5AB5300D22A42 /* MemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1109C2F618E5AB5300D22A42 /* MemberTableViewCell.m */; };
 		1109C2FA18E82E8300D22A42 /* default_avatar_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1109C2F818E82E8300D22A42 /* default_avatar_female.jpg */; };
 		1109C2FB18E82E8300D22A42 /* default_avatar_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1109C2F918E82E8300D22A42 /* default_avatar_male.jpg */; };
+		11F8A04E1906AA03009AD973 /* MemberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A04D1906AA03009AD973 /* MemberCollectionViewCell.m */; };
+		11F8A0511906AA87009AD973 /* MemberCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A0501906AA87009AD973 /* MemberCollectionViewController.m */; };
 		4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */; };
 		4919382018CE0F7C006E8C5D /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381F18CE0F7C006E8C5D /* Category.m */; };
 		4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */; };
@@ -56,6 +58,10 @@
 		1109C2F618E5AB5300D22A42 /* MemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberTableViewCell.m; sourceTree = "<group>"; };
 		1109C2F818E82E8300D22A42 /* default_avatar_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_avatar_female.jpg; sourceTree = "<group>"; };
 		1109C2F918E82E8300D22A42 /* default_avatar_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_avatar_male.jpg; sourceTree = "<group>"; };
+		11F8A04C1906AA03009AD973 /* MemberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCollectionViewCell.h; sourceTree = "<group>"; };
+		11F8A04D1906AA03009AD973 /* MemberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCollectionViewCell.m; sourceTree = "<group>"; };
+		11F8A04F1906AA87009AD973 /* MemberCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCollectionViewController.h; sourceTree = "<group>"; };
+		11F8A0501906AA87009AD973 /* MemberCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCollectionViewController.m; sourceTree = "<group>"; };
 		4919381B18CE0BB2006E8C5D /* SubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryViewController.h; sourceTree = "<group>"; };
 		4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryViewController.m; sourceTree = "<group>"; };
 		4919381E18CE0F7C006E8C5D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -168,6 +174,10 @@
 				4971942A176B028C0083624D /* MemberViewController.m */,
 				1109C2F518E5AB5300D22A42 /* MemberTableViewCell.h */,
 				1109C2F618E5AB5300D22A42 /* MemberTableViewCell.m */,
+				11F8A04C1906AA03009AD973 /* MemberCollectionViewCell.h */,
+				11F8A04D1906AA03009AD973 /* MemberCollectionViewCell.m */,
+				11F8A04F1906AA87009AD973 /* MemberCollectionViewController.h */,
+				11F8A0501906AA87009AD973 /* MemberCollectionViewController.m */,
 			);
 			name = member;
 			sourceTree = "<group>";
@@ -371,6 +381,8 @@
 				1109C2F418E5A1DC00D22A42 /* Member.m in Sources */,
 				49BBCD1618B9EC7C00BBED45 /* ReportViewController.m in Sources */,
 				49EBF56918CA138500A9B2A5 /* CategoryViewController.m in Sources */,
+				11F8A0511906AA87009AD973 /* MemberCollectionViewController.m in Sources */,
+				11F8A04E1906AA03009AD973 /* MemberCollectionViewCell.m in Sources */,
 				4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */,
 				4930B16A18C37054004A3398 /* Expense.m in Sources */,
 				49719423176857F30083624D /* ExpenseDetailViewController.m in Sources */,
