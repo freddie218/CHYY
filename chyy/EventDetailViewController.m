@@ -181,7 +181,7 @@
     
     if (indexPath.row == self.participantSet.count) {
         memberImageView.image = [UIImage imageNamed:@"add_member.png"];
-        memberName.text = @"";
+        memberName.text = [NSString stringWithFormat:@"%lu", indexPath.row];
         
     } else {
         memberImageView.image = [UIImage imageWithData:[[[self.participantSet allObjects] objectAtIndex:indexPath.row] valueForKey:@"avatar"]];
@@ -191,12 +191,22 @@
     return cell;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.row == self.participantSet.count;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == self.participantSet.count) {
+        [self performSegueWithIdentifier:@"MemberCollectionSegue" sender:self];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if ([[segue identifier] isEqualToString:@"EventExpense"]) {
-    MemberCollectionViewController *memberCollectionViewController = (MemberCollectionViewController *)segue.destinationViewController;
-    memberCollectionViewController.availableMembers = self.members;
-//    }
+    if ([[segue identifier] isEqualToString:@"MemberCollectionSegue"]) {
+        MemberCollectionViewController *memberCollectionViewController = segue.destinationViewController;
+        memberCollectionViewController.availableMembers = self.members;
+    }
 }
 
 @end
