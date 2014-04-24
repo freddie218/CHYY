@@ -181,6 +181,11 @@
     
     if (indexPath.row == self.participantSet.count) {
         memberImageView.image = [UIImage imageNamed:@"add_member.png"];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(performSegue)];
+        memberImageView.userInteractionEnabled = YES;
+        [memberImageView addGestureRecognizer:tap];
+        
         memberName.text = [NSString stringWithFormat:@"%lu", indexPath.row];
         
     } else {
@@ -196,9 +201,14 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == self.participantSet.count) {
-        [self performSegueWithIdentifier:@"MemberCollectionSegue" sender:self];
-    }
+//    if (indexPath.row == self.participantSet.count) {
+//        [self performSegueWithIdentifier:@"MemberCollectionSegue" sender:self];
+//    }
+}
+
+- (void) performSegue
+{
+    [self performSegueWithIdentifier:@"MemberCollectionSegue" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

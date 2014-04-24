@@ -112,9 +112,57 @@
 //    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 //    NSLog(@"reports is:  %@", self.reports);
     
-    self.solvedReports = [[NSMutableArray alloc] initWithArray:self.reports copyItems:YES];
-    
-    
+
+    // Calculating the final report now
+    // step 1. create two array with positive and negative balance.
+    NSMutableArray *positiveBlanceItems = [[NSMutableArray alloc] init];
+    NSMutableArray *negativeBlanceItems = [[NSMutableArray alloc] init];
+
+    for (NSMutableDictionary *balanceItemDict in self.reports)
+    {
+        if ([[balanceItemDict valueForKey:@"balance"] doubleValue] >= 0)
+        {
+            [positiveBlanceItems addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:[balanceItemDict valueForKey:@"name"], @"name", [balanceItemDict valueForKey:@"balance"], @"balance", nil]];
+        } else {
+            [negativeBlanceItems addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:[balanceItemDict valueForKey:@"name"], @"name", [balanceItemDict valueForKey:@"balance"], @"balance", nil]];
+        }
+    }
+
+    // step 2. order these two item array
+    NSSortDescriptor *balanceDescriptor = [[NSSortDescriptor alloc] initWithKey:@"balance" ascending:NO];
+    positiveBlanceItems = (NSMutableArray *)[positiveBlanceItems sortedArrayUsingDescriptors:[NSArray arrayWithObjects:balanceDescriptor,nil]];
+    negativeBlanceItems = (NSMutableArray *)[negativeBlanceItems sortedArrayUsingDescriptors:[NSArray arrayWithObjects:balanceDescriptor,nil]];
+
+    // step 3. loop through two balance items, to achieve the final report
+    self.solvedReports = [[NSMutableArray alloc] init];
+
+    for (NSMutableDictionary *posiBalItemDict in positiveBlanceItems)
+    {
+        for (NSMutableDictionary *negaBalItemDict in negativeBlanceItems)
+        {
+            double posiDouble = [[posiBalItemDict valueForKey:@"balance"] doubleValue];
+            double negaDouble = [[negaBalItemDict valueForKey:@"balance"] doubleValue]; 
+            if (negaDouble == 0 || posiDouble == 0) continue;
+
+            if (posiDouble + negaDouble >= 0)
+            {
+                [self.solvedReports addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:[posiBalItemDict valueForKey:@"name"], @"to", [negaBalItemDict valueForKey:@"name"], @"from", [NSNumber numberWithDouble:fabs(negaDouble)], @"balance", nil]];
+                [posiBalItemDict setObject:[NSNumber numberWithDouble:(posiDouble + negaDouble)] forKey:@"balance"];
+                [negaBalItemDict setObject:[NSNumber numberWithDouble:0] forKey:@"balance"];
+            } else {
+                [self.solvedReports addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:[posiBalItemDict valueForKey:@"name"], @"to", [negaBalItemDict valueForKey:@"name"], @"from", [NSNumber numberWithDouble:posiDouble], @"balance", nil]];
+                [posiBalItemDict setObject:[NSNumber numberWithDouble:0] forKey:@"balance"];
+                [negaBalItemDict setObject:[NSNumber numberWithDouble:(posiDouble + negaDouble)] forKey:@"balance"];
+            }
+
+            if ([[posiBalItemDict valueForKey:@"balance"] doubleValue] == 0) break;
+        }
+
+    }      
+
+//   NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//   NSLog(@"final reports is:  %@", self.solvedReports);
+
     [self.tableView reloadData];
 }
 
@@ -125,7 +173,12 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+    NSString *cellId = @"HeaderCell";
+    if (section == 1) {
+        cellId = @"ExpenseReportHeaderCell";
+    }
+    
+    return [tableView dequeueReusableCellWithIdentifier:cellId];
 }
 
 - (void)viewDidLoad
@@ -143,41 +196,61 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.reports.count;;
+    if (section == 0) {
+        return self.reports.count;
+    } else {
+        return self.solvedReports.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ReportCell";
-    ReportTableViewCell *cell = (ReportTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    NSManagedObject *report = [self.reports objectAtIndex:indexPath.row];
-    
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@", [report valueForKey:@"name"]];
-    cell.totalLabel.text = [NSString stringWithFormat:@"%.02f", [[report valueForKey:@"total"] doubleValue]];
-    cell.balanceLabel.text = [NSString stringWithFormat:@"%.02f", [[report valueForKey:@"balance"] doubleValue]];
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSFetchRequest *memberResult = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
-    memberResult.predicate = [NSPredicate predicateWithFormat:@"name == %@", [report valueForKey:@"name"]];
-    Member *member = [[context executeFetchRequest:memberResult error:nil] firstObject];
-    
-    if ([member.avatar length] <= 0) {
-        if ([member.sex isEqualToString:@"女"]) {
-            cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_female.jpg"];
+    if (indexPath.section == 0) {
+        ReportTableViewCell *cell = (ReportTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ReportCell" forIndexPath:indexPath];
+        
+        NSManagedObject *report = [self.reports objectAtIndex:indexPath.row];
+        
+        cell.nameLabel.text = [NSString stringWithFormat:@"%@", [report valueForKey:@"name"]];
+        cell.totalLabel.text = [NSString stringWithFormat:@"%.02f", [[report valueForKey:@"total"] doubleValue]];
+        cell.balanceLabel.text = [NSString stringWithFormat:@"%.02f", [[report valueForKey:@"balance"] doubleValue]];
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        NSFetchRequest *memberResult = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
+        memberResult.predicate = [NSPredicate predicateWithFormat:@"name == %@", [report valueForKey:@"name"]];
+        Member *member = [[context executeFetchRequest:memberResult error:nil] firstObject];
+        
+        if ([member.avatar length] <= 0) {
+            if ([member.sex isEqualToString:@"女"]) {
+                cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_female.jpg"];
+            } else {
+                cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_male.jpg"];
+            }
         } else {
-            cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_male.jpg"];
+            cell.avatarImageView.image = [UIImage imageWithData:member.avatar];
         }
+        
+        return cell;
+        
     } else {
-        cell.avatarImageView.image = [UIImage imageWithData:member.avatar];
+        UITableViewCell *cell = (ReportTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ExpenseReportDetailCell" forIndexPath:indexPath];
+        
+        NSManagedObject *solvedReport = [self.solvedReports objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ 支付给 %@ %.02f 元", [solvedReport valueForKey:@"from"], [solvedReport valueForKey:@"to"], [[solvedReport valueForKey:@"balance"] doubleValue]];
+        
+        return cell;
     }
     
-    return cell;    
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
 }
 
 - (IBAction)resolve:(id)sender

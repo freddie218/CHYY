@@ -14,4 +14,7 @@
 
 @property (strong) NSMutableArray *availableMembers;
 
+- (IBAction)cancel:(id)sender;
+- (IBAction)save:(id)sender;
+
 @end
