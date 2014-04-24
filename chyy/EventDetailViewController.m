@@ -186,7 +186,7 @@
         memberImageView.userInteractionEnabled = YES;
         [memberImageView addGestureRecognizer:tap];
         
-        memberName.text = [NSString stringWithFormat:@"%lu", indexPath.row];
+        memberName.text = @"";
         
     } else {
         memberImageView.image = [UIImage imageWithData:[[[self.participantSet allObjects] objectAtIndex:indexPath.row] valueForKey:@"avatar"]];

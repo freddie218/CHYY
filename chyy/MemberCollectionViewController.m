@@ -60,6 +60,11 @@
     [cell.avatarImageView.layer setMasksToBounds:YES];
     [cell.avatarImageView.layer setCornerRadius:5.0f];
     
+    // todo xc
+    if (cell.selected) {
+        
+    }
+    
     cell.selectedBackgroundView = [[UIImageView alloc] init];
     cell.selectedBackgroundView.backgroundColor = [UIColor yellowColor];
     
