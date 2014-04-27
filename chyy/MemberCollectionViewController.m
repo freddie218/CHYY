@@ -24,7 +24,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.collectionView.allowsMultipleSelection = YES;
 }
 
@@ -60,9 +59,9 @@
     [cell.avatarImageView.layer setMasksToBounds:YES];
     [cell.avatarImageView.layer setCornerRadius:5.0f];
     
-    // todo xc
-    if (cell.selected) {
-        
+    if ([self.participantSet containsObject:member]) {
+        [cell setSelected:YES];
+        [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:NO];
     }
     
     cell.selectedBackgroundView = [[UIImageView alloc] init];
@@ -73,15 +72,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSString *selectedRecipe = [recipeImages[indexPath.section] objectAtIndex:indexPath.row];
-//    [selectedRecipes addObject:selectedRecipe];
+    [self.participantSet addObject:[self.availableMembers objectAtIndex:indexPath.row]];
 
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSString *deSelectedRecipe = [recipeImages[indexPath.section] objectAtIndex:indexPath.row];
-//    [selectedRecipes removeObject:deSelectedRecipe];
+    [self.participantSet removeObject:[self.availableMembers objectAtIndex:indexPath.row]];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -97,14 +94,9 @@
     return reusableview;
 }
 
-- (IBAction)cancel:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (IBAction)save:(id)sender
 {
-    //TBD!!
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

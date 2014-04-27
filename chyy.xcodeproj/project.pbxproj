@@ -13,6 +13,7 @@
 		1109C2FB18E82E8300D22A42 /* default_avatar_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1109C2F918E82E8300D22A42 /* default_avatar_male.jpg */; };
 		11F8A04E1906AA03009AD973 /* MemberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A04D1906AA03009AD973 /* MemberCollectionViewCell.m */; };
 		11F8A0511906AA87009AD973 /* MemberCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A0501906AA87009AD973 /* MemberCollectionViewController.m */; };
+		11F8A054190CE78C009AD973 /* EventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A053190CE78C009AD973 /* EventCollectionViewCell.m */; };
 		4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */; };
 		4919382018CE0F7C006E8C5D /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381F18CE0F7C006E8C5D /* Category.m */; };
 		4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */; };
@@ -62,6 +63,8 @@
 		11F8A04D1906AA03009AD973 /* MemberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCollectionViewCell.m; sourceTree = "<group>"; };
 		11F8A04F1906AA87009AD973 /* MemberCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCollectionViewController.h; sourceTree = "<group>"; };
 		11F8A0501906AA87009AD973 /* MemberCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCollectionViewController.m; sourceTree = "<group>"; };
+		11F8A052190CE78C009AD973 /* EventCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCollectionViewCell.h; sourceTree = "<group>"; };
+		11F8A053190CE78C009AD973 /* EventCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCollectionViewCell.m; sourceTree = "<group>"; };
 		4919381B18CE0BB2006E8C5D /* SubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryViewController.h; sourceTree = "<group>"; };
 		4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryViewController.m; sourceTree = "<group>"; };
 		4919381E18CE0F7C006E8C5D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -83,7 +86,7 @@
 		4930B16918C37054004A3398 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
 		4930B16B18C37056004A3398 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		4930B16C18C37056004A3398 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		497193F517681D940083624D /* chyy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chyy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		497193F517681D940083624D /* 穷开心.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "穷开心.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		497193F817681D940083624D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		497193FA17681D940083624D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		497193FC17681D940083624D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +149,8 @@
 				4930B16618C0DF50004A3398 /* EventTableViewCell.m */,
 				4930B16218C0CC89004A3398 /* EventDetailViewController.h */,
 				4930B16318C0CC89004A3398 /* EventDetailViewController.m */,
+				11F8A052190CE78C009AD973 /* EventCollectionViewCell.h */,
+				11F8A053190CE78C009AD973 /* EventCollectionViewCell.m */,
 			);
 			name = event;
 			sourceTree = "<group>";
@@ -234,7 +239,7 @@
 		497193F617681D940083624D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				497193F517681D940083624D /* chyy.app */,
+				497193F517681D940083624D /* 穷开心.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,7 +313,7 @@
 			);
 			name = chyy;
 			productName = chyy;
-			productReference = 497193F517681D940083624D /* chyy.app */;
+			productReference = 497193F517681D940083624D /* 穷开心.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -373,6 +378,7 @@
 				4930B16D18C37056004A3398 /* Event.m in Sources */,
 				49CD953C18CB58F3002A85F3 /* CategoryDetailViewController.m in Sources */,
 				4971941D176820DE0083624D /* ExpenseRecord.xcdatamodeld in Sources */,
+				11F8A054190CE78C009AD973 /* EventCollectionViewCell.m in Sources */,
 				1109C2F718E5AB5300D22A42 /* MemberTableViewCell.m in Sources */,
 				4919382018CE0F7C006E8C5D /* Category.m in Sources */,
 				497194201768575D0083624D /* ExpenseViewController.m in Sources */,
@@ -478,7 +484,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "chyy/chyy-Prefix.pch";
 				INFOPLIST_FILE = "chyy/chyy-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "穷开心";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -489,7 +496,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "chyy/chyy-Prefix.pch";
 				INFOPLIST_FILE = "chyy/chyy-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "穷开心";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

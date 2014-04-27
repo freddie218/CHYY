@@ -121,6 +121,11 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [(UICollectionView *)[self.view viewWithTag:251] reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -172,41 +177,43 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"Cell";
-    
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    UIImageView *memberImageView = (UIImageView *)[cell viewWithTag:100];
-    UILabel *memberName = (UILabel *)[cell viewWithTag:101];
+    static NSString *identifier = @"Cell";    
+    EventCollectionViewCell *cell = (EventCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
     if (indexPath.row == self.participantSet.count) {
-        memberImageView.image = [UIImage imageNamed:@"add_member.png"];
+        cell.avatarImageView.image = [UIImage imageNamed:@"add_member.png"];
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(performSegue)];
-        memberImageView.userInteractionEnabled = YES;
-        [memberImageView addGestureRecognizer:tap];
+        cell.avatarImageView.userInteractionEnabled = YES;
+        [cell.avatarImageView addGestureRecognizer:tap];
         
-        memberName.text = @"";
+        cell.nameLabel.text = @"";
         
     } else {
-        memberImageView.image = [UIImage imageWithData:[[[self.participantSet allObjects] objectAtIndex:indexPath.row] valueForKey:@"avatar"]];
-        memberName.text = [[[self.participantSet allObjects] objectAtIndex:indexPath.row] valueForKey:@"name"];
+        Member *member = [[self.participantSet allObjects] objectAtIndex:indexPath.row];
+        
+        if ([member.avatar length] <= 0) {
+            if ([member.sex isEqualToString:@"女"]) {
+                cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_female.jpg"];
+            } else {
+                cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_male.jpg"];
+            }
+        } else {
+            cell.avatarImageView.image = [UIImage imageWithData:member.avatar];
+        }
+        
+        cell.avatarImageView.userInteractionEnabled = NO;
+        cell.nameLabel.text = [[[self.participantSet allObjects] objectAtIndex:indexPath.row] valueForKey:@"name"];
     }
     
     return cell;
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.row == self.participantSet.count;
+    return NO;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.row == self.participantSet.count) {
-//        [self performSegueWithIdentifier:@"MemberCollectionSegue" sender:self];
-//    }
-}
-
-- (void) performSegue
+- (void)performSegue
 {
     [self performSegueWithIdentifier:@"MemberCollectionSegue" sender:self];
 }
@@ -216,6 +223,7 @@
     if ([[segue identifier] isEqualToString:@"MemberCollectionSegue"]) {
         MemberCollectionViewController *memberCollectionViewController = segue.destinationViewController;
         memberCollectionViewController.availableMembers = self.members;
+        memberCollectionViewController.participantSet = self.participantSet;
     }
 }
 

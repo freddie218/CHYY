@@ -13,8 +13,8 @@
 @interface MemberCollectionViewController : UICollectionViewController
 
 @property (strong) NSMutableArray *availableMembers;
+@property (strong, nonatomic) NSMutableSet *participantSet;
 
-- (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 
 @end
