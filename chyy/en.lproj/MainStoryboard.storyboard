@@ -781,7 +781,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JN-Te-5db">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JN-Te-5db">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
@@ -801,10 +801,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lV-dU-RJV">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7lV-dU-RJV">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x85-Uy-phj">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x85-Uy-phj">
                                         <rect key="frame" x="20" y="20" width="281" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -812,7 +812,7 @@
                                             <outlet property="delegate" destination="kAP-b6-Jrx" id="GuQ-MT-Zjz"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金额" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-2p-fMa">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金额" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-2p-fMa">
                                         <rect key="frame" x="20" y="70" width="281" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
@@ -820,40 +820,32 @@
                                             <outlet property="delegate" destination="kAP-b6-Jrx" id="g6K-HP-puP"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付原因" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DXc-bg-C4y">
-                                        <rect key="frame" x="20" y="123" width="281" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付原因" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DXc-bg-C4y">
+                                        <rect key="frame" x="20" y="119" width="281" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="kAP-b6-Jrx" id="Hsh-Dv-arh"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付地点" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yQc-Lb-x10">
-                                        <rect key="frame" x="20" y="176" width="281" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="bTv-0t-efI"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付时间" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxA-XC-xfy">
-                                        <rect key="frame" x="20" y="283" width="281" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="支付时间" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxA-XC-xfy">
+                                        <rect key="frame" x="20" y="168" width="281" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="kAP-b6-Jrx" id="8fM-X0-YlW"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="备注" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-hC-Mo5">
-                                        <rect key="frame" x="20" y="337" width="281" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="备注" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-hC-Mo5">
+                                        <rect key="frame" x="19" y="213" width="281" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="kAP-b6-Jrx" id="CaZ-hC-vL0"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="参与人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-p5-9hb">
-                                        <rect key="frame" x="20" y="228" width="281" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="参与人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-p5-9hb">
+                                        <rect key="frame" x="19" y="258" width="281" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -862,47 +854,12 @@
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="DXc-bg-C4y" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="123" id="0Tv-Vl-vOG"/>
-                                    <constraint firstAttribute="trailing" secondItem="yQc-Lb-x10" secondAttribute="trailing" constant="20" symbolic="YES" id="2ar-Mz-seY"/>
-                                    <constraint firstItem="yQc-Lb-x10" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" id="A8U-C6-6Hb"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Vb-2p-fMa" secondAttribute="trailing" constant="20" symbolic="YES" id="CGb-7q-jkL"/>
-                                    <constraint firstItem="yQc-Lb-x10" firstAttribute="centerX" secondItem="7lV-dU-RJV" secondAttribute="centerX" id="F7P-ph-gBe"/>
-                                    <constraint firstItem="UqL-p5-9hb" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="228" id="GtN-Ix-zrg"/>
-                                    <constraint firstAttribute="trailing" secondItem="DXc-bg-C4y" secondAttribute="trailing" constant="20" symbolic="YES" id="MpD-8D-EXB"/>
-                                    <constraint firstItem="4Vb-2p-fMa" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" id="NgI-Ns-4nP"/>
-                                    <constraint firstItem="DXc-bg-C4y" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" id="PFP-x3-KRg"/>
-                                    <constraint firstItem="x85-Uy-phj" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" id="PSg-SC-Ohf"/>
-                                    <constraint firstAttribute="trailing" secondItem="lxA-XC-xfy" secondAttribute="trailing" constant="20" symbolic="YES" id="Tpt-bY-5Xl"/>
-                                    <constraint firstAttribute="trailing" secondItem="S6x-hC-Mo5" secondAttribute="trailing" constant="20" symbolic="YES" id="Xwy-OJ-QjQ"/>
-                                    <constraint firstItem="S6x-hC-Mo5" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" id="YgM-eu-44Q"/>
-                                    <constraint firstItem="4Vb-2p-fMa" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="70" id="c2o-oO-tJz"/>
-                                    <constraint firstItem="yQc-Lb-x10" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="176" id="con-2X-PT8"/>
-                                    <constraint firstAttribute="bottom" secondItem="S6x-hC-Mo5" secondAttribute="bottom" constant="106" id="j0Z-YP-HB4"/>
-                                    <constraint firstItem="lxA-XC-xfy" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" id="kYC-k7-bm8"/>
-                                    <constraint firstItem="x85-Uy-phj" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="20" symbolic="YES" id="mYj-Uc-Q8y"/>
-                                    <constraint firstItem="lxA-XC-xfy" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="283" id="ttn-us-xr1"/>
-                                    <constraint firstAttribute="trailing" secondItem="UqL-p5-9hb" secondAttribute="trailing" constant="20" symbolic="YES" id="xr0-2a-uuW"/>
-                                    <constraint firstAttribute="trailing" secondItem="x85-Uy-phj" secondAttribute="trailing" constant="20" symbolic="YES" id="zDG-3Q-Khj"/>
-                                    <constraint firstItem="S6x-hC-Mo5" firstAttribute="top" secondItem="7lV-dU-RJV" secondAttribute="top" constant="337" id="zQu-0b-IRt"/>
-                                    <constraint firstItem="UqL-p5-9hb" firstAttribute="leading" secondItem="7lV-dU-RJV" secondAttribute="leading" constant="20" symbolic="YES" id="zrt-Aj-fxW"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.74901960779999999" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="9JN-Te-5db" firstAttribute="trailing" secondItem="M2P-ht-T0z" secondAttribute="trailing" id="0kQ-vG-44b"/>
-                            <constraint firstItem="9JN-Te-5db" firstAttribute="leading" secondItem="M2P-ht-T0z" secondAttribute="leading" id="BrT-ok-AjU"/>
-                            <constraint firstItem="7lV-dU-RJV" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="64" id="HxC-RK-cKi"/>
-                            <constraint firstItem="9JN-Te-5db" firstAttribute="top" secondItem="M2P-ht-T0z" secondAttribute="top" constant="20" id="Ijt-Ir-SrX"/>
-                            <constraint firstItem="7lV-dU-RJV" firstAttribute="leading" secondItem="M2P-ht-T0z" secondAttribute="leading" id="VVY-yM-Z0q"/>
-                            <constraint firstAttribute="bottom" secondItem="7lV-dU-RJV" secondAttribute="bottom" id="jDG-t6-gC0"/>
-                            <constraint firstItem="7lV-dU-RJV" firstAttribute="centerX" secondItem="9JN-Te-5db" secondAttribute="centerX" id="qIi-UM-s2V"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="amountTextField" destination="4Vb-2p-fMa" id="3Tt-C9-rHy"/>
-                        <outlet property="locationTextField" destination="yQc-Lb-x10" id="0fA-0S-ppD"/>
                         <outlet property="memoTextField" destination="S6x-hC-Mo5" id="3Eo-vT-MQr"/>
                         <outlet property="participantTextField" destination="UqL-p5-9hb" id="PiD-3z-tST"/>
                         <outlet property="payerTextField" destination="x85-Uy-phj" id="Pxl-0R-AZJ"/>
