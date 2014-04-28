@@ -485,7 +485,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32Z-r6-SpZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982" y="-311"/>
+            <point key="canvasLocation" x="1626" y="-7"/>
         </scene>
         <!--Report View Controller - 消费统计-->
         <scene sceneID="RPe-TH-kCi">
@@ -844,14 +844,57 @@
                                             <outlet property="delegate" destination="kAP-b6-Jrx" id="CaZ-hC-vL0"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="参与人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-p5-9hb">
-                                        <rect key="frame" x="19" y="258" width="281" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="252" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9CH-it-bCD">
+                                        <rect key="frame" x="19" y="275" width="280" height="209"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="29A-V8-vaB">
+                                            <size key="itemSize" width="55" height="75"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExpenseCollectionViewCell" id="f6D-3K-hME" customClass="ExpenseCollectionViewCell">
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="75"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="75"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbH-dv-umk">
+                                                            <rect key="frame" x="0.0" y="54" width="55" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EBi-ab-tI6">
+                                                            <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <connections>
+                                                    <outlet property="avatarImageView" destination="EBi-ab-tI6" id="Zrz-K5-Kil"/>
+                                                    <outlet property="nameLabel" destination="PbH-dv-umk" id="9VN-eD-3Bt"/>
+                                                    <segue destination="VSw-7m-A9M" kind="modal" identifier="ExpenseMemberCollectionSegue" id="QYM-Cr-3ye"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
                                         <connections>
-                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="Pbq-V1-IMn"/>
+                                            <outlet property="dataSource" destination="kAP-b6-Jrx" id="D1C-Lv-sX7"/>
+                                            <outlet property="delegate" destination="kAP-b6-Jrx" id="xIk-Pn-4kk"/>
                                         </connections>
-                                    </textField>
+                                    </collectionView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="参与人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwN-M7-Hzi">
+                                        <rect key="frame" x="20" y="251" width="51" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
@@ -861,7 +904,6 @@
                     <connections>
                         <outlet property="amountTextField" destination="4Vb-2p-fMa" id="3Tt-C9-rHy"/>
                         <outlet property="memoTextField" destination="S6x-hC-Mo5" id="3Eo-vT-MQr"/>
-                        <outlet property="participantTextField" destination="UqL-p5-9hb" id="PiD-3z-tST"/>
                         <outlet property="payerTextField" destination="x85-Uy-phj" id="Pxl-0R-AZJ"/>
                         <outlet property="reasonTextField" destination="DXc-bg-C4y" id="09o-LQ-K7U"/>
                         <outlet property="scrollView" destination="7lV-dU-RJV" id="dZf-Qv-I5v"/>
@@ -986,7 +1028,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6f-TH-dER">
-                                                            <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="55" height="52"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUD-66-bkL">
@@ -1091,7 +1133,8 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Tkb-Zv-Zz8"/>
-        <segue reference="rN5-Wg-see"/>
         <segue reference="pqq-CA-Zzc"/>
+        <segue reference="rN5-Wg-see"/>
+        <segue reference="QYM-Cr-3ye"/>
     </inferredMetricsTieBreakers>
 </document>

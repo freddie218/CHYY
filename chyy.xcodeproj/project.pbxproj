@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1109C2F418E5A1DC00D22A42 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 1109C2F318E5A1DC00D22A42 /* Member.m */; };
 		1109C2F718E5AB5300D22A42 /* MemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1109C2F618E5AB5300D22A42 /* MemberTableViewCell.m */; };
 		1109C2FA18E82E8300D22A42 /* default_avatar_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1109C2F818E82E8300D22A42 /* default_avatar_female.jpg */; };
 		1109C2FB18E82E8300D22A42 /* default_avatar_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1109C2F918E82E8300D22A42 /* default_avatar_male.jpg */; };
 		11F8A04E1906AA03009AD973 /* MemberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A04D1906AA03009AD973 /* MemberCollectionViewCell.m */; };
 		11F8A0511906AA87009AD973 /* MemberCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A0501906AA87009AD973 /* MemberCollectionViewController.m */; };
 		11F8A054190CE78C009AD973 /* EventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A053190CE78C009AD973 /* EventCollectionViewCell.m */; };
+		11F8A057190E74B0009AD973 /* ExpenseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A056190E74B0009AD973 /* ExpenseCollectionViewCell.m */; };
+		11F8A060190E946A009AD973 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A05F190E946A009AD973 /* Expense.m */; };
+		11F8A063190E94D5009AD973 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A062190E94D5009AD973 /* Member.m */; };
 		4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */; };
 		4919382018CE0F7C006E8C5D /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381F18CE0F7C006E8C5D /* Category.m */; };
 		4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */; };
@@ -24,7 +26,6 @@
 		4930B16118BF8BC1004A3398 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16018BF8BC1004A3398 /* EventViewController.m */; };
 		4930B16418C0CC89004A3398 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16318C0CC89004A3398 /* EventDetailViewController.m */; };
 		4930B16718C0DF50004A3398 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16618C0DF50004A3398 /* EventTableViewCell.m */; };
-		4930B16A18C37054004A3398 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16918C37054004A3398 /* Expense.m */; };
 		4930B16D18C37056004A3398 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B16C18C37056004A3398 /* Event.m */; };
 		497193F917681D940083624D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193F817681D940083624D /* UIKit.framework */; };
 		497193FB17681D940083624D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497193FA17681D940083624D /* Foundation.framework */; };
@@ -53,8 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1109C2F218E5A1DC00D22A42 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
-		1109C2F318E5A1DC00D22A42 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		1109C2F518E5AB5300D22A42 /* MemberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberTableViewCell.h; sourceTree = "<group>"; };
 		1109C2F618E5AB5300D22A42 /* MemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberTableViewCell.m; sourceTree = "<group>"; };
 		1109C2F818E82E8300D22A42 /* default_avatar_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_avatar_female.jpg; sourceTree = "<group>"; };
@@ -65,6 +64,12 @@
 		11F8A0501906AA87009AD973 /* MemberCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCollectionViewController.m; sourceTree = "<group>"; };
 		11F8A052190CE78C009AD973 /* EventCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCollectionViewCell.h; sourceTree = "<group>"; };
 		11F8A053190CE78C009AD973 /* EventCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCollectionViewCell.m; sourceTree = "<group>"; };
+		11F8A055190E74B0009AD973 /* ExpenseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseCollectionViewCell.h; sourceTree = "<group>"; };
+		11F8A056190E74B0009AD973 /* ExpenseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseCollectionViewCell.m; sourceTree = "<group>"; };
+		11F8A05E190E946A009AD973 /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expense.h; sourceTree = "<group>"; };
+		11F8A05F190E946A009AD973 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
+		11F8A061190E94D5009AD973 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		11F8A062190E94D5009AD973 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		4919381B18CE0BB2006E8C5D /* SubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryViewController.h; sourceTree = "<group>"; };
 		4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryViewController.m; sourceTree = "<group>"; };
 		4919381E18CE0F7C006E8C5D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -82,8 +87,6 @@
 		4930B16318C0CC89004A3398 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
 		4930B16518C0DF50004A3398 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
 		4930B16618C0DF50004A3398 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
-		4930B16818C37053004A3398 /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expense.h; sourceTree = "<group>"; };
-		4930B16918C37054004A3398 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
 		4930B16B18C37056004A3398 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		4930B16C18C37056004A3398 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		497193F517681D940083624D /* 穷开心.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "穷开心.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,12 +163,12 @@
 			children = (
 				4930B16B18C37056004A3398 /* Event.h */,
 				4930B16C18C37056004A3398 /* Event.m */,
-				4930B16818C37053004A3398 /* Expense.h */,
-				4930B16918C37054004A3398 /* Expense.m */,
 				4919381E18CE0F7C006E8C5D /* Category.h */,
 				4919381F18CE0F7C006E8C5D /* Category.m */,
-				1109C2F218E5A1DC00D22A42 /* Member.h */,
-				1109C2F318E5A1DC00D22A42 /* Member.m */,
+				11F8A05E190E946A009AD973 /* Expense.h */,
+				11F8A05F190E946A009AD973 /* Expense.m */,
+				11F8A061190E94D5009AD973 /* Member.h */,
+				11F8A062190E94D5009AD973 /* Member.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -196,6 +199,8 @@
 				49719422176857F30083624D /* ExpenseDetailViewController.m */,
 				4930B15918BE2359004A3398 /* ExpenseTableViewCell.h */,
 				4930B15A18BE2359004A3398 /* ExpenseTableViewCell.m */,
+				11F8A055190E74B0009AD973 /* ExpenseCollectionViewCell.h */,
+				11F8A056190E74B0009AD973 /* ExpenseCollectionViewCell.m */,
 			);
 			name = expense;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				4930B16418C0CC89004A3398 /* EventDetailViewController.m in Sources */,
 				4930B16D18C37056004A3398 /* Event.m in Sources */,
 				49CD953C18CB58F3002A85F3 /* CategoryDetailViewController.m in Sources */,
+				11F8A057190E74B0009AD973 /* ExpenseCollectionViewCell.m in Sources */,
 				4971941D176820DE0083624D /* ExpenseRecord.xcdatamodeld in Sources */,
 				11F8A054190CE78C009AD973 /* EventCollectionViewCell.m in Sources */,
 				1109C2F718E5AB5300D22A42 /* MemberTableViewCell.m in Sources */,
@@ -384,16 +390,16 @@
 				497194201768575D0083624D /* ExpenseViewController.m in Sources */,
 				4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */,
 				4930B16718C0DF50004A3398 /* EventTableViewCell.m in Sources */,
-				1109C2F418E5A1DC00D22A42 /* Member.m in Sources */,
 				49BBCD1618B9EC7C00BBED45 /* ReportViewController.m in Sources */,
 				49EBF56918CA138500A9B2A5 /* CategoryViewController.m in Sources */,
+				11F8A063190E94D5009AD973 /* Member.m in Sources */,
 				11F8A0511906AA87009AD973 /* MemberCollectionViewController.m in Sources */,
 				11F8A04E1906AA03009AD973 /* MemberCollectionViewCell.m in Sources */,
 				4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */,
-				4930B16A18C37054004A3398 /* Expense.m in Sources */,
 				49719423176857F30083624D /* ExpenseDetailViewController.m in Sources */,
 				4930B15B18BE2359004A3398 /* ExpenseTableViewCell.m in Sources */,
 				49BBCD1918BA00D200BBED45 /* ReportTableViewCell.m in Sources */,
+				11F8A060190E946A009AD973 /* Expense.m in Sources */,
 				4930B16118BF8BC1004A3398 /* EventViewController.m in Sources */,
 				49719428176AF9400083624D /* MemberDetailViewController.m in Sources */,
 				4971942B176B028D0083624D /* MemberViewController.m in Sources */,

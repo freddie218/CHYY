@@ -2,11 +2,13 @@
 //  Expense.m
 //  chyy
 //
-//  Created by huan on 3/2/14.
+//  Created by Huan Wang on 4/28/14.
 //  Copyright (c) 2014 huan. All rights reserved.
 //
 
 #import "Expense.h"
+#import "Event.h"
+#import "Member.h"
 
 
 @implementation Expense
@@ -20,5 +22,7 @@
 @dynamic status;
 @dynamic time;
 @dynamic expensetoevent;
+@dynamic payermember;
+@dynamic participantmembers;
 
 @end

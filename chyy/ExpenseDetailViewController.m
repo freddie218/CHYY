@@ -41,7 +41,6 @@
     if(![[self.payerTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
        ![[self.amountTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
        ![[self.reasonTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
-       ![[self.participantTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] ||
        ![[self.timeTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]
        ) {
         //string is all whitespace
@@ -59,24 +58,30 @@
     [df setTimeZone:[NSTimeZone timeZoneWithName:@"China/Beijing"]];
     
     if (self.expense) {
-        expense.payer = self.payerTextField.text;
+//        expense.payer = self.payerTextField.text;
         expense.amount = [NSNumber numberWithDouble:[self.amountTextField.text doubleValue]];
         expense.reason = self.reasonTextField.text;
         expense.location = self.locationTextField.text;
-        expense.participant = self.participantTextField.text;
+//        expense.participant = self.participantTextField.text;
         expense.time = [df dateFromString: self.timeTextField.text];
         expense.memo = self.memoTextField.text;
+        
+        expense.participantmembers = self.participantSet;
+        expense.payermember = self.selectedMember;
 
     } else {
         Expense *newExpense = [NSEntityDescription insertNewObjectForEntityForName:@"Expense" inManagedObjectContext:context];
-        newExpense.payer = self.payerTextField.text;
+//        newExpense.payer = self.payerTextField.text;
         newExpense.amount = [NSNumber numberWithDouble:[self.amountTextField.text doubleValue]];
         newExpense.reason = self.reasonTextField.text;
         newExpense.location = self.locationTextField.text;
-        newExpense.participant = self.participantTextField.text;
+//        newExpense.participant = self.participantTextField.text;
         newExpense.time = [df dateFromString: self.timeTextField.text];
         newExpense.memo = self.memoTextField.text;
         newExpense.status = @"active";
+        
+        newExpense.payermember = self.selectedMember;
+        newExpense.participantmembers = self.participantSet;
         
         newExpense.expensetoevent = event;
     }
@@ -109,23 +114,26 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy年M月d日 HH:mm"];
     [df setTimeZone:[NSTimeZone defaultTimeZone]];
+    
+    self.members = [[self.event.eventmembers allObjects] mutableCopy];
 
     if (self.expense) {
-        [self.payerTextField setText:[self.expense valueForKey:@"payer"]];
-        [self.amountTextField setText:[NSString stringWithFormat:@"%.02f", [[self.expense valueForKey:@"amount"] doubleValue]]];
-        [self.locationTextField setText:[self.expense valueForKey:@"location"]];
-        [self.timeTextField setText:[df stringFromDate:[self.expense valueForKey:@"time"]]];
-        [self.reasonTextField setText:[self.expense valueForKey:@"reason"]];
-        [self.participantTextField setText:[self.expense valueForKey:@"participant"]];
-        [self.memoTextField setText:[self.expense valueForKey:@"memo"]];
+        self.payerTextField.text = self.expense.payermember.name;
+        self.participantSet = (NSMutableSet *)self.expense.participantmembers;
+        
+        self.amountTextField.text = [NSString stringWithFormat:@"%.02f", [[self.expense valueForKey:@"amount"] doubleValue]];
+        self.locationTextField.text = [self.expense valueForKey:@"location"];
+        self.timeTextField.text = [df stringFromDate:[self.expense valueForKey:@"time"]];
+        self.reasonTextField.text = [self.expense valueForKey:@"reason"];
+        self.memoTextField.text = [self.expense valueForKey:@"memo"];
+        
     } else{
-        [self.timeTextField setText:[df stringFromDate:[NSDate date]]];
+        self.timeTextField.text = [df stringFromDate:[NSDate date]];
+        self.participantSet = [[NSMutableSet alloc] initWithCapacity:self.members.count];
     }
     
     NSManagedObjectContext *context = [self managedObjectContext];
-
-    self.members = [[self.event.eventmembers allObjects] mutableCopy];
-
+    
     NSFetchRequest *categoryResult = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
     categoryResult.predicate = [NSPredicate predicateWithFormat:@"parentcategory == %@", nil];
     self.categories = [[context executeFetchRequest:categoryResult error:nil] mutableCopy];
@@ -142,10 +150,8 @@
 {
     [self.payerTextField resignFirstResponder];
     [self.amountTextField resignFirstResponder];
-    [self.locationTextField resignFirstResponder];
     [self.timeTextField resignFirstResponder];
     [self.reasonTextField resignFirstResponder];
-    [self.participantTextField resignFirstResponder];
     [self.memoTextField resignFirstResponder];
 }
 
@@ -169,7 +175,7 @@
     
     self.currentTextField = textField;
     
-    if (textField == self.payerTextField || textField == self.participantTextField || textField == self.reasonTextField ) {
+    if (textField == self.payerTextField || textField == self.reasonTextField ) {
         UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 300)];
         // I think here the datesource and delegate should be assigned to another controller rather than self. [SUX-16]
         picker.dataSource = self;
@@ -232,8 +238,7 @@
     if (textField == self.payerTextField ||
         textField == self.amountTextField ||
         textField == self.reasonTextField ||
-        textField == self.timeTextField ||
-        textField == self.participantTextField) {
+        textField == self.timeTextField) {
         if(![[textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]) {
             //string is all whitespace
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Entry Error"
@@ -292,16 +297,10 @@
     {
         
         if (self.currentTextField == self.payerTextField) {
-            currentSelectStr = [[members objectAtIndex:row] valueForKey:@"name"];
+//            currentSelectStr = [[members objectAtIndex:row] valueForKey:@"name"];
+            self.selectedMember = [members objectAtIndex:row];
+            currentSelectStr = self.selectedMember.name;
             
-        } else if (self.currentTextField == self.participantTextField) {
-            
-            NSMutableSet *participantSet = [NSMutableSet setWithObject:[[members objectAtIndex:row] valueForKey:@"name"]];
-            if (![self.currentTextField.text isEqualToString:@""]) {
-                [participantSet addObjectsFromArray:[self.currentTextField.text componentsSeparatedByString:@","]];
-            }
-            
-            currentSelectStr = [[participantSet allObjects] componentsJoinedByString:@","];
         } else if (self.currentTextField == self.reasonTextField) {
             
             NSFetchRequest *subCategoryResult = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
@@ -325,6 +324,66 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.participantSet.count + 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"ExpenseCollectionViewCell";
+    ExpenseCollectionViewCell *cell = (ExpenseCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    if (indexPath.row == self.participantSet.count) {
+        cell.avatarImageView.image = [UIImage imageNamed:@"add_member.png"];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(performSegue)];
+        cell.avatarImageView.userInteractionEnabled = YES;
+        [cell.avatarImageView addGestureRecognizer:tap];
+        
+        cell.nameLabel.text = @"";
+        
+    } else {
+        Member *member = [[self.participantSet allObjects] objectAtIndex:indexPath.row];
+        
+        if ([member.avatar length] <= 0) {
+            if ([member.sex isEqualToString:@"女"]) {
+                cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_female.jpg"];
+            } else {
+                cell.avatarImageView.image = [UIImage imageNamed:@"default_avatar_male.jpg"];
+            }
+        } else {
+            cell.avatarImageView.image = [UIImage imageWithData:member.avatar];
+        }
+        
+        cell.avatarImageView.userInteractionEnabled = NO;
+        cell.nameLabel.text = [[[self.participantSet allObjects] objectAtIndex:indexPath.row] valueForKey:@"name"];
+    }
+    
+    return cell;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+
+- (void)performSegue
+{
+    [self performSegueWithIdentifier:@"ExpenseMemberCollectionSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ExpenseMemberCollectionSegue"]) {
+        MemberCollectionViewController *memberCollectionViewController = segue.destinationViewController;
+        memberCollectionViewController.availableMembers = self.members;
+        memberCollectionViewController.participantSet = self.participantSet;
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [(UICollectionView *)[self.view viewWithTag:252] reloadData];
 }
 
 @end
