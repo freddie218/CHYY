@@ -206,6 +206,9 @@
         cell.nameLabel.text = [[[self.participantSet allObjects] objectAtIndex:indexPath.row] valueForKey:@"name"];
     }
     
+    [cell.avatarImageView.layer setMasksToBounds:YES];
+    [cell.avatarImageView.layer setCornerRadius:5.0f];
+    
     return cell;
 }
 
