@@ -433,6 +433,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tick_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="vrd-Yq-is8">
+                                            <rect key="frame" x="10" y="19" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q9l-9J-t1Y">
                                             <rect key="frame" x="40" y="5" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -452,6 +456,7 @@
                                 <connections>
                                     <outlet property="avatarImageView" destination="Q9l-9J-t1Y" id="vgH-Pc-rSB"/>
                                     <outlet property="nameLabel" destination="hXg-CG-10T" id="xOX-2I-agE"/>
+                                    <outlet property="tickImageView" destination="vrd-Yq-is8" id="cht-4a-QbB"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -1124,6 +1129,7 @@
         <image name="navbar_category.png" width="30" height="30"/>
         <image name="navbar_events.png" width="30" height="30"/>
         <image name="navbar_users.png" width="30" height="30"/>
+        <image name="tick_empty.png" width="128" height="128"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

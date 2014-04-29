@@ -12,5 +12,6 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *tickImageView;
 
 @end

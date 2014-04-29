@@ -62,22 +62,24 @@
     if ([self.participantSet containsObject:member]) {
         [cell setSelected:YES];
         [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:NO];
+        cell.tickImageView.image = [UIImage imageNamed:@"tick_selected.png"];
     }
-    
-    cell.selectedBackgroundView = [[UIImageView alloc] init];
-    cell.selectedBackgroundView.backgroundColor = [UIColor yellowColor];
     
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    MemberCollectionViewCell *cell = (MemberCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.tickImageView.image = [UIImage imageNamed:@"tick_selected.png"];
     [self.participantSet addObject:[self.availableMembers objectAtIndex:indexPath.row]];
 
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    MemberCollectionViewCell *cell = (MemberCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.tickImageView.image = [UIImage imageNamed:@"tick_empty.png"];
     [self.participantSet removeObject:[self.availableMembers objectAtIndex:indexPath.row]];
 }
 
