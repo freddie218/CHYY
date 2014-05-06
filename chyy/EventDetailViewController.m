@@ -83,7 +83,6 @@
 - (void) dismissKeyboard
 {
     [self.nameTextField resignFirstResponder];
-    [self.participantTextField resignFirstResponder];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -102,14 +101,6 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     self.currentTextField = textField;
-    
-    if (textField == self.participantTextField ) {
-        UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 300)];
-        picker.dataSource = self;
-        picker.delegate = self;
-        textField.inputView = picker;
-    }
-    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -130,6 +121,9 @@
 {
     [super viewDidLoad];
     
+    UICollectionView *collectionView = (UICollectionView *)[self.view viewWithTag:251];
+    [collectionView.layer setBorderColor:[UIColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1].CGColor];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
@@ -140,7 +134,6 @@
     if (self.event) {
         [self.nameTextField setText:event.name];
         self.participantSet = (NSMutableSet *)self.event.eventmembers;
-        [self.participantTextField setText:[[self.participantSet allObjects] componentsJoinedByString:@","]];
     } else {
         self.participantSet = [[NSMutableSet alloc] initWithCapacity:self.members.count];
     }

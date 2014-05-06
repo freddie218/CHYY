@@ -18,7 +18,6 @@
 @property (strong, nonatomic) NSMutableSet *participantSet;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
-@property (strong, nonatomic) IBOutlet UITextField *participantTextField;
 
 @property (strong, nonatomic) IBOutlet UITextField *currentTextField;
 
