@@ -118,6 +118,7 @@
     self.members = [[self.event.eventmembers allObjects] mutableCopy];
 
     if (self.expense) {
+        self.selectedMember = self.expense.payermember;
         self.payerTextField.text = self.expense.payermember.name;
         self.participantSet = (NSMutableSet *)self.expense.participantmembers;
         

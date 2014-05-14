@@ -44,22 +44,22 @@
     
     self.expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
     
-    for (id expense in self.expenses)
+    for (Expense *expense in self.expenses)
     {
-        NSString *payer = [expense valueForKey:@"payer"];
-        NSArray *participants = [[(NSString *)[expense valueForKey:@"participant"] stringByReplacingOccurrencesOfString:@" " withString:@""] componentsSeparatedByString:@","];
-        NSNumber *participantCount = [NSNumber numberWithInteger:[participants count]];
+        NSString *payer = expense.payermember.name;
+        NSArray *participants = [expense.participantmembers allObjects];
+        int participantCount = [expense.participantmembers count];
         NSNumber *amount = [expense valueForKey:@"amount"];
         
-        double share = [amount doubleValue] / [participantCount doubleValue];
+        double share = [amount doubleValue] / participantCount;
         
         //deal with payer dict
         NSMutableDictionary *payerDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:payer, @"name", amount, @"total", [NSNumber numberWithDouble:0], @"balance", nil];
         
         // deal with participants
         bool payerIsPart = false;
-        for (NSString *participant in participants) {
-            if ([participant isEqualToString:payer]) {
+        for (Member *participant in participants) {
+            if ([participant.name isEqualToString:payer]) {
                 payerIsPart = TRUE;
                 
                 double balance = [amount doubleValue] - share + [[payerDict valueForKey:@"balance"] doubleValue];
@@ -68,10 +68,10 @@
                 
             } else {
                 
-                NSArray *filtered = [self.reports filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(name == %@)", participant]];
+                NSArray *filtered = [self.reports filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(name == %@)", participant.name]];
                 
                 if ([filtered count] == 0) {
-                    NSMutableDictionary *partDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:participant, @"name", [NSNumber numberWithDouble:0], @"total", [NSNumber numberWithDouble:-share], @"balance", nil];
+                    NSMutableDictionary *partDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:participant.name, @"name", [NSNumber numberWithDouble:0], @"total", [NSNumber numberWithDouble:-share], @"balance", nil];
 
                     [self.reports addObject:partDict];
                     

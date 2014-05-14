@@ -16,8 +16,6 @@
 @dynamic amount;
 @dynamic location;
 @dynamic memo;
-@dynamic participant;
-@dynamic payer;
 @dynamic reason;
 @dynamic status;
 @dynamic time;

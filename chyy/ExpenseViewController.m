@@ -32,6 +32,8 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSFetchRequest *result = [[NSFetchRequest alloc] initWithEntityName:@"Expense"];
+    [result setSortDescriptors:[NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"time" ascending:NO]]];
+    
     result.predicate = [NSPredicate predicateWithFormat:@"(expensetoevent = %@) AND (status = %@)", event, @"active"];
     self.expenses = [[context executeFetchRequest:result error:nil] mutableCopy];
     
@@ -106,22 +108,17 @@
     ExpenseTableViewCell *cell = (ExpenseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     Expense *expense;
-    
-    NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:NO];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    
     if (indexPath.section == 0) {
-        expense = [[self.expenses sortedArrayUsingDescriptors:sortDescriptors] objectAtIndex:indexPath.row];
+        expense = [self.expenses objectAtIndex:indexPath.row];
     } else {
-        expense = [[self.settledExpenses sortedArrayUsingDescriptors:sortDescriptors] objectAtIndex:indexPath.row];
+        expense = [self.settledExpenses objectAtIndex:indexPath.row];
     }
     
-    cell.payerLabel.text = [NSString stringWithFormat:@"%@", expense.payer];
+    cell.payerLabel.text = expense.payermember.name;
     cell.typeLabel.text = [NSString stringWithFormat:@"%@", expense.reason];
     cell.memoLabel.text = [NSString stringWithFormat:@"%@", expense.memo];
-    cell.participantsLabel.text = [NSString stringWithFormat:@"%@", expense.participant];
-    cell.participantsCountLabel.text = [NSString stringWithFormat:@"(共%lu人)", (unsigned long)[[expense.participant componentsSeparatedByString:@","] count]];
+    cell.participantsLabel.text = [[[expense.participantmembers allObjects] valueForKey:@"name"] componentsJoinedByString:@", "];
+    cell.participantsCountLabel.text = [NSString stringWithFormat:@"(共%D人)", [expense.participantmembers count]];
     cell.expenseLabel.text = [NSString stringWithFormat:@"%.02f", [expense.amount doubleValue]];
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth fromDate:expense.time];
