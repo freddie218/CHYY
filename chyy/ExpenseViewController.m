@@ -118,7 +118,7 @@
     cell.typeLabel.text = [NSString stringWithFormat:@"%@", expense.reason];
     cell.memoLabel.text = [NSString stringWithFormat:@"%@", expense.memo];
     cell.participantsLabel.text = [[[expense.participantmembers allObjects] valueForKey:@"name"] componentsJoinedByString:@", "];
-    cell.participantsCountLabel.text = [NSString stringWithFormat:@"(共%D人)", [expense.participantmembers count]];
+    cell.participantsCountLabel.text = [NSString stringWithFormat:@"(共%ld人)", [expense.participantmembers count]];
     cell.expenseLabel.text = [NSString stringWithFormat:@"%.02f", [expense.amount doubleValue]];
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth fromDate:expense.time];
