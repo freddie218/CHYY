@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zZt-3E-Qqf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zZt-3E-Qqf">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -308,7 +308,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZh-J5-6bg">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZh-J5-6bg">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
@@ -328,7 +328,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddP-y1-CEZ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddP-y1-CEZ">
                                 <rect key="frame" x="0.0" y="64" width="321" height="504"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPg-Of-USg">
@@ -360,16 +360,6 @@
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.29803921570000003" green="0.74901960779999999" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="ddP-y1-CEZ" firstAttribute="top" secondItem="6RD-nL-JwS" secondAttribute="top" constant="64" id="0R4-zc-B4b"/>
-                            <constraint firstItem="kZh-J5-6bg" firstAttribute="leading" secondItem="6RD-nL-JwS" secondAttribute="leading" id="0SR-u2-Awd"/>
-                            <constraint firstItem="kZh-J5-6bg" firstAttribute="trailing" secondItem="6RD-nL-JwS" secondAttribute="trailing" id="4vM-Ba-kIT"/>
-                            <constraint firstItem="ddP-y1-CEZ" firstAttribute="leading" secondItem="6RD-nL-JwS" secondAttribute="leading" id="Dou-V7-D5b"/>
-                            <constraint firstItem="ddP-y1-CEZ" firstAttribute="centerX" secondItem="kZh-J5-6bg" secondAttribute="centerX" id="M2W-9v-Csb"/>
-                            <constraint firstAttribute="bottom" secondItem="ddP-y1-CEZ" secondAttribute="bottom" id="esM-V6-G7B"/>
-                            <constraint firstItem="kZh-J5-6bg" firstAttribute="top" secondItem="6RD-nL-JwS" secondAttribute="top" constant="20" id="jQ5-03-ZgZ"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="avatarImageView" destination="ZPg-Of-USg" id="sdf-yD-fJG"/>
