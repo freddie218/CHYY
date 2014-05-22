@@ -10,7 +10,7 @@
 #import "Member.h"
 #import "MemberCollectionViewCell.h"
 
-@interface MemberCollectionViewController : UICollectionViewController
+@interface MemberCollectionViewController : UICollectionViewController <UIBarPositioningDelegate>
 
 @property (strong) NSMutableArray *availableMembers;
 @property (strong, nonatomic) NSMutableSet *participantSet;

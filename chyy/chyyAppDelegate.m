@@ -14,16 +14,22 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    UIColor* navigationBarTintColor = [UIColor colorWithRed:95.0f/255.0f green:156.0f/255.0f blue:116.0f/255.0f alpha:1];
-    [[UINavigationBar appearance] setBarTintColor: navigationBarTintColor];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UITabBar appearance] setBarTintColor:[UIColor colorWithWhite:76.0f/255.0f alpha:1]];
-    [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setBarTintColor: COLOR_NAV_BAR_BG];
+    [[UINavigationBar appearance] setTintColor: COLOR_NAV_BAR_BUTTON];
+    
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = COLOR_NAV_BAR_TITLE_SHADOW;
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: COLOR_NAV_BAR_TITLE,
+                                                            NSShadowAttributeName: shadow,
+                                                            NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:20.0]}];
+    
+    [[UITabBar appearance] setTintColor: COLOR_TAB_BAR_ITEM];
+    [[UITabBar appearance] setBarTintColor: COLOR_TAB_BAR_BG];
+    
     [application setStatusBarHidden:NO];
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     return YES;

@@ -17,4 +17,6 @@
 
 @property (strong) Event *event;
 
+@property (strong, nonatomic) IBOutlet UIButton *reportButton;
+
 @end

@@ -387,4 +387,8 @@
     [(UICollectionView *)[self.view viewWithTag:252] reloadData];
 }
 
+- (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
+
 @end

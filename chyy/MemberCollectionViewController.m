@@ -101,4 +101,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
+
 @end

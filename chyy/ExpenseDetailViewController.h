@@ -13,7 +13,7 @@
 #import "ExpenseCollectionViewCell.h"
 #import "MemberCollectionViewController.h"
 
-@interface ExpenseDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ExpenseDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UIBarPositioningDelegate>
 
 @property (strong, nonatomic) NSMutableArray *members;
 @property (strong, nonatomic) NSMutableSet *participantSet;

@@ -122,7 +122,8 @@
     [super viewDidLoad];
     
     UICollectionView *collectionView = (UICollectionView *)[self.view viewWithTag:251];
-    [collectionView.layer setBorderColor:[UIColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1].CGColor];
+    UIColor* borderColor = UIColorFromRGB(0xE6E6E6);
+    [collectionView.layer setBorderColor: [borderColor CGColor]];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
@@ -221,6 +222,10 @@
         memberCollectionViewController.availableMembers = self.members;
         memberCollectionViewController.participantSet = self.participantSet;
     }
+}
+
+- (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
 }
 
 @end

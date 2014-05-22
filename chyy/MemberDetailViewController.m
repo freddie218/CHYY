@@ -206,4 +206,8 @@
     [super didReceiveMemoryWarning];
 }
 
+- (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
+
 @end

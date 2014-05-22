@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Member.h"
 
-@interface MemberDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface MemberDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIBarPositioningDelegate>
 
 @property (strong) Member *member;
 @property (strong, nonatomic) NSData *avatarImageData;

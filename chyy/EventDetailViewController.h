@@ -11,7 +11,7 @@
 #import "MemberCollectionViewController.h"
 #import "EventCollectionViewCell.h"
 
-@interface EventDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface EventDetailViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UIBarPositioningDelegate>
 
 @property (strong) Event *event;
 @property (strong, nonatomic) NSMutableArray *members;

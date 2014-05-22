@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Category.h"
 
-@interface SubCategoryDetailViewController : UIViewController <UITextFieldDelegate>
+@interface SubCategoryDetailViewController : UIViewController <UITextFieldDelegate, UIBarPositioningDelegate>
 
 @property (strong) Category *parentCategory;
 @property (strong) Category *category;

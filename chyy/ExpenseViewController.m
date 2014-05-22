@@ -77,6 +77,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.reportButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.reportButton.layer.shadowOffset = CGSizeMake(15.0f,15.0f);
+    self.reportButton.layer.masksToBounds = NO;
+    self.reportButton.layer.shadowRadius = 5.0f;
 }
 
 - (void)didReceiveMemoryWarning

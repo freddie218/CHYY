@@ -47,6 +47,7 @@
 		49A1CCC118CF793E00029D88 /* navbar_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A1CCC018CF793E00029D88 /* navbar_category@2x.png */; };
 		49A1CCC618CF7D9400029D88 /* navbar_events@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A1CCC418CF7D9400029D88 /* navbar_events@2x.png */; };
 		49A1CCC718CF7D9400029D88 /* navbar_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A1CCC518CF7D9400029D88 /* navbar_setting@2x.png */; };
+		49A2498C192DA651001DCD71 /* chyyAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A2498B192DA651001DCD71 /* chyyAppConstants.m */; };
 		49BBCD1618B9EC7C00BBED45 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BBCD1518B9EC7C00BBED45 /* ReportViewController.m */; };
 		49BBCD1918BA00D200BBED45 /* ReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BBCD1818BA00D200BBED45 /* ReportTableViewCell.m */; };
 		49CD953C18CB58F3002A85F3 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CD953B18CB58F3002A85F3 /* CategoryDetailViewController.m */; };
@@ -120,6 +121,8 @@
 		49A1CCC018CF793E00029D88 /* navbar_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_category@2x.png"; sourceTree = "<group>"; };
 		49A1CCC418CF7D9400029D88 /* navbar_events@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_events@2x.png"; sourceTree = "<group>"; };
 		49A1CCC518CF7D9400029D88 /* navbar_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_setting@2x.png"; sourceTree = "<group>"; };
+		49A2498A192DA651001DCD71 /* chyyAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chyyAppConstants.h; sourceTree = "<group>"; };
+		49A2498B192DA651001DCD71 /* chyyAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chyyAppConstants.m; sourceTree = "<group>"; };
 		49BBCD1418B9EC7C00BBED45 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		49BBCD1518B9EC7C00BBED45 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		49BBCD1718BA00D200BBED45 /* ReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportTableViewCell.h; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				11D146CD18D89B49002B6DD4 /* member */,
 				11D146CC18D89B1C002B6DD4 /* model */,
 				11D146CA18D89AE0002B6DD4 /* event */,
+				49A2498A192DA651001DCD71 /* chyyAppConstants.h */,
+				49A2498B192DA651001DCD71 /* chyyAppConstants.m */,
 				4971940717681D940083624D /* chyyAppDelegate.h */,
 				4971940817681D940083624D /* chyyAppDelegate.m */,
 				4971941017681D940083624D /* MainStoryboard.storyboard */,
@@ -408,6 +413,7 @@
 				4930B15B18BE2359004A3398 /* ExpenseTableViewCell.m in Sources */,
 				49BBCD1918BA00D200BBED45 /* ReportTableViewCell.m in Sources */,
 				11F8A060190E946A009AD973 /* Expense.m in Sources */,
+				49A2498C192DA651001DCD71 /* chyyAppConstants.m in Sources */,
 				4930B16118BF8BC1004A3398 /* EventViewController.m in Sources */,
 				49719428176AF9400083624D /* MemberDetailViewController.m in Sources */,
 				4971942B176B028D0083624D /* MemberViewController.m in Sources */,
