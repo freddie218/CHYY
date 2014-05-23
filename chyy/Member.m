@@ -2,7 +2,7 @@
 //  Member.m
 //  chyy
 //
-//  Created by Huan Wang on 4/28/14.
+//  Created by Huan Wang on 5/23/14.
 //  Copyright (c) 2014 huan. All rights reserved.
 //
 
@@ -17,7 +17,7 @@
 @dynamic name;
 @dynamic sex;
 @dynamic membertoevent;
-@dynamic payertoexpense;
 @dynamic participanttoexpense;
+@dynamic payertoexpense;
 
 @end

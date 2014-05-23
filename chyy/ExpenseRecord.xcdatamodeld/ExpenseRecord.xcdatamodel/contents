@@ -28,9 +28,9 @@
         <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="membertoevent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="eventmembers" inverseEntity="Event" syncable="YES"/>
-        <relationship name="participanttoexpense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="participantmembers" inverseEntity="Expense" syncable="YES"/>
-        <relationship name="payertoexpense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="payermember" inverseEntity="Expense" syncable="YES"/>
+        <relationship name="membertoevent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="eventmembers" inverseEntity="Event" syncable="YES"/>
+        <relationship name="participanttoexpense" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="participantmembers" inverseEntity="Expense" syncable="YES"/>
+        <relationship name="payertoexpense" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="payermember" inverseEntity="Expense" syncable="YES"/>
     </entity>
     <elements>
         <element name="Category" positionX="0" positionY="0" width="128" height="90"/>

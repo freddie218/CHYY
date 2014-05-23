@@ -10,12 +10,12 @@
 		1109C2F718E5AB5300D22A42 /* MemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1109C2F618E5AB5300D22A42 /* MemberTableViewCell.m */; };
 		1109C2FA18E82E8300D22A42 /* default_avatar_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1109C2F818E82E8300D22A42 /* default_avatar_female.jpg */; };
 		1109C2FB18E82E8300D22A42 /* default_avatar_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1109C2F918E82E8300D22A42 /* default_avatar_male.jpg */; };
+		11204FE4192F377000252D66 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 11204FE3192F377000252D66 /* Member.m */; };
 		11F8A04E1906AA03009AD973 /* MemberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A04D1906AA03009AD973 /* MemberCollectionViewCell.m */; };
 		11F8A0511906AA87009AD973 /* MemberCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A0501906AA87009AD973 /* MemberCollectionViewController.m */; };
 		11F8A054190CE78C009AD973 /* EventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A053190CE78C009AD973 /* EventCollectionViewCell.m */; };
 		11F8A057190E74B0009AD973 /* ExpenseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A056190E74B0009AD973 /* ExpenseCollectionViewCell.m */; };
 		11F8A060190E946A009AD973 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A05F190E946A009AD973 /* Expense.m */; };
-		11F8A063190E94D5009AD973 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F8A062190E94D5009AD973 /* Member.m */; };
 		4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */; };
 		4919382018CE0F7C006E8C5D /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919381F18CE0F7C006E8C5D /* Category.m */; };
 		4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919382218CE1394006E8C5D /* SubCategoryDetailViewController.m */; };
@@ -61,6 +61,8 @@
 		1109C2F618E5AB5300D22A42 /* MemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberTableViewCell.m; sourceTree = "<group>"; };
 		1109C2F818E82E8300D22A42 /* default_avatar_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_avatar_female.jpg; sourceTree = "<group>"; };
 		1109C2F918E82E8300D22A42 /* default_avatar_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_avatar_male.jpg; sourceTree = "<group>"; };
+		11204FE2192F377000252D66 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		11204FE3192F377000252D66 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		11F8A04C1906AA03009AD973 /* MemberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCollectionViewCell.h; sourceTree = "<group>"; };
 		11F8A04D1906AA03009AD973 /* MemberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCollectionViewCell.m; sourceTree = "<group>"; };
 		11F8A04F1906AA87009AD973 /* MemberCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCollectionViewController.h; sourceTree = "<group>"; };
@@ -71,8 +73,6 @@
 		11F8A056190E74B0009AD973 /* ExpenseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseCollectionViewCell.m; sourceTree = "<group>"; };
 		11F8A05E190E946A009AD973 /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expense.h; sourceTree = "<group>"; };
 		11F8A05F190E946A009AD973 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
-		11F8A061190E94D5009AD973 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
-		11F8A062190E94D5009AD973 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		4919381B18CE0BB2006E8C5D /* SubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryViewController.h; sourceTree = "<group>"; };
 		4919381C18CE0BB2006E8C5D /* SubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryViewController.m; sourceTree = "<group>"; };
 		4919381E18CE0F7C006E8C5D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -174,8 +174,8 @@
 				4919381F18CE0F7C006E8C5D /* Category.m */,
 				11F8A05E190E946A009AD973 /* Expense.h */,
 				11F8A05F190E946A009AD973 /* Expense.m */,
-				11F8A061190E94D5009AD973 /* Member.h */,
-				11F8A062190E94D5009AD973 /* Member.m */,
+				11204FE2192F377000252D66 /* Member.h */,
+				11204FE3192F377000252D66 /* Member.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -400,12 +400,12 @@
 				11F8A054190CE78C009AD973 /* EventCollectionViewCell.m in Sources */,
 				1109C2F718E5AB5300D22A42 /* MemberTableViewCell.m in Sources */,
 				4919382018CE0F7C006E8C5D /* Category.m in Sources */,
+				11204FE4192F377000252D66 /* Member.m in Sources */,
 				497194201768575D0083624D /* ExpenseViewController.m in Sources */,
 				4919381D18CE0BB2006E8C5D /* SubCategoryViewController.m in Sources */,
 				4930B16718C0DF50004A3398 /* EventTableViewCell.m in Sources */,
 				49BBCD1618B9EC7C00BBED45 /* ReportViewController.m in Sources */,
 				49EBF56918CA138500A9B2A5 /* CategoryViewController.m in Sources */,
-				11F8A063190E94D5009AD973 /* Member.m in Sources */,
 				11F8A0511906AA87009AD973 /* MemberCollectionViewController.m in Sources */,
 				11F8A04E1906AA03009AD973 /* MemberCollectionViewCell.m in Sources */,
 				4919382318CE1394006E8C5D /* SubCategoryDetailViewController.m in Sources */,

@@ -377,7 +377,8 @@
 {
     if ([[segue identifier] isEqualToString:@"ExpenseMemberCollectionSegue"]) {
         MemberCollectionViewController *memberCollectionViewController = segue.destinationViewController;
-        memberCollectionViewController.availableMembers = self.members;
+        memberCollectionViewController.availableMembers = [self.members mutableCopy];
+//        memberCollectionViewController.availableMembers = [[NSMutableArray alloc] initWithArray:self.members copyItems:YES];
         memberCollectionViewController.participantSet = self.participantSet;
     }
 }

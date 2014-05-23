@@ -219,7 +219,7 @@
 {
     if ([[segue identifier] isEqualToString:@"MemberCollectionSegue"]) {
         MemberCollectionViewController *memberCollectionViewController = segue.destinationViewController;
-        memberCollectionViewController.availableMembers = self.members;
+        memberCollectionViewController.availableMembers = [self.members mutableCopy];
         memberCollectionViewController.participantSet = self.participantSet;
     }
 }

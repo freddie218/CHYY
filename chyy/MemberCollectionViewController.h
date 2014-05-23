@@ -12,7 +12,7 @@
 
 @interface MemberCollectionViewController : UICollectionViewController <UIBarPositioningDelegate>
 
-@property (strong) NSMutableArray *availableMembers;
+@property (strong, nonatomic) NSMutableArray *availableMembers;
 @property (strong, nonatomic) NSMutableSet *participantSet;
 
 - (IBAction)save:(id)sender;
